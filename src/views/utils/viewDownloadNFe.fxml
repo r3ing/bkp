@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-form-cad" fx:id="anpDownloadNFe" focusTraversable="true" prefHeight="430.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="title-bar-form-cad" fx:id="titleBar" layoutX="24.0" layoutY="452.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#onActionBtnClose">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="CLOSE" size="18" />
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Separator layoutX="19.0" layoutY="381.0" prefHeight="15.0" prefWidth="372.0" />
+      <Label fx:id="lblTitleBarConfigCert" nodeOrientation="LEFT_TO_RIGHT" text="Download NF-e" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+         </graphic>
+      </Label>
+      <Label fx:id="lblNomeCertSelect" contentDisplay="CENTER" layoutX="80.0" layoutY="127.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="387.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblTipoCertSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="163.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblDataVencSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="201.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblDiasRestSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="231.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblCNPJ" layoutX="14.0" layoutY="57.0" styleClass="title-label" text="CNPJ" AnchorPane.leftAnchor="14.0" />
+      <TextField fx:id="txtCNPJ" editable="false" layoutX="162.0" layoutY="51.0" prefHeight="25.0" prefWidth="222.0" AnchorPane.rightAnchor="26.0" />
+      <Label fx:id="lblCertDigital" layoutX="14.0" layoutY="92.0" styleClass="title-label" text="CERT. DIGITAL" AnchorPane.leftAnchor="14.0" />
+      <TextField fx:id="txtCertDigital" editable="false" layoutX="162.0" layoutY="86.0" prefHeight="25.0" prefWidth="222.0" AnchorPane.rightAnchor="26.0" />
+      <Label fx:id="lblChaveNFe" layoutX="14.0" layoutY="128.0" styleClass="title-label" text="CH. NFe" AnchorPane.leftAnchor="14.0" />
+      <TextField fx:id="txtChaveNFe" layoutX="162.0" layoutY="122.0" prefHeight="25.0" prefWidth="222.0" AnchorPane.rightAnchor="26.0" />
+      <Label layoutX="21.0" layoutY="164.0" styleClass="title-label" text="Manisfestar NF-e" AnchorPane.leftAnchor="21.0" />
+      <Separator layoutX="18.0" layoutY="178.0" prefHeight="5.0" prefWidth="365.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="27.0" />
+      <Label layoutX="19.0" layoutY="193.0" styleClass="title-label" text="Tipo Evento" AnchorPane.leftAnchor="19.0" />
+      <ComboBox fx:id="cboxTipoEvnto" layoutX="160.0" layoutY="189.0" prefHeight="25.0" prefWidth="222.0" />
+      <Label layoutX="19.0" layoutY="222.0" styleClass="title-label" text="Código Evento" AnchorPane.leftAnchor="19.0" />
+      <TextField fx:id="txtCodigoEvnto" alignment="CENTER" editable="false" layoutX="231.0" layoutY="220.0" prefHeight="25.0" prefWidth="151.0" />
+      <Label fx:id="lblJustif" disable="true" layoutX="19.0" layoutY="255.0" styleClass="title-label" text="Justificativa" AnchorPane.leftAnchor="19.0" />
+      <TextArea fx:id="txtAreaJustificativa" disable="true" layoutX="19.0" layoutY="272.0" prefHeight="95.0" prefWidth="312.0" wrapText="true" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0" />
+      <Button fx:id="btnDowlnload" layoutX="316.0" layoutY="393.0" mnemonicParsing="false" onAction="#actionBtnDownload" text="Baixar" AnchorPane.rightAnchor="27.0">
+         <graphic>
+            <FontAwesomeIconView glyphName="DOWNLOAD" size="16" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnManifNFe" disable="true" layoutX="205.0" layoutY="393.0" mnemonicParsing="false" onAction="#actionBtnManifNFe" text="Manifestar NF-e" />
+      <CheckBox fx:id="ckBoxActivarManif" layoutX="123.0" layoutY="161.0" mnemonicParsing="false" onAction="#actionCkBoxActivarManif" />
+   </children>
+</AnchorPane>

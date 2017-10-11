@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneListagem" minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="497.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar id="tool-bar-form" fx:id="toolBar" prefHeight="26.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+               <items>
+                  <Button fx:id="btnInsertGrid" mnemonicParsing="false" onAction="#actionBtnInsertGrid">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button id="tool-bar-form" fx:id="btnDelete" disable="true" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnDelete">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="TRASH" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRefresh" layoutX="50.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnRefresh">
+                     <graphic>
+                        <MaterialDesignIconView id="icons" fill="#01579b" glyphName="AUTORENEW" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnFilter" layoutX="128.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnFilter">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="FILTER" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnPrint" disable="true" mnemonicParsing="false" onAction="#actionBtnPrint">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PRINT" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnConfig" layoutX="247.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnConfig">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+                     </graphic>
+                  </Button>
+                  <ToggleButton fx:id="toggleHelp" mnemonicParsing="false" onMouseClicked="#mouseClickedToggleHelp">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="INFO_CIRCLE" size="18" />
+                     </graphic>
+                  </ToggleButton>
+               </items>
+            </ToolBar>
+            <SplitPane fx:id="splitPaneFilterDept" dividerPositions="1.0" layoutY="32.0" orientation="VERTICAL" prefHeight="286.0" prefWidth="497.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+              <items>
+                <AnchorPane fx:id="anchorPaneFilter" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="495.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <ComboBox fx:id="cboxFilterColumn" layoutX="76.0" layoutY="7.0" prefHeight="25.0" prefWidth="142.0" />
+                        <ComboBox fx:id="cboxFlagAtivo" layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="141.0" />
+                        <Label fx:id="lblCboxFilterColumn" layoutX="13.0" layoutY="11.0" text="Buscar por:" />
+                        <Label fx:id="lblcboxFlagAtivo" layoutX="13.0" layoutY="42.0" text="Registro:" />
+                        <CustomTextField fx:id="txtFilterColumn" layoutX="228.0" layoutY="7.0" onAction="#actionTxtFilterColumn" onKeyPressed="#keyPressedTxtFilterColumn" onKeyReleased="#keyReleasedTxtFilterColumn" prefHeight="25.0" prefWidth="250.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="tbView" prefHeight="182.0" prefWidth="485.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tbColCodigo" prefWidth="118.0" text="Código" />
+                            <TableColumn fx:id="tbColDescricao" prefWidth="186.0" text="Descrição" />
+                              <TableColumn fx:id="tbColAtivoInat" prefWidth="100.0" text="Ativo/Inativo" visible="false" />
+                              <TableColumn fx:id="tbColCodEmp" prefWidth="118.0" text="Cód Empresa" visible="false" />
+                              <TableColumn fx:id="tbColDescReduzida" prefWidth="120.0" text="Desc Reduzida" visible="false" />
+                              <TableColumn fx:id="tbColDescTecnica" prefWidth="120.0" text="Desc Técnica" visible="false" />
+                              <TableColumn fx:id="tbColNumFabricante" prefWidth="243.0" text="№ do Fabricante" />
+                              <TableColumn fx:id="tbColNumOriginal" prefWidth="243.0" text="№ Original" visible="false" />
+                              <TableColumn fx:id="tbColCodFabricante" prefWidth="243.0" text="Cod Fabricante" visible="false" />
+                              <TableColumn fx:id="tbColFabricante" prefWidth="243.0" text="Fabricante" visible="false" />
+                              <TableColumn fx:id="tbColCodGrupo" prefWidth="243.0" text="Cod Grupo" visible="false" />
+                              <TableColumn fx:id="tbColGrupo" prefWidth="243.0" text="Grupo" visible="false" />
+                              <TableColumn fx:id="tbColCodSubGrupo" prefWidth="243.0" text="Cod Sub-Grupo" visible="false" />
+                              <TableColumn fx:id="tbColSubGrupo" prefWidth="243.0" text="Sub-Grupo" visible="false" />
+                              <TableColumn fx:id="tbColCodDepartamento" prefWidth="243.0" text="Cod Departamento" visible="false" />
+                              <TableColumn fx:id="tbColDepartamento" prefWidth="243.0" text="Departamento" visible="false" />
+                              <TableColumn fx:id="tbColLcServico" prefWidth="243.0" text="Servicio  LC" visible="false" />
+                              <TableColumn fx:id="tbColNcm" prefWidth="243.0" text="NCM" />
+                              <TableColumn fx:id="tbColCodCest" prefWidth="243.0" text="Cod CEST" visible="false" />
+                              <TableColumn fx:id="tbColCodFamiliaPreco" prefWidth="243.0" text="Cod Familia" visible="false" />
+                              <TableColumn fx:id="tbColFamiliaPreco" prefWidth="243.0" text="Familia" visible="false" />
+                              <TableColumn fx:id="tbColCodMoeda" prefWidth="243.0" text="Cod Moeda" visible="false" />
+                              <TableColumn fx:id="tbColMoeda" prefWidth="243.0" text="Moeda" visible="false" />
+                              <TableColumn fx:id="tbColCodUnidade" prefWidth="243.0" text="Cod Unidade" visible="false" />
+                              <TableColumn fx:id="tbColUnidade" prefWidth="243.0" text="Unidade" />
+                              <TableColumn fx:id="tbColCodUnidadeEmb" prefWidth="243.0" text="Cod Unidade Embalagem" visible="false" />
+                              <TableColumn fx:id="tbColUnidadeEmb" prefWidth="243.0" text="Unidade Embalagem" visible="false" />
+                              <TableColumn fx:id="tbColQtdPallet" prefWidth="243.0" text="Qtd p/ Pallet" visible="false" />
+                              <TableColumn fx:id="tbColMedidaM3" prefWidth="243.0" text="Medida m³" visible="false" />
+                              <TableColumn fx:id="tbColPesoLiquido" prefWidth="243.0" text="Peso Liquido" visible="false" />
+                              <TableColumn fx:id="tbColPesoBruto" prefWidth="243.0" text="Peso Bruto" visible="false" />
+                              <TableColumn fx:id="tbColFatorConversao" prefWidth="243.0" text="Fator Conv Uni" visible="false" />
+                              <TableColumn fx:id="tbColQtdLitros" prefWidth="243.0" text="Qtd Litros" visible="false" />
+                              <TableColumn fx:id="tbColQtdEmbCompra" prefWidth="243.0" text="Qtd Emb. Compra" visible="false" />
+                              <TableColumn fx:id="tbColQtdEmbVenda" prefWidth="243.0" text="Qtd Emb. Venda" visible="false" />
+                              <TableColumn fx:id="tbColQtdEmbAtacado" prefWidth="243.0" text="Qtd Emb. Atacado" visible="false" />
+                              <TableColumn fx:id="tbColDescontoMax" prefWidth="243.0" text="Desconto Máximo" visible="false" />
+                              <TableColumn fx:id="tbColCodBarra" prefWidth="243.0" text="Cód. de Barras" />
+                              <TableColumn fx:id="tbColQtdEstoque" prefWidth="243.0" text="Qtd de Estoque" />
+                              <TableColumn fx:id="tbColCodTributacao" prefWidth="243.0" text="Cod Tributação" visible="false" />
+                              <TableColumn fx:id="tbColTributacao" prefWidth="243.0" text="Tributação" visible="false" />
+                              <TableColumn fx:id="tbColEnviaBalanca" prefWidth="243.0" text="Envia Balança" visible="false" />
+                              <TableColumn fx:id="tbColDadosAdicionais" prefWidth="243.0" text="Dados Adicionais" visible="false" /> 
+                              <TableColumn fx:id="tbColNoChassi" prefWidth="243.0" text="№ Chassi" visible="false" />
+                              <TableColumn fx:id="tbColCor" prefWidth="243.0" text="Cor" visible="false" />                              
+                              <TableColumn fx:id="tbColPotMotor" prefWidth="243.0" text="Potẽncia Motor" visible="false" />                                                            
+                              <TableColumn fx:id="tbColCm3" prefWidth="243.0" text="CM3" visible="false" />
+                              <TableColumn fx:id="tbColPesoBruto1" prefWidth="243.0" text="Peso Bruto" visible="false" />
+                              <TableColumn fx:id="tbColLiquido" prefWidth="243.0" text="Peso Liquido" visible="false" />                              
+                              <TableColumn fx:id="tbColNoSerie" prefWidth="243.0" text="№ Serie" visible="false" />                              
+                              <TableColumn fx:id="tbColTipoCombustivel" prefWidth="243.0" text="Tipo de Combustível" visible="false" />
+                              <TableColumn fx:id="tbColNoMotor" prefWidth="243.0" text="№ Motor" visible="false" /> 
+                              <TableColumn fx:id="tbColDistanciaEixos" prefWidth="243.0" text="Distância Eixos (mm)" visible="false" />
+                              <TableColumn fx:id="tbColRenavam" prefWidth="243.0" text="RENAVAM" visible="false" /> 
+                              <TableColumn fx:id="tbColAnoFab" prefWidth="243.0" text="Ano Fab" visible="false" />                              
+                              <TableColumn fx:id="tbColAnoMod" prefWidth="243.0" text="Ano Mod" visible="false" />    
+                              <TableColumn fx:id="tbColTipoPintura" prefWidth="243.0" text="Tipo Pintura" visible="false" />                              
+                              <TableColumn fx:id="tbColCmkg" prefWidth="243.0" text="CMKG" visible="false" />
+                              <TableColumn fx:id="tbColTipoVeiculo" prefWidth="243.0" text="Tipo Veículo" visible="false" /> 
+                              <TableColumn fx:id="tbColEspVeiculo" prefWidth="243.0" text="Esp. Veículo" visible="false" />
+                              <TableColumn fx:id="tbColCondicaoVin" prefWidth="243.0" text="Condição VIN" visible="false" />
+                              <TableColumn fx:id="tbColCondicaoDoVeiculo" prefWidth="243.0" text="Condição do Veículo" visible="false" />                                                            
+                              <TableColumn fx:id="tbColCodMarcaModelo" prefWidth="243.0" text="Código Marca &amp; Modelo" visible="false" />
+                              <TableColumn fx:id="tbColLotacao" prefWidth="243.0" text="Lotação" visible="false" /> 
+                              <TableColumn fx:id="tbColRestricao" prefWidth="243.0" text="Restrição" visible="false" />                              
+                              <TableColumn fx:id="tbColEddvpModulo" prefWidth="243.0" text="Envia Dados do Veículo p/ Módulo de Proposta/Vendas" visible="false" />
+                              <TableColumn fx:id="tbColEddvpNota" prefWidth="243.0" text="Envia Dados do Veículo p/ Nota Fiscal Electrônic" visible="false" />                            
+                
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <HBox alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="17.0" prefWidth="491.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0">
+               <children>
+                  <Label fx:id="lblTotalLinhas" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: Bold;" text="Total Linhas:  " textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNumLinhas" alignment="TOP_LEFT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="56.0" style="-fx-alignment: top_left; -fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#d74a4a" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="pBar" layoutY="321.0" prefHeight="18.0" prefWidth="534.0" progress="0.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane id="background-form-cad" fx:id="anchorPaneDetalhes" focusTraversable="true" layoutX="-8.0" layoutY="58.0" minHeight="0.0" minWidth="0.0" prefHeight="238.0" prefWidth="490.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Pane id="title-bar-form-cad" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnClose" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnClose">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="lbTitleFormCad" nodeOrientation="LEFT_TO_RIGHT" text="Cadastro de Item" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="EDIT" size="18" />
+               </graphic>
+            </Label>
+            <TextField fx:id="txtCodigo" layoutX="15.0" layoutY="27.0" onKeyPressed="#keyPressedTxtCodigo" prefHeight="25.0" prefWidth="125.0" promptText="Código" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="30.0" />
+            <TextField fx:id="txtDescricao" layoutX="148.0" layoutY="27.0" prefHeight="25.0" prefWidth="344.0" promptText="Descição" AnchorPane.topAnchor="30.0" />
+            <TextField fx:id="txtDescReduzida" layoutX="516.0" layoutY="30.0" prefHeight="25.0" prefWidth="225.0" promptText="Descrição Reduzida" AnchorPane.topAnchor="30.0" />
+            <CheckComboBox fx:id="cBoxTipoItem" layoutX="760.0" layoutY="30.0" prefHeight="25.0" prefWidth="216.0" AnchorPane.topAnchor="30.0" />
+            <TabPane id="tabPane-inside" fx:id="tabPaneItem" layoutY="59.0" prefHeight="471.0" prefWidth="968.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="59.0">
+              <tabs>
+                <Tab fx:id="tabInfGerais" text="Informações Gerais">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="754.0">
+                           <children>
+                              <Label fx:id="lblCodigo" layoutX="10.0" layoutY="6.0" prefHeight="17.0" prefWidth="59.0" text="Código" />
+                              <Label fx:id="lblDescricao" layoutX="144.0" layoutY="6.0" prefHeight="17.0" prefWidth="83.0" text="Descrição" />
+                              <Label fx:id="lblDescReduzida" layoutX="497.0" layoutY="6.0" prefHeight="17.0" prefWidth="131.0" text="Descrição Reduzida" />
+                              <Label fx:id="lblDescTecnica" layoutX="10.0" layoutY="53.0" prefHeight="17.0" prefWidth="99.0" text="Descrição Técnica" />
+                              <TextField fx:id="txtDescTecnica" layoutX="10.0" layoutY="70.0" prefHeight="25.0" prefWidth="413.0" />
+                              <Label fx:id="lblNumFabricante" contentDisplay="RIGHT" layoutX="433.0" layoutY="53.0" prefHeight="17.0" prefWidth="94.0" text="№ do Fabricante" />
+                              <TextField fx:id="txtNumFabricante" layoutX="433.0" layoutY="70.0" prefHeight="25.0" prefWidth="120.0" />
+                              <Label fx:id="lblNumOriginal" contentDisplay="RIGHT" layoutX="563.0" layoutY="53.0" prefHeight="17.0" prefWidth="59.0" text="№ Original" />
+                              <TextField fx:id="txtNumOriginal" layoutX="563.0" layoutY="70.0" prefHeight="25.0" prefWidth="120.0" />
+                              <Label fx:id="lblCodCest" layoutX="691.0" layoutY="53.0" prefHeight="17.0" prefWidth="80.0" text="Código CEST" />
+                              <TextField fx:id="txtCodCest" layoutX="691.0" layoutY="70.0" prefHeight="25.0" prefWidth="120.0" />
+                              <Label fx:id="lblFabricante" layoutX="12.0" layoutY="100.0" onMouseClicked="#onClickLblFabricante" prefHeight="17.0" prefWidth="141.0" text="Código Fabricante">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewFab" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodFabricante" layoutX="12.0" layoutY="117.0" onAction="#onActionTxtCodFabricante" onKeyPressed="#onKeyPressedTxtCodFabricante" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtFabricante" disable="true" layoutX="106.0" layoutY="117.0" onAction="#onActionTxtFabricante" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblGrupo" layoutX="323.0" layoutY="100.0" onMouseClicked="#onClickLblGrupo" prefHeight="17.0" prefWidth="200.0" text="Código Grupo">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewGrup" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodGrupo" layoutX="323.0" layoutY="117.0" onAction="#onActionTxtCodGrupo" onKeyPressed="#onKeyPressedTxtCodGrupo" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtGrupo" disable="true" layoutX="418.0" layoutY="117.0" onAction="#onActionTxtGrupo" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblSubGrupo" layoutX="633.0" layoutY="100.0" onMouseClicked="#onClickLblSubGrupo" prefHeight="17.0" prefWidth="160.0" text="Código Sub-Grupo">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewSubGrup" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodSubGrupo" layoutX="633.0" layoutY="117.0" onAction="#onActionTxtCodSubGrupo" onKeyPressed="#onKeyPressedTxtCodSubGrupo" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtSubGrupo" disable="true" layoutX="728.0" layoutY="117.0" onAction="#onActionTxtSubGrupo" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblDepartamento" layoutX="12.0" layoutY="147.0" onMouseClicked="#onClickLblDepartamento" prefHeight="17.0" prefWidth="159.0" text="Código Departamento">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewDept" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodDepartamento" layoutX="12.0" layoutY="164.0" onAction="#onActionTxtCodDepartamento" onKeyPressed="#onKeyPressedTxtCodDepartamento" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtDepartamento" disable="true" layoutX="106.0" layoutY="164.0" onAction="#onActionTxtDepartamento" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblLcServico" layoutX="322.0" layoutY="147.0" onMouseClicked="#onClickLblLcServico" prefHeight="17.0" prefWidth="212.0" text="Código Serviço na LC 116/03">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewServLc" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodLcServico" layoutX="322.0" layoutY="164.0" onAction="#onActionTxtCodLcServico" onKeyPressed="#onKeyPressedTxtCodLcServico" prefHeight="25.0" prefWidth="85.0" />
+                              <TextField fx:id="txtLcServico" disable="true" editable="false" layoutX="416.0" layoutY="164.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblNcm" layoutX="632.0" layoutY="147.0" prefHeight="17.0" prefWidth="158.0" text="Código NCM">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewNcm" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodNcm" layoutX="632.0" layoutY="164.0" onAction="#onActionTxtCodNcm" onKeyPressed="#onKeyPressedTxtCodNcm" prefHeight="25.0" prefWidth="85.0" />
+                              <TextField fx:id="txtNcm" disable="true" editable="false" layoutX="727.0" layoutY="164.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblFamiliaPreco" layoutX="13.0" layoutY="194.0" onMouseClicked="#onClickLblFamiliaPreco" prefHeight="17.0" prefWidth="224.0" text="Código Familia Precificação">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewFam" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodFamiliaPreco" layoutX="13.0" layoutY="211.0" onAction="#onActionTxtCodFamiliaPreco" onKeyPressed="#onKeyPressedTxtCodFamiliaPreco" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtFamiliaPreco" disable="true" layoutX="107.0" layoutY="211.0" onAction="#onActionTxtFamiliaPreco" prefHeight="25.0" prefWidth="200.0" />
+                              <Label fx:id="lblMoeda" layoutX="323.0" layoutY="194.0" prefHeight="17.0" prefWidth="134.0" text="Código Moeda">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewMoeda" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodMoeda" layoutX="323.0" layoutY="211.0" onKeyPressed="#onKeyPressedTxtCodMoeda" prefHeight="25.0" prefWidth="85.0" />
+                              <TextField fx:id="txtMoeda" disable="true" editable="false" layoutX="417.0" layoutY="211.0" prefHeight="25.0" prefWidth="100.0" />
+                              <Label fx:id="lblUnidade" layoutX="533.0" layoutY="194.0" onMouseClicked="#onClickLblUnidade" prefHeight="17.0" prefWidth="141.0" text="Código Unidade ">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewUnid" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Label>
+                              <CustomTextField fx:id="txtCodUnidade" layoutX="533.0" layoutY="211.0" onAction="#onActionTxtCodUnidade" onKeyPressed="#onKeyPressedTxtCodUnidade" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtUnidade" disable="true" layoutX="628.0" layoutY="211.0" onAction="#onActionTxtUnidade" prefHeight="25.0" prefWidth="100.0" />
+                              <Label fx:id="lblUnidadeEmb" layoutX="745.0" layoutY="194.0" onMouseClicked="#onClickLblUnidade" prefHeight="17.0" prefWidth="223.0" text="Código Unidade Embalagem">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewUnidEmb" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic></Label>
+                              <CustomTextField fx:id="txtCodUnidadeEmb" layoutX="743.0" layoutY="211.0" onAction="#onActionTxtCodUnidadeEmb" onKeyPressed="#onKeyPressedTxtCodUnidadeEmb" prefHeight="25.0" prefWidth="85.0" />
+                              <TextField fx:id="txtUnidadeEmb" disable="true" editable="false" layoutX="837.0" layoutY="211.0" prefHeight="25.0" prefWidth="100.0" />
+                              <Label fx:id="lblQtdPallet" layoutX="15.0" layoutY="237.0" prefHeight="17.0" prefWidth="70.0" text="Qtd p/ Pallet" />
+                              <TextField fx:id="txtQtdPallet" layoutX="14.0" layoutY="254.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label fx:id="lblMedidaM3" layoutX="104.0" layoutY="237.0" prefHeight="17.0" prefWidth="60.0" text="Medida m³" />
+                              <TextField fx:id="txtMedidaM3" layoutX="103.0" layoutY="254.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label fx:id="lblQtdLitros" layoutX="188.0" layoutY="241.0" prefHeight="17.0" prefWidth="55.0" text="Qtd Litros" />
+                              <TextField fx:id="txtQtdLitros" layoutX="193.0" layoutY="254.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label fx:id="lblPreso" layoutX="283.0" layoutY="237.0" prefHeight="17.0" prefWidth="149.0" text="Peso Bruto   /    Liquido" />
+                              <TextField fx:id="txtPesoBruto" layoutX="282.0" layoutY="254.0" prefHeight="25.0" prefWidth="70.0" />
+                              <TextField fx:id="txtPesoLiquido" layoutX="357.0" layoutY="254.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label fx:id="lblCompra" layoutX="447.0" layoutY="238.0" prefHeight="17.0" prefWidth="77.0" text="Emb. Compra" />
+                              <TextField fx:id="txtQtdEmbalagemCompra" layoutX="447.0" layoutY="255.0" prefHeight="25.0" prefWidth="70.0" />
+                              <Label fx:id="lblVenda" layoutX="533.0" layoutY="241.0" prefHeight="17.0" prefWidth="69.0" text="Emb. Venda" />
+                              <TextField fx:id="txtQtdEmbalagemVenda" layoutX="532.0" layoutY="258.0" prefHeight="25.0" prefWidth="83.0" />
+                              <Label fx:id="lblAtacado" layoutX="629.0" layoutY="241.0" prefHeight="17.0" prefWidth="83.0" text="Emb. Atacado" />
+                              <TextField fx:id="txtQtdEmbalagemAtacado" layoutX="629.0" layoutY="258.0" prefHeight="25.0" prefWidth="99.0" />
+                              <Label fx:id="lblFatorConv" layoutX="744.0" layoutY="241.0" prefHeight="17.0" prefWidth="99.0" text="Fator Conversão" />
+                              <TextField fx:id="txtFatorConversao" layoutX="744.0" layoutY="258.0" prefHeight="25.0" prefWidth="89.0" />
+                              <Label layoutX="839.0" layoutY="241.0" text="Qtd Volumes" />
+                              <TextField fx:id="txtQtdVolumes" layoutX="838.0" layoutY="258.0" onKeyPressed="#onKeyPressedTxtQtdVolume" prefHeight="25.0" prefWidth="99.0" />
+                              <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="289.0" prefHeight="177.0" prefWidth="933.0" text="Observações / Prescrições">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="txtObservacao" layoutX="9.6" layoutY="9.6" prefHeight="130.0" prefWidth="697.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-147.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tabPosicEstoque" text="Posição de Estoque">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane layoutX="6.0" layoutY="195.0" prefHeight="271.0" prefWidth="946.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Dados Principais">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="7.0" layoutY="2.0" prefHeight="133.0" prefWidth="930.0" style="-fx-border-color: BDBDBD;" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="9.0">
+                                                   <children>
+                                                      <Label id="title-label" fx:id="lblDadosUltRep" layoutX="11.0" layoutY="5.0" prefHeight="17.0" prefWidth="183.0" text="Dados sobre o ultima reposição">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblDataUltRep" layoutX="12.0" layoutY="21.0" prefHeight="17.0" prefWidth="31.0" text="Data" />
+                                                      <TextField fx:id="txtDataUltRep" editable="false" layoutX="11.0" layoutY="38.0" prefHeight="25.0" prefWidth="80.0" />
+                                                      <Label fx:id="lblNoDocUltRep" layoutX="102.0" layoutY="21.0" prefHeight="17.0" prefWidth="80.0" text="№ Documento" />
+                                                      <TextField fx:id="txtNoDocUltRep" editable="false" layoutX="101.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
+                                                      <Label fx:id="lblQtdUltRep" layoutX="194.0" layoutY="21.0" prefHeight="17.0" prefWidth="66.0" text="Quantidade" />
+                                                      <TextField fx:id="txtQtdUltRep" editable="false" layoutX="193.0" layoutY="38.0" prefHeight="25.0" prefWidth="70.0" />
+                                                      <TextField fx:id="txtCodFornUltRep" editable="false" layoutX="273.0" layoutY="38.0" prefHeight="25.0" prefWidth="60.0" />
+                                                      <TextField fx:id="txtFornUltRep" editable="false" layoutX="336.0" layoutY="38.0" prefHeight="25.0" prefWidth="193.0" />
+                                                      <Label fx:id="lblCodFornUltRep" layoutX="274.0" layoutY="20.0" text="Código Fornecedor" />
+                                                      <TextField fx:id="txtQtdBalan" editable="false" layoutX="635.0" layoutY="37.0" prefHeight="25.0" prefWidth="70.0" />
+                                                      <Label fx:id="lblDatasUltBal" layoutX="545.0" layoutY="20.0" prefHeight="17.0" prefWidth="40.0" text="Data" />
+                                                      <TextField fx:id="txtDatasUltBal" editable="false" layoutX="545.0" layoutY="37.0" prefHeight="25.0" prefWidth="80.0" />
+                                                      <Label fx:id="lblQtdBalan" layoutX="634.0" layoutY="20.0" prefHeight="17.0" prefWidth="65.0" text="Quantidade" />
+                                                      <Label id="title-label" fx:id="lblDadosUltBal" layoutX="545.0" layoutY="5.0" prefHeight="17.0" prefWidth="175.0" text="Dados sobre o ultimo balance">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label id="title-label" fx:id="lblDadosUltRep1" layoutX="12.0" layoutY="67.0" prefHeight="17.0" prefWidth="183.0" text="Estoque - Dados Adicionães">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblLocacao" layoutX="11.0" layoutY="81.0" prefHeight="17.0" prefWidth="56.0" text="Locação" />
+                                                      <TextField fx:id="txtLocacao" layoutX="11.0" layoutY="98.0" onKeyReleased="#onKeyReleasedTxtLocacao" />
+                                                      <Label fx:id="lblQtdMinima" layoutX="169.0" layoutY="81.0" prefHeight="17.0" prefWidth="65.0" text="Qtd Mínima" />
+                                                      <TextField fx:id="txtQtdMinima" layoutX="170.0" layoutY="98.0" onKeyReleased="#onKeyReleasedTxtQtdMin" prefHeight="25.0" prefWidth="95.0" />
+                                                      <Label fx:id="lblQtdMaxima" layoutX="274.0" layoutY="81.0" prefHeight="17.0" prefWidth="68.0" text="Qtd Máxima" />
+                                                      <TextField fx:id="txtQtdMaxima" layoutX="275.0" layoutY="98.0" onKeyReleased="#onKeyReleasedTxtQtdMax" prefHeight="25.0" prefWidth="95.0" />
+                                                   </children>
+                                                </Pane>
+                                                <Pane prefHeight="92.0" prefWidth="425.0" style="-fx-border-color: BDBDBD;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="513.0">
+                                                   <children>
+                                                      <Label id="title-label" fx:id="lblCodAssistencia1" layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="104.0" style="-fx-background-color: f3f3f3;" text="Tipo de Operação">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblVenda" layoutX="14.0" layoutY="35.0" text="Venda" />
+                                                      <CustomTextField fx:id="txtTributacao" disable="true" editable="false" layoutX="224.0" layoutY="32.0" prefHeight="25.0" prefWidth="170.0" />
+                                                      <CustomTextField fx:id="txtCodTributacao" layoutX="134.0" layoutY="32.0" minHeight="-Infinity" onAction="#onActionTxtCodTributacao" onKeyPressed="#onKeyPressedTxtCodTributacao" prefWidth="80.0" />
+                                                   </children>
+                                                </Pane>
+                                                <Pane layoutX="441.0" layoutY="140.0" prefHeight="100.0" prefWidth="299.0" style="-fx-border-color: BDBDBD;">
+                                                   <children>
+                                                      <TextField fx:id="txtSaldoAtual" disable="true" layoutX="11.0" layoutY="12.0" prefHeight="25.0" prefWidth="83.0" />
+                                                      <Label fx:id="lblUn" layoutX="99.0" layoutY="11.0" text="UN">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblCusto1" layoutX="11.0" layoutY="39.0" prefHeight="17.0" prefWidth="55.0" text="C. Custo 1" />
+                                                      <TextField fx:id="txtQtdCcusto1" disable="true" layoutX="11.0" layoutY="60.0" prefHeight="25.0" prefWidth="70.0" />
+                                                      <Label fx:id="lblCusto2" layoutX="99.0" layoutY="46.0" prefHeight="17.0" prefWidth="55.0" text="C. Custo 2" />
+                                                      <TextField fx:id="txtQtdCcusto1" disable="true" layoutX="100.0" layoutY="63.0" prefHeight="25.0" prefWidth="70.0" />
+                                                      <Label id="title-label" fx:id="lblSaldoActual" prefHeight="17.0" prefWidth="70.0" style="-fx-background-color: f3f3f3;" text="Saldo actual" visible="false" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Estoque p/ Depósito">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tbViewEstoqueDepositos" layoutX="14.0" layoutY="7.0" prefHeight="200.0" prefWidth="727.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="tbColCodDeposito" prefWidth="93.0" text="Cód, Depósito" />
+                                                    <TableColumn fx:id="tbColDeposito" prefWidth="216.0" text="Depósito" />
+                                                      <TableColumn fx:id="tbColDepQtdAtual" prefWidth="67.0" text="Qtd Atual" />
+                                                      <TableColumn fx:id="tbColDepQtdDisponivel" prefWidth="93.0" text="Qtd Disponível" />
+                                                      <TableColumn fx:id="tbColDepQtdReservada" prefWidth="92.0" text="Qtd Reservada" />
+                                                      <TableColumn fx:id="tbColDepQtdCcusto1" prefWidth="68.0" text="C. Custo1" />
+                                                      <TableColumn fx:id="tbColDepQtdCcusto2" prefWidth="78.0" text="C. Custo2" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Estoque p/ Lote">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Classificação ABC">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Pedidos de Compra">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                              <TableView fx:id="tbViewPosicaoEstoque" layoutX="5.0" layoutY="1.0" prefHeight="193.0" prefWidth="738.0">
+                                <columns>
+                                  <TableColumn fx:id="tbColEmpEstoque" editable="false" prefWidth="75.0" sortable="false" text="Emp" />
+                                  <TableColumn fx:id="tbColQtdMin" prefWidth="75.0" text="Qtd. Min." />
+                                    <TableColumn fx:id="tbColQtdMax" prefWidth="75.0" text="Qtd. Máx." />
+                                    <TableColumn fx:id="tbColSaldoAtual" prefWidth="82.0" text="Saldo Atual" />
+                                    <TableColumn fx:id="tbColCcusto1" editable="false" prefWidth="68.0" sortable="false" text="C. Custo 1" />
+                                    <TableColumn fx:id="tbColCcusto2" prefWidth="75.0" text="C. Custo 2" />
+                                    <TableColumn fx:id="tbColLocacao" prefWidth="75.0" text="Locação" />
+                                    <TableColumn fx:id="tbColDtReposicao" prefWidth="75.0" text="Data Rep." />
+                                    <TableColumn fx:id="tbColQtdReposicao" prefWidth="75.0" text="Qtd. Rep." />
+                                    <TableColumn fx:id="tbColDocReposicao" prefWidth="113.0" text="№ Documento" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Código de Barras">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TitledPane animated="false" collapsible="false" prefHeight="180.0" prefWidth="400.0" text="Código de Barras" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="tbViewCodBarras" editable="true" layoutX="-11.0" layoutY="9.0" prefHeight="120.0" prefWidth="379.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                            <columns>
+                                              <TableColumn fx:id="tbColCodBarras" prefWidth="164.9999634027481" resizable="false" text="Código de Barras" />
+                                              <TableColumn fx:id="tbColQtdEmbalagem" prefWidth="94.99996948242188" resizable="false" text="Embalagem" />
+                                                <TableColumn fx:id="tbColFlagPrincipal" minWidth="8.0" prefWidth="96.0" resizable="false" text="Principal" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TextField fx:id="txtCodBar" layoutX="14.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressedTxtCodBar" prefWidth="150.0" />
+                              <TextField fx:id="txtQtdEmbCodBar" layoutX="189.0" layoutY="50.0" prefHeight="25.0" prefWidth="80.0" />
+                              <JFXToggleButton fx:id="tgbFlagCodBarPrincipal" layoutX="280.0" layoutY="49.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" text="Principal" />
+                              <Label fx:id="lbCodBarras" layoutX="14.0" layoutY="32.0" prefHeight="17.0" prefWidth="149.0" text="Código de Barras" />
+                              <Label fx:id="lblQtdEmbCodBar" layoutX="189.0" layoutY="32.0" prefHeight="17.0" prefWidth="112.0" text="Qtd. Embalagem" />
+                              <Button fx:id="btnAddCodBar" layoutX="394.0" layoutY="49.0" mnemonicParsing="false" onAction="#actionBtnAddCodBar" text="Incluir">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="PLUS_CIRCLE" size="14" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Códigos de Fornecedor">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tbViewItemFornecedor" layoutX="7.0" layoutY="112.0" prefHeight="300.0" prefWidth="960.0">
+                                <columns>
+                                  <TableColumn fx:id="tbColCodItemFornecedor" prefWidth="129.0" text="Codigo" />
+                                  <TableColumn fx:id="tbColFornecedorItem" prefWidth="826.0" text="Fornecedor" />
+                                </columns>
+                              </TableView>
+                              <Label fx:id="lblFabricante1" layoutX="29.0" layoutY="18.0" onMouseClicked="#onClickLblFabricante" prefHeight="17.0" prefWidth="141.0" text="Referência Fornecedor">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label fx:id="lblCodFornecedor" layoutX="252.0" layoutY="18.0" onMouseClicked="#onClickLblGrupo" prefHeight="17.0" prefWidth="200.0" text="Código Fornecedor">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewGrup1" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <CustomTextField fx:id="txtReferenciaFornecedor" layoutX="28.0" layoutY="44.0" onKeyPressed="#keyPressedTxtReferenciaFornecedor" prefHeight="25.0" prefWidth="177.0" />
+                              <CustomTextField fx:id="txtCodFornecedor" layoutX="252.0" layoutY="44.0" onAction="#onActionTxtCodFornecedor" onKeyPressed="#onKeyPressedTxtCodFornecedor" prefHeight="25.0" prefWidth="85.0" />
+                              <CustomTextField fx:id="txtFornecedor" disable="true" layoutX="347.0" layoutY="44.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Button fx:id="btnAddCodFornecedor" layoutX="576.0" layoutY="44.0" mnemonicParsing="false" onAction="#actionBtnAddCodFornecedor" onKeyPressed="#keyPressedBtnAddCodFornecedor" text="Adicionar">
+                                 <graphic>
+                                    <FontAwesomeIconView fx:id="iconNewGrup11" glyphName="PLUS_CIRCLE" size="14">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabComposicaoPrecos" text="Composição de Preços">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tbViewPrecosEmp" layoutX="7.0" layoutY="6.0" prefHeight="191.0" prefWidth="313.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                <columns>
+                                  <TableColumn fx:id="tbColEmpPreco" prefWidth="70.0" text="Empresa" />
+                                  <TableColumn fx:id="tbColDtUltPreco" minWidth="0.0" prefWidth="120.0" text="Data Ultima" />
+                                    <TableColumn fx:id="tbColUsuarioPreco" minWidth="0.0" prefWidth="120.0" text="Usuário" />
+                                    <TableColumn fx:id="tbColPrecoCusto" minWidth="0.0" prefWidth="120.0" text="Valor Custo" />
+                                    <TableColumn fx:id="tbColUsuarioPreco2" minWidth="0.0" prefWidth="120.0" text="Margem de Lucro" />
+                                    <TableColumn fx:id="tbColUsuarioPreco3" minWidth="0.0" prefWidth="120.0" text="Valor de Venda" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="tbViewAlteracaoPreco" layoutX="22.0" layoutY="236.0" prefHeight="200.0" prefWidth="385.0">
+                                <columns>
+                                  <TableColumn fx:id="tbColAltPrecoData" prefWidth="75.0" text="Data" />
+                                  <TableColumn fx:id="tbColAltPrecoUsuario" prefWidth="75.0" text="Usuário" />
+                                    <TableColumn fx:id="tbColAltPrecoCusto" prefWidth="75.0" text="Custo" />
+                                    <TableColumn fx:id="tbColAltPrecoVenda" prefWidth="75.0" text="Venda" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="28.0" layoutY="215.0" text="Alteraçoes de Preço" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabDadosAdicionais" text="Dados Adicionais">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane layoutX="8.0" layoutY="30.0" prefHeight="36.0" prefWidth="352.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <Label text="Envia Cadastro para Balança" />
+                                    <JFXToggleButton fx:id="tgbtnFlagBalanca" layoutX="192.0" layoutY="2.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionTgbtnFlagBalanca" prefHeight="30.0" prefWidth="70.0" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneDadosBalanca" disable="true" layoutX="8.0" layoutY="76.0" prefHeight="103.0" prefWidth="370.0" style="-fx-border-color: BDBDBD;" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="76.0">
+                                 <children>
+                                    <Label layoutX="10.0" layoutY="10.0" text="Tipo de Preço Arquivo" />
+                                    <RadioButton fx:id="rbtnKg" layoutX="172.0" layoutY="11.0" mnemonicParsing="false" selected="true" text="p/ Klg">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tgTipoPrecoArquivo" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rbtnUnitary" layoutX="267.0" layoutY="11.0" mnemonicParsing="false" text="Unitário" toggleGroup="$tgTipoPrecoArquivo" />
+                                    <Label layoutX="10.0" layoutY="40.0" text="Instruções" />
+                                    <TextField fx:id="txtInstrucoes" layoutX="74.0" layoutY="37.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label layoutX="232.0" layoutY="41.0" text="Dias Validade" />
+                                    <TextField fx:id="txtDiasValidade" layoutX="308.0" layoutY="38.0" prefHeight="25.0" prefWidth="50.0" text="0" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="387.0" layoutY="8.0" prefHeight="192.0" prefWidth="520.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <Label layoutX="28.0" layoutY="8.0" text="Aplicações / Segmentos Clientes" />
+                                    <FontAwesomeIconView glyphName="PLUS" layoutX="11.0" layoutY="23.0" size="15">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                    <Label layoutX="261.0" layoutY="8.0" text="Muilti-Select" />
+                                    <FontAwesomeIconView glyphName="LIST_ALT" layoutX="241.0" layoutY="23.0" size="15">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontAwesomeIconView>
+                                    <TableView layoutX="11.0" layoutY="28.0" prefHeight="159.0" prefWidth="500.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Código" />
+                                        <TableColumn prefWidth="200.0" text="Descrição" />
+                                          <TableColumn prefWidth="100.0" text="Ano Inicial" />
+                                          <TableColumn prefWidth="100.0" text="Ano Final" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="8.0" layoutY="209.0" prefHeight="62.0" prefWidth="900.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <Label layoutX="223.0" layoutY="10.0" text="Paramêtros Mobile" />
+                                    <Label layoutX="428.0" layoutY="10.0" text="Procedimento p/ Proposta/Venda Estoque Negativo" />
+                                    <ComboBox fx:id="cboxProceProposVenda" layoutX="710.0" layoutY="7.0" prefWidth="150.0" />
+                                    <JFXToggleButton fx:id="tgbtnParametrosMobile" layoutX="340.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                    <JFXToggleButton fx:id="tgbtnDisponivelInternet" layoutX="144.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                    <Label layoutX="9.0" layoutY="10.0" text="Disponível p/ Internet" />
+                                    <Label layoutX="278.0" layoutY="36.0" text="Produto Composto" />
+                                    <JFXToggleButton fx:id="tgbtnProductoComposto" layoutX="398.0" layoutY="30.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="8.0" layoutY="346.0" prefHeight="91.0" prefWidth="900.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <Label id="title-label" fx:id="lblCodAssistencia11" layoutX="11.0" layoutY="6.0" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: f3f3f3;" text="Produtos Similares">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblCompra1" layoutX="11.0" layoutY="27.0" text="1°" />
+                                    <Label fx:id="lblDevVenda1" layoutX="274.0" layoutY="27.0" text="2°" />
+                                    <Label fx:id="lblDevComp1" layoutX="11.0" layoutY="57.0" text="4°" />
+                                    <Label fx:id="lblRemesaEnt1" layoutX="274.0" layoutY="57.0" text="5°" />
+                                    <Label fx:id="lblVenda1" layoutX="537.0" layoutY="27.0" text="3°" />
+                                    <Label fx:id="lblRemesaEnt11" layoutX="537.0" layoutY="57.0" text="6°" />
+                                    <CustomTextField fx:id="txtItemSimilar1" layoutX="31.0" layoutY="24.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar4" layoutX="31.0" layoutY="54.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar1Fk" layoutX="94.0" layoutY="24.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <CustomTextField fx:id="txtItemSimilar4Fk" layoutX="94.0" layoutY="53.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <CustomTextField fx:id="txtItemSimilar2" layoutX="294.0" layoutY="24.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar5" layoutX="294.0" layoutY="53.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar2Fk" layoutX="357.0" layoutY="24.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <CustomTextField fx:id="txtItemSimilar5Fk" layoutX="357.0" layoutY="53.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <CustomTextField fx:id="txtItemSimilar3" layoutX="557.0" layoutY="24.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar6" layoutX="557.0" layoutY="53.0" onAction="#onActionDadosAdicionais" onKeyPressed="#onKeyPressedDadosAdicionais" prefHeight="25.0" prefWidth="60.0" />
+                                    <CustomTextField fx:id="txtItemSimilar3Fk" layoutX="620.0" layoutY="24.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <CustomTextField fx:id="txtItemSimilar6Fk" layoutX="621.0" layoutY="53.0" prefHeight="25.0" prefWidth="170.0" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="8.0" layoutY="270.0" prefHeight="77.0" prefWidth="900.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <Label layoutX="11.0" layoutY="11.0" text="Observações Adicionais" />
+                                    <TextField fx:id="txtObservacoesAdicionis" layoutX="141.0" layoutY="8.0" prefWidth="750.0" />
+                                    <Label layoutX="11.0" layoutY="45.0" text="Código ANP (Agência Nacional Petróleo)" />
+                                    <TextField fx:id="txtCodigoANP" layoutX="233.0" layoutY="42.0" prefWidth="120.0" />
+                                    <Label layoutX="382.0" layoutY="45.0" text="Percentual de Gás Natural p/ GLP (Cód ANP = 210203001)" />
+                                    <TextField fx:id="txtPercentualGasNatural" layoutX="710.0" layoutY="42.0" prefWidth="80.0" />
+                                 </children>
+                              </Pane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabDadosAdicionais2" text="Dados Adicionais 2">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TitledPane animated="false" collapsible="false" layoutX="9.0" layoutY="10.0" prefHeight="300.0" prefWidth="350.0" text="Calculo Substituição Tributária - [Venda]" AnchorPane.topAnchor="10.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="337.0">
+                                       <children>
+                                          <Label layoutX="10.0" layoutY="9.0" text="Tipo do Calculo" />
+                                          <RadioButton layoutX="144.0" layoutY="9.0" mnemonicParsing="false" text="Valor Paula" />
+                                          <RadioButton layoutX="244.0" layoutY="9.0" mnemonicParsing="false" text="\% MVA" />
+                                          <TableView layoutX="10.0" layoutY="29.0" prefHeight="245.0" prefWidth="330.0">
+                                             <columns>
+                                                <TableColumn prefWidth="200.0" text="Column X" />
+                                                <TableColumn prefWidth="130.0" text="Column X" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <Pane layoutX="10.0" layoutY="315.0" prefHeight="135.0" prefWidth="200.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="220.0" layoutY="315.0" prefHeight="135.0" prefWidth="200.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="430.0" layoutY="315.0" prefHeight="135.0" prefWidth="200.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="640.0" layoutY="315.0" prefHeight="135.0" prefWidth="200.0" style="-fx-border-color: BDBDBD;">
+                                 <children>
+                                    <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabDadosVeiculo" text="Dados s/ Veículo">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane fx:id="paneDadosVeiculo" disable="true" layoutX="8.0" layoutY="82.0" prefHeight="270.0" prefWidth="719.0" style="-fx-border-color: BDBDBD;" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="82.0">
+                                 <children>
+                                    <Label layoutX="11.0" layoutY="11.0" text="№ Chassi" />
+                                    <TextField fx:id="txtNoChassi" layoutX="11.0" layoutY="28.0" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label layoutX="221.0" layoutY="11.0" text="Cor" />
+                                    <ComboBox fx:id="cbCor" layoutX="221.0" layoutY="28.0" prefWidth="150.0" />
+                                    <Label layoutX="381.0" layoutY="11.0" text="Potẽncia Motor" />
+                                    <TextField fx:id="txtPotMotor" layoutX="381.0" layoutY="28.0" prefHeight="25.0" prefWidth="105.0" />
+                                    <Label layoutX="495.0" layoutY="11.0" text="CM3" />
+                                    <TextField fx:id="txtCm3" layoutX="495.0" layoutY="28.0" prefHeight="25.0" prefWidth="50.0" />
+                                    <Label layoutX="555.0" layoutY="11.0" text="Peso Bruto   /" />
+                                    <TextField fx:id="txtPesoBruto1" layoutX="555.0" layoutY="28.0" prefHeight="25.0" prefWidth="65.0" />
+                                    <Label layoutX="635.0" layoutY="11.0" text="Liquido" />
+                                    <TextField fx:id="txtLiquido" layoutX="635.0" layoutY="28.0" prefHeight="25.0" prefWidth="65.0" />
+                                    <Label layoutX="625.0" layoutY="32.0" text="/" />
+                                    <Label layoutX="11.0" layoutY="62.0" text="№ Serie" />
+                                    <TextField fx:id="txtNoSerie" layoutX="11.0" layoutY="79.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label layoutX="171.0" layoutY="62.0" text="Tipo de Combustível" />
+                                    <Label layoutX="331.0" layoutY="62.0" text="№ Motor" />
+                                    <TextField fx:id="txtNoMotor" layoutX="331.0" layoutY="79.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label layoutX="490.0" layoutY="62.0" text="Distância Eixos (mm)" />
+                                    <TextField fx:id="txtDistanciaEixos" layoutX="490.0" layoutY="79.0" prefHeight="25.0" prefWidth="110.0" />
+                                    <Label layoutX="610.0" layoutY="62.0" text="RENAVAM" />
+                                    <TextField fx:id="txtRenavam" layoutX="610.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0" />
+                                    <ComboBox fx:id="cbTipoCombustivel" layoutX="171.0" layoutY="78.0" prefWidth="150.0" />
+                                    <Label layoutX="11.0" layoutY="113.0" text="Ano Fab" />
+                                    <TextField fx:id="txtAnoFab" layoutX="11.0" layoutY="130.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label layoutX="91.0" layoutY="113.0" text="Ano Mod" />
+                                    <TextField fx:id="txtAnoMod" layoutX="91.0" layoutY="130.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <TextField fx:id="txtCmkg" layoutX="281.0" layoutY="130.0" prefHeight="25.0" prefWidth="90.0" />
+                                    <Label layoutX="172.0" layoutY="113.0" text="Tipo Pintura" />
+                                    <ComboBox fx:id="cbTipoPintura" layoutX="171.0" layoutY="129.0" prefWidth="100.0" />
+                                    <Label layoutX="281.0" layoutY="113.0" text="CMKG" />
+                                    <Label layoutX="382.0" layoutY="113.0" text="Tipo Veículo" />
+                                    <ComboBox fx:id="cbTipoVeiculo" layoutX="381.0" layoutY="129.0" prefWidth="100.0" />
+                                    <Label layoutX="492.0" layoutY="113.0" text="Esp. Veículo" />
+                                    <ComboBox fx:id="cbEspVeiculo" layoutX="491.0" layoutY="129.0" prefWidth="100.0" />
+                                    <Label layoutX="602.0" layoutY="113.0" text="Condição VIN" />
+                                    <ComboBox fx:id="cbCondicaoVin" layoutX="601.0" layoutY="129.0" prefWidth="100.0" />
+                                    <TextField fx:id="txtCodMarcaModelo" layoutX="171.0" layoutY="181.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label layoutX="12.0" layoutY="164.0" text="Condição do Veículo" />
+                                    <ComboBox fx:id="cbCondicaoDoVeiculo" layoutX="11.0" layoutY="180.0" prefWidth="150.0" />
+                                    <Label layoutX="171.0" layoutY="164.0" text="Código Marca &amp; Modelo" />
+                                    <Label layoutX="432.0" layoutY="164.0" text="Restrição" />
+                                    <ComboBox fx:id="cbRestricao" layoutX="431.0" layoutY="180.0" prefWidth="200.0" />
+                                    <TextField fx:id="txtLotacao" layoutX="331.0" layoutY="181.0" prefHeight="25.0" prefWidth="90.0" />
+                                    <Label layoutX="331.0" layoutY="164.0" text="Lotação" />
+                                    <CheckBox fx:id="sbEddvpModulo" layoutX="11.0" layoutY="214.0" mnemonicParsing="false" text="Envia Dados do Veículo p/ Módulo de Proposta/Vendas" />
+                                    <CheckBox fx:id="sbEddvpNota" layoutX="11.0" layoutY="241.0" mnemonicParsing="false" text="Envia Dados do Veículo p/ Nota Fiscal Electrônica" visible="false" />
+                                 </children>
+                              </Pane>
+                              <Label layoutX="24.0" layoutY="30.0" text="Informa Dados do Veículo" />
+                              <JFXToggleButton fx:id="tgbtnFlagVeiculo" layoutX="181.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionTgbtnFlagVeiculo" prefHeight="30.0" prefWidth="70.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" layoutX="63.0" layoutY="237.0" prefHeight="36.0" prefWidth="913.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#actionBtnInsert" prefHeight="17.0" prefWidth="29.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="10.0" prefWidth="10.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnClone" disable="true" layoutX="854.0" layoutY="10.0" mnemonicParsing="false" onAction="#actionBtnClone" prefHeight="17.0" prefWidth="29.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLONE" size="28" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneFormacaoPreco" prefHeight="388.0" prefWidth="585.0" visible="false" />
+   </children>
+</AnchorPane>

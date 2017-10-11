@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPaneNivel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane fx:id="tabPane" layoutY="65.0" prefHeight="335.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0" />
+      <HBox alignment="CENTER_LEFT" layoutY="14.0" prefHeight="59.0" prefWidth="600.0">
+         <children>
+            <Pane layoutX="178.0" layoutY="10.0" prefHeight="62.0" prefWidth="21.0" />
+            <VBox prefHeight="74.0" prefWidth="168.0">
+               <children>
+                  <Label fx:id="lblCodigo" alignment="TOP_LEFT" prefHeight="19.0" prefWidth="65.0" text="Codigo" />
+                  <TextField fx:id="txtCodigo" disable="true" prefHeight="25.0" prefWidth="79.0" />
+               </children>
+            </VBox>
+            <Pane prefHeight="62.0" prefWidth="21.0" />
+            <VBox prefHeight="62.0" prefWidth="158.0">
+               <children>
+                  <Label fx:id="lblNome" alignment="TOP_LEFT" prefHeight="19.0" prefWidth="39.0" text="Nome" />
+                  <TextField fx:id="txtNome" disable="true" />
+               </children>
+            </VBox>
+            <Pane layoutX="178.0" layoutY="10.0" prefHeight="43.0" prefWidth="21.0" />
+            <Pane layoutX="357.0" layoutY="10.0" prefHeight="62.0" prefWidth="21.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

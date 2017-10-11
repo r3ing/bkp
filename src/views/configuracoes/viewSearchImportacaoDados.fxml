@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane id="background-form-cad" fx:id="apImportacaoDados" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="title-bar-form-cad" fx:id="titleBar" layoutX="24.0" layoutY="452.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="490.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#onActionBtnCancel">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="CLOSE" size="18" />
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Label nodeOrientation="LEFT_TO_RIGHT" text="Importacao Dados" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView id="icons" glyphName="INFO" size="18" />
+         </graphic>
+      </Label>
+    <AnchorPane fx:id="apInterno" layoutX="6.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="584.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label fx:id="lblDetCodigo1" layoutX="13.0" layoutY="21.0" style="-fx-text-fill: Black;" text="Search layout" />
+            <CustomTextField fx:id="txtSearchLayout" editable="false" focusTraversable="false" layoutX="13.0" layoutY="38.0" prefHeight="27.0" prefWidth="121.0" promptText="Search layaout" />
+            <CustomTextField fx:id="txtFileName" editable="false" focusTraversable="false" layoutX="14.0" layoutY="105.0" prefHeight="27.0" prefWidth="558.0" promptText="Load file" />
+            <Label fx:id="lblDetCodigo11" layoutX="14.0" layoutY="88.0" style="-fx-text-fill: Black;" text="Load file" />
+            <TextArea fx:id="tAreaFileContent" editable="false" layoutX="14.0" layoutY="140.0" prefHeight="186.0" prefWidth="558.0" promptText="File content" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="140.0" />
+            <CustomTextField fx:id="txtSearchLayout1" editable="false" focusTraversable="false" layoutX="149.0" layoutY="38.0" prefHeight="27.0" prefWidth="420.0" promptText="Descricao" />
+            <Label fx:id="lblDetCodigo12" layoutX="149.0" layoutY="21.0" style="-fx-text-fill: Black;" text="Descricao" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

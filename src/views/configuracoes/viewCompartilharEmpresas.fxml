@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="paneFormCadGrupos" prefHeight="618.0" prefWidth="726.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+  <AnchorPane id="vbox-form-cad" layoutX="8.0" layoutY="5.0" minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="710.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label fx:id="lblCodigo" layoutX="10.0" layoutY="15.0" text="Codigo" />
+            <CustomTextField fx:id="txtCodigoEmp" layoutX="10.0" layoutY="31.0" prefHeight="25.0" prefWidth="141.0" />
+            <Label fx:id="lblEmpresa" layoutX="166.0" layoutY="15.0" text="Empresa" />
+            <TextField fx:id="txtEmpresa" disable="true" layoutX="165.0" layoutY="31.0" />
+            <CheckComboBox fx:id="cBoxEmpresas" layoutX="324.0" layoutY="31.0" prefHeight="25.0" prefWidth="141.0" />
+            <TreeTableView fx:id="treeTable" layoutY="127.0" prefHeight="486.0" prefWidth="700.0" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="72.0" />
+            <TreeTableView fx:id="treeView" layoutX="14.0" layoutY="72.0" prefHeight="486.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+              <columns>
+                <TreeTableColumn fx:id="colModulos" prefWidth="200.0" text="Modulos" />
+                <TreeTableColumn fx:id="colCompartilhar" minWidth="0.0" prefWidth="200.0" text="Compartilhar" />
+                  <TreeTableColumn fx:id="colEmpresas" minWidth="0.0" prefWidth="200.0" text="Empresas Compartilhadas" />
+              </columns>
+               <columnResizePolicy>
+                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TreeTableView>
+         </children>
+      </AnchorPane>
+      <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="700.0" spacing="2.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="13.0">
+         <children>
+            <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="10.0" prefWidth="10.0">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

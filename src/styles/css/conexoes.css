@@ -1,0 +1,160 @@
+/*-------------------------FORMULARIO CONEXOES-------------------------*/
+/**********************************************************
+ *                   ANCHORPANE                           *
+ *********************************************************/
+ #anchor-pane-principal {
+	-fx-background-color: #ECEFF1;
+	-fx-border-color: #BDBDBD;
+	-fx-border-width: 1;
+}
+#anchor-pane-principal #title-pane{
+	-fx-background-color: #4DB6AC;
+}
+#anchor-pane-principal #title-pane .button{
+   -fx-background-color: transparent ;
+   -fx-max-height: 10px;
+   -fx-max-width: 5px;
+}
+#anchor-pane-principal #title-pane .label{
+	-fx-text-fill: WHITE;
+	-fx-font-size: 16px;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-weight: 700;
+}
+#anchor-pane-principal #title-pane .button #icons{
+	-fx-fill: WHITE ;
+}
+#anchor-pane-principal #title-pane .button:hover #icons{
+	-fx-fill: #E0E0E0;
+}
+
+.tooltip{	
+	-fx-background-color: #4DB6AC ;
+	-fx-background-radius: 0 7 7 7 ;
+	-fx-text-fill: WHITE;
+	-fx-font-size: 12px;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-font-weight: 700;	
+}
+/**********************************************************
+ *                       TOOLBAR                          *
+ *********************************************************/
+ .tool-bar{ 
+ 	-fx-padding: 1.0; 	
+ }
+.tool-bar .button,.tool-bar .toggle-button{
+	-fx-background-color: transparent ;
+	-fx-border-color: transparent ;
+	-fx-border-radius: 2.0 2.0 2.0 2.0;
+	-fx-max-width: 30.0px;
+	-fx-min-width: 30.0px;
+	-fx-max-height: 24.0px;
+	-fx-min-height: 24.0px;	 
+}
+.tool-bar .button:hover,.tool-bar .toggle-button:hover{
+	-fx-background-color: transparent ;	
+	/*-fx-border-color: #424242;*/
+	-fx-border-radius: 2.0 2.0 2.0 2.0;	
+}
+.tool-bar .toggle-button:selected{
+	-fx-background-color: transparent;
+	-fx-border-color: #757575;
+	-fx-border-radius: 2.0 2.0 2.0 2.0;
+}
+.tool-bar .button #icons,.tool-bar .toggle-button #icons{
+	-fx-fill: #212121;
+	-fx-size: 18.0px;
+}
+.tool-bar .button:disabled #icons,.tool-bar .toggle-button:disabled #icons{
+	-fx-fill: #9E9E9E;
+	-fx-size: 18.0px;
+}
+.tool-bar .button:hover #icons,.tool-bar .toggle-button:hover #icons{
+	-fx-fill: #757575;
+	-fx-size: 15.0px;
+}
+.tool-bar .button{
+	-fx-pref-height: 22.0px;
+}
+ /**********************************************************
+ *                       TABLEVIEW                         *
+ **********************************************************/ 
+.table-view {
+    -fx-background-color: #e8e8e8, -fx-control-inner-background;
+    -fx-background-insets: 0.0px, 1.0px;
+    -fx-padding: 1.0px;
+    -fx-border-color: #ddd ;
+    -fx-border-radius: 1;
+}
+.table-view *.column-header-background {
+    -fx-background-color: #f4f4f4;
+    -fx-background-insets: 0px, 1px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 1 2 1;
+}
+
+.table-view *.column-header {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #ccc;
+    -fx-border-width: 0 1 0 0;
+    -fx-background-insets: 0 1 0 0;
+    -fx-border-insets: 8 0;
+    -fx-padding: 1em 0em 1em 1em;
+    -fx-pref-height: 32;
+    -fx-cursor: hand;
+}
+
+.table-view *.column-header *.label {
+    -fx-alignment: center;
+    -fx-font-size: 12px;
+    -fx-font-family: 'Open Sans', sans-serif;
+    -fx-text-fill: #555;
+    -fx-font-weight: 700;
+}
+
+.table-view *.filler {
+    -fx-background-color: #ddd, #f4f4f4, #f4f4f4;    
+    -fx-padding: 0.166667em;
+    -fx-background-insets: 0px, 0px 0px 0px 0px, 0px 1px 0px 1px;
+}
+
+.table-view > *.column-header-background > *.show-hide-columns-button {
+    -fx-background-color: transparent, #f4f4f4, #f4f4f4;
+    -fx-padding: 0.166667em;
+    -fx-background-insets: 0px, 0px 0px 0px 1px, 1px 33px 0px 0px;
+}
+
+.table-view *.show-hide-column-image {
+    -fx-background-color: #555;
+    -fx-padding: 0.25em;
+}
+
+.table-view *.column-drag-header {
+    -fx-background-color: #96c440;
+    -fx-border-color: #96c440;
+    -fx-opacity: 0.6px;
+}
+.table-row-cell:selected:odd {	
+    -fx-background-color:  #4FC3F7;
+    -fx-border-color: #ccc;
+    -fx-border-width: 0.0 1.0 0.0 0.0;    
+}
+.table-row-cell:odd{
+	/*-fx-background-color: -fx-table-cell-border-color, #F1F8E9;*/
+	/*-fx-background-color: -fx-table-cell-border-color, #F1F8E9 EFEBE9;*/
+	-fx-background-color: -fx-table-cell-border-color, #F5F5F5;
+}
+.table-row-cell:selected .table-cell{
+	-fx-text-fill: black;
+	-fx-background-color: #4FC3F7 ;
+	-fx-border-color: #ccc;
+    -fx-border-width: 0.0 1.0 0.0 0.0;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: null;    
+}
+ 
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}

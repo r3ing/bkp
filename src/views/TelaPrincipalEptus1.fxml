@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="panePrincipal" prefHeight="533.0" prefWidth="672.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TelaPrincipalEptusHibController">
+	<children>
+		<MenuBar fx:id="mnBar" layoutY="3.0" prefHeight="31.0" prefWidth="672.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<menus>
+				<Menu fx:id="mnCompras" mnemonicParsing="false" text="Compras">
+					<items>
+						<Menu fx:id="mnCadComp" mnemonicParsing="false" text="Cadastros">
+							<items>
+								<MenuItem fx:id="mniUnidCadComp" mnemonicParsing="false" onAction="#actionMItemUnid" text="Unidades" />
+								<MenuItem fx:id="mniTipFornCadComp" mnemonicParsing="false" onAction="#actionMItemTipForn" text="Tipos de Fornecedores" />
+								<MenuItem fx:id="mniForncadComp" mnemonicParsing="false" onAction="#actionMItemForn" text="Fornecedores" />
+								<MenuItem fx:id="mniFabCadComp" mnemonicParsing="false" onAction="#actionMItemFabricnt" text="Fabricantes" />
+								<MenuItem fx:id="mniSubGrupCadComp" mnemonicParsing="false" text="Sub-Grupos" />
+								<MenuItem fx:id="mniCorEstCadComp" mnemonicParsing="false" text="Cores/Estilos" />
+								<MenuItem fx:id="mniGrupCadComp" mnemonicParsing="false" onAction="#actionMniGrupCadComp" text="Grupos" />
+								<MenuItem fx:id="mniTribCadComp" mnemonicParsing="false" text="Tributação" />
+								<MenuItem fx:id="mniTrbCFOPCadComp" mnemonicParsing="false" text="Tributção x CFOP" />
+								<MenuItem fx:id="mniAplSegClienCadComp" mnemonicParsing="false" text="Aplicações / Segmentos Clientes" />
+                        <MenuItem fx:id="mniFamPrecCadComp" mnemonicParsing="false" text="Familias de Precificação" />
+                        <MenuItem fx:id="mniBoxLocEstocCadComp" mnemonicParsing="false" text="Box (Locais Estocagem)" />
+                        <MenuItem fx:id="mniTabServCadComp" mnemonicParsing="false" text="Tabela Serviços LC 116/03" />
+                        <MenuItem fx:id="mniTabProdNCMCadComp" mnemonicParsing="false" text="Tabela Produtos NCM" />
+                        <MenuItem fx:id="mniDepCadComp" mnemonicParsing="false" onAction="#actionMniDepCadComp" text="Departamentos" />
+								<Menu fx:id="mnProdServCadComp" mnemonicParsing="false" text="Produtos / Serviços">
+									<items>
+										<MenuItem fx:id="mni1ActionProdServCadComp" mnemonicParsing="false" text="Action 1" />
+									</items>
+								</Menu>
+                        <MenuItem fx:id="mniLayArqFabCadComp" mnemonicParsing="false" text="Layout Arquivos - Fabricantes" />
+                        <MenuItem fx:id="mniGradProdCadComp" mnemonicParsing="false" text="Grades de Produtos" />
+                        <MenuItem fx:id="mniTipGarCadComp" mnemonicParsing="false" text="Tipos de Garantia" />
+							</items>
+						</Menu>
+						<Menu fx:id="mnConsComp" mnemonicParsing="false" text="Consultas" />
+						<Menu fx:id="mnReltComp" mnemonicParsing="false" text="Relatórios" />
+						<Menu fx:id="mnPromProdComp" mnemonicParsing="false" text="Promoção de Produtos" />
+						<Menu fx:id="mnRepProdComp" mnemonicParsing="false" text="Reposição de Produtos" />
+						<Menu fx:id="mnCancRepComp" mnemonicParsing="false" text="Cancelamentos de Reposições" />
+						<Menu fx:id="mnPlanConProdComp" mnemonicParsing="false" text="Planilha de Control de Produção" />
+                  <Menu fx:id="mnDesagProdComp" mnemonicParsing="false" text="Desagregação de Produtos" />
+                  <MenuItem fx:id="mniSugCompComp" mnemonicParsing="false" text="Sugestão de Compras" />
+                  <MenuItem fx:id="mniCalEstRegComp" mnemonicParsing="false" text="Calculo de Estoque Regulador" />
+                  <MenuItem fx:id="mniCotPreComp" mnemonicParsing="false" text="Cotação de Preços" />
+                  <Menu fx:id="mnPedCompComp" mnemonicParsing="false" text="Pedidos de Compras" />
+                  <Menu fx:id="mnNotFisEntComp" mnemonicParsing="false" text="Notas Fiscais de Entrada" />
+                  <Menu fx:id="mnGesDocFisEleComp" mnemonicParsing="false" text="Gestão Documentos Fiscais Eletrônicos" />
+                  <Menu fx:id="mnGesComABCComp" mnemonicParsing="false" text="Gestão de Compras ABC" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="BARCODE_SCAN" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnVendas" mnemonicParsing="false" text="Vendas">
+					<items>
+						<Menu fx:id="mnCadVen" mnemonicParsing="false" text="Cadastros" />
+						<Menu fx:id="mnConVen" mnemonicParsing="false" text="Consultas" />
+						<Menu fx:id="mnRelVen" mnemonicParsing="false" text="Relatórios" />
+						<Menu fx:id="mnMetMenVendVen" mnemonicParsing="false" text="Metas Mensais p/ Vendedores" />
+						<Menu fx:id="mnPropSegEspVen" mnemonicParsing="false" text="Propostas p/ Segmentos Específicos" />
+                  <Menu fx:id="mnIntEcoSFVen" mnemonicParsing="false" text="Integração EcoSF" />
+						<Menu fx:id="mnGestRelClienVen" mnemonicParsing="false" text="Gestão do Relacionamento c/ Clientes" />
+						<Menu fx:id="mnVenProdServVen" mnemonicParsing="false" text="Vendas de Produtos/Serviços" />
+						<MenuItem fx:id="mniCanVenVen" mnemonicParsing="false" text="Cancelamentos de Vendas" />
+						<MenuItem fx:id="mniAltVenForPagVen" mnemonicParsing="false" text="Altera Vendas - Forma de Pagamento" />
+                  <MenuItem fx:id="mniAltVenDadDivVen" mnemonicParsing="false" text="Altera Vendas - Dados Diversos" />
+                  <Menu fx:id="mnReqProdVen" mnemonicParsing="false" text="Requisição de Produtos" />
+                  <Menu fx:id="mnPedVenVen" mnemonicParsing="false" text="Pedidos de Vendas" />
+                  <Menu fx:id="mnProdConsVen" mnemonicParsing="false" text="Produtos em Consignação" />
+                  <Menu fx:id="mnArqTranDadVen" mnemonicParsing="false" text="Arquivos p/ Transferência de Dados" />
+                  <Menu fx:id="mnRotEmiCupFisVen" mnemonicParsing="false" text="Rotinas do Emisor de Cupom Fiscal" />
+                  <Menu fx:id="mnGestLocEquiVen" mnemonicParsing="false" text="Gestão de Localização de Equipamentos" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="CART_OUTLINE" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnFinanceiro" mnemonicParsing="false" text="Financeiro">
+					<items>
+                  <Menu fx:id="mnCadFin" mnemonicParsing="false" text="Cadastros" />
+                  <Menu fx:id="mnRelFin" mnemonicParsing="false" text="Relatórios" />
+                  <Menu fx:id="mnConPagFin" mnemonicParsing="false" text="Contas a Pagar" />
+                  <Menu fx:id="mnConRecFin" mnemonicParsing="false" text="Contas a Receber" />
+                  <Menu fx:id="mnCaixTesFin" mnemonicParsing="false" text="Caixa/Tesouraria" />
+                  <Menu fx:id="mnCheqPreDatFin" mnemonicParsing="false" text="Cheques Pré-Datados" />
+                  <Menu fx:id="mnContCaixMovFin" mnemonicParsing="false" text="Controle de Caixa / Movimentação Bancária" />
+                  <Menu fx:id="mnComBanAdmCartFin" mnemonicParsing="false" text="Comunicação Bancos/Adm Cartões" />
+                  <Menu fx:id="mnAnaVenFin" mnemonicParsing="false" text="Análise de Vendas" />
+                  <Menu fx:id="mnResGerFin" mnemonicParsing="false" text="Resumos Gerenciais" />
+						<MenuItem fx:id="mniConEstFinFin" mnemonicParsing="false" text="Consulta Estoque Finaciero" />
+                  <Menu fx:id="mnConvDiarMoeFin" mnemonicParsing="false" text="Conversão Diária de Moedas" />
+                  <Menu fx:id="mnConPresSerFin" mnemonicParsing="false" text="Contratos de Prestação de Serviços" />
+                  <Menu fx:id="mnGesFretFin" mnemonicParsing="false" text="Gestão de Fretes" />
+                  <Menu fx:id="mnGestAnaCredFin" mnemonicParsing="false" text="Gestão de Análise de Crédito" />
+                  <Menu fx:id="mnConCorClienFin" mnemonicParsing="false" text="Conta Corriente Clientes" />
+                  <Menu fx:id="mnContReciCarnFin" mnemonicParsing="false" text="Controle Recibimento de Carne" />
+                  <Menu fx:id="mnProgFidClieFin" mnemonicParsing="false" text="Programa de Fidelidade de Clientes" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="CHART_LINE" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnLivFisc" mnemonicParsing="false" text="Livros Fiscais">
+					<items>
+                  <Menu fx:id="mnEscLivFisc" mnemonicParsing="false" text="Escrituração" />
+                  <Menu fx:id="mnRelLivFisc" mnemonicParsing="false" text="Relatórios" />
+                  <Menu fx:id="mnEmiCupFiscLivFisc" mnemonicParsing="false" text="Emissor de Cupom Fiscal" />
+                  <Menu fx:id="mnSintLivFisc" mnemonicParsing="false" text="Sintegra (Convênio 57/95)" />
+                  <Menu fx:id="mnSPEDFisContLivFisc" mnemonicParsing="false" text="SPED Fiscal &amp; Contribuições" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="LIBRARY_BOOKS" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnRecHum" mnemonicParsing="false" text="Recursos Humanos">
+					<items>
+                  <Menu fx:id="mnCadRecHum" mnemonicParsing="false" text="Cadastros" />
+                  <Menu fx:id="mnConRecHum" mnemonicParsing="false" text="Consultas" />
+                  <Menu fx:id="mnRelRecHum" mnemonicParsing="false" text="Relatórios" />
+                  <Menu fx:id="mnLanCalRecHum" mnemonicParsing="false" text="Lançamentos y Calculos" />
+						<MenuItem fx:id="mniQuiFolPagRecHum" mnemonicParsing="false" text="Quitação Folha Pagto Mensal" />
+                  <Menu fx:id="mnDefLayDocRecHum" mnemonicParsing="false" text="Define Lay-Out Documentos" />
+                  <MenuItem fx:id="mniConfAmbRecHum" mnemonicParsing="false" text="Configuração de Ambiente" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="ACCOUNT_BOX_OUTLINE" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnAutomAT" mnemonicParsing="false" text="AutomAT">
+					<items>
+                  <Menu fx:id="mnCadAutomAT" mnemonicParsing="false" text="Cadastros" />
+                  <Menu fx:id="mnConAutomAT" mnemonicParsing="false" text="Consultas" />
+                  <Menu fx:id="mnRelAutomAT" mnemonicParsing="false" text="Relatórios" />
+                  <Menu fx:id="mnOrdSerAutomAT" mnemonicParsing="false" text="Ordens de Serviços" />
+						<MenuItem fx:id="mnConfAmbAutomAT" mnemonicParsing="false" text="Configuração de Ambiente" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="TAG_TEXT_OUTLINE" size="26" />
+               </graphic>
+				</Menu>
+				<Menu fx:id="mnUtil" mnemonicParsing="false" text="Utilitários">
+					<items>
+                  <Menu fx:id="mnCadUtil" mnemonicParsing="false" text="Cadastros">
+                     <items>
+                        <MenuItem fx:id="mniEmpCadUtil" mnemonicParsing="false" onAction="#actionMniEmpCadUtil" text="Empresas" />
+                     </items></Menu>
+                  <Menu fx:id="mnRelUtil" mnemonicParsing="false" text="Relatórios" />
+						<MenuItem fx:id="mniEmiMalDirUtil" mnemonicParsing="false" text="Emissão Mala Direta" />
+                  <Menu fx:id="mnIntSistContUtil" mnemonicParsing="false" text="Integração Sistemas Contábeis" />
+                  <Menu fx:id="mnIntEptBacUpCentUtil" mnemonicParsing="false" text="Integração Eptus Back-Up Center" />
+                  <Menu fx:id="mnIntEptPayUtil" mnemonicParsing="false" text="Integração Eptus Pay" />
+                  <Menu fx:id="mnIntPoSPacECoPAFUtil" mnemonicParsing="false" text="Integração PoSPack &amp; ECoPAF" />
+                  <Menu fx:id="mnIntECoDCUtil" mnemonicParsing="false" text="Integração ECoDC" />
+					</items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="SETTINGS" size="26" />
+               </graphic>
+				</Menu>
+            <Menu fx:id="mnAjuda" mnemonicParsing="false" text="Ajuda">
+               <items>
+                  <Menu fx:id="mnLengAju" mnemonicParsing="false" text="Lenguagem">
+                    <items>
+                        <CheckMenuItem fx:id="ckmniES" mnemonicParsing="false" onAction="#actionCkmniES" text="Espanhol" />
+                        <CheckMenuItem fx:id="ckmniPT" mnemonicParsing="false" onAction="#actionCkmniPT" text="Português" />
+                        <CheckMenuItem fx:id="ckmniEN" mnemonicParsing="false" onAction="#actionCkmniEN" text="Ingles" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="mnTemAju" mnemonicParsing="false" text="Temas">
+                     <items>
+                        <CheckMenuItem fx:id="ckmniProfTemAju" mnemonicParsing="false" onAction="#actionCkmniProfTemAju" text="Professional" />
+                        <CheckMenuItem fx:id="ckmniEntTemAju" mnemonicParsing="false" onAction="#actionCkmniEntTemAju" text="Enterprise" />
+                        <CheckMenuItem fx:id="ckmniUltTemAju" mnemonicParsing="false" onAction="#actionCkmniUltTemAju" text="Ultimate" />
+                     </items>
+                  </Menu>
+               </items>
+               <graphic>
+                  <MaterialDesignIconView id="iconsMenu" glyphName="HELP_CIRCLE" size="26" />
+               </graphic>
+            </Menu>
+			</menus>
+		</MenuBar>
+		<ToolBar id="icons" fx:id="toolbarPrincipal" layoutY="39.0" prefHeight="25.0" prefWidth="672.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
+         <items>
+            <Button fx:id="btnTolBarIconCand" mnemonicParsing="false">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="LOCK" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Liberação Sistema" />
+               </tooltip>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button fx:id="btnTolBarIconDatBase" mnemonicParsing="false">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="DATABASE" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Bases Datos" />
+               </tooltip>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button fx:id="btnTolBarIconCalc" mnemonicParsing="false" onAction="#actionBtnCalc">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="CALCULATOR" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Calculadora" />
+               </tooltip>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button fx:id="btnTolBarIconPrinted" mnemonicParsing="false">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="PRINT" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Monitora Fila de Impressão" />
+               </tooltip>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button fx:id="btnTolBarIconPhone" mnemonicParsing="false">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="PHONE" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Agenda de Telefones" />
+               </tooltip>
+            </Button>
+            <Separator layoutX="261.0" layoutY="10.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button fx:id="btnTolBarIconOut" layoutX="271.0" layoutY="10.0" mnemonicParsing="false" onAction="#actionBtnBarIconOut">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="SIGN_OUT" size="25" />
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Sair" />
+               </tooltip>
+            </Button>
+         </items></ToolBar>
+		<TabPane fx:id="tabPanePrincipal" layoutY="83.0" prefHeight="420.0" prefWidth="672.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
+			<tabs>
+				<Tab fx:id="tab" closable="false" text="Principal">
+					<content>
+						<AnchorPane fx:id="anchorPaneTab" minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="672.0" styleClass="background-principal">
+                     <children>
+                        <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" text="Button" />
+                        <RadioButton layoutX="14.0" layoutY="67.0" mnemonicParsing="false" text="RadioButton" />
+                        <DatePicker layoutX="376.0" layoutY="126.0" />
+                        <TextField layoutX="377.0" layoutY="39.0" />
+                        <ComboBox layoutX="378.0" layoutY="84.0" prefWidth="150.0" />
+                     </children>
+						</AnchorPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+		<Pane fx:id="paneFooter" layoutY="502.0" prefHeight="30.0" prefWidth="672.0" styleClass="pane-bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField id="procurar-tela" layoutX="4.0" layoutY="2.0" promptText="Procurar Tela" />
+         </children></Pane>
+	</children>
+</AnchorPane>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="background-form-cad" fx:id="aPanePrincipal" layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="title-bar-form-cad" layoutX="10.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnClose" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnClose">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Label text="Formação de Preco">
+         <graphic>
+            <FontAwesomeIconView glyphName="DOLLAR" />
+         </graphic>
+      </Label>
+      <Button fx:id="btnRestauraPadrao" layoutX="10.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Restaura padrao" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="33.0" />
+      <Button fx:id="btnReplicaFormacaoVarAta" layoutX="119.0" layoutY="32.0" mnemonicParsing="false" onAction="#actionBtnReplicaFormacaoVarAta" prefHeight="25.0" prefWidth="210.0" text="Replica Formacao: Varejo-&gt; Atacado" AnchorPane.topAnchor="32.0" />
+      <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="60.0" prefHeight="332.0" prefWidth="257.0" text="Incidencia - [Custo]" textAlignment="RIGHT" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="6.0" text="Preço de Custo" />
+                  <Label layoutX="3.0" layoutY="33.0" text="Valor Embalagem" />
+                  <Label layoutX="3.0" layoutY="60.0" text="\% Desconto" textFill="RED" />
+                  <Label layoutX="3.0" layoutY="87.0" text="\% IPI" />
+                  <Label layoutX="3.0" layoutY="114.0" text="\% Frete" />
+                  <Label layoutX="3.0" layoutY="142.0" text="\% Crédito ICMS" textFill="RED" />
+                  <Label layoutX="3.0" layoutY="170.0" text="\% ICMS Desonerado" textFill="RED" />
+                  <Label layoutX="3.0" layoutY="198.0" text="\% Substituicao" />
+                  <Label layoutX="3.0" layoutY="224.0" text="\% Crédito PIS" textFill="RED" />
+                  <Label layoutX="3.0" layoutY="251.0" text="\% Crédito COFINS" textFill="RED" />
+                  <Label layoutX="4.0" layoutY="276.0" text="\% Desp. Acessórias" />
+                  <Label layoutX="4.0" layoutY="302.0" text="\% Seguro" />
+                  <Label layoutX="4.0" layoutY="330.0" text="\% Outros Créditos" textFill="RED" />
+                  <Label layoutX="4.0" layoutY="356.0" text="\% Outros Custos" />
+                  <TextField fx:id="txtPrecoCusto" layoutX="126.0" layoutY="2.0" onKeyPressed="#onKeyPressedTxtPrecoCusto" prefHeight="22.0" prefWidth="120.0" />
+                  <TextField fx:id="txtVlrEmbalagem" layoutX="126.0" layoutY="29.0" prefHeight="22.0" prefWidth="121.0" />
+                  <TextField fx:id="txtPercDesconto" layoutX="126.0" layoutY="56.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrDesconto" disable="true" editable="false" layoutX="187.0" layoutY="56.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercIPI" layoutX="126.0" layoutY="83.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrIPI" disable="true" editable="false" layoutX="187.0" layoutY="83.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercFrete" layoutX="126.0" layoutY="110.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrFrete" disable="true" editable="false" layoutX="187.0" layoutY="110.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercCredICMS" layoutX="126.0" layoutY="137.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrCredICMS" disable="true" editable="false" layoutX="187.0" layoutY="137.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercICMSDesonerado" layoutX="126.0" layoutY="164.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrICMSDesonerado" disable="true" editable="false" layoutX="187.0" layoutY="164.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercSubstituicao" layoutX="126.0" layoutY="191.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrSubstituicao" disable="true" editable="false" layoutX="187.0" layoutY="191.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercCredPIS" layoutX="126.0" layoutY="218.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrCredPIS" disable="true" editable="false" layoutX="187.0" layoutY="218.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercCredCOFINS" layoutX="126.0" layoutY="245.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrCredCOFINS" disable="true" editable="false" layoutX="187.0" layoutY="245.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercDespAcessoria" layoutX="126.0" layoutY="272.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrDespAcessoria" disable="true" layoutX="187.0" layoutY="272.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercSeguro" layoutX="126.0" layoutY="299.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrSeguro" disable="true" layoutX="187.0" layoutY="299.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercOutrosCreditos" layoutX="126.0" layoutY="326.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrOutrosCreditos" disable="true" layoutX="187.0" layoutY="326.0" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtPercOutrosCustos" layoutX="126.0" layoutY="353.0" onKeyPressed="#onKeyPressedTxtOutrosCustos" prefHeight="22.0" prefWidth="60.0" />
+                  <TextField fx:id="txtVlrOutrosCustos" disable="true" layoutX="187.0" layoutY="353.0" prefHeight="22.0" prefWidth="60.0" />
+                  <Label blendMode="DARKEN" layoutX="3.0" layoutY="386.0" text="Custo Real Compra" />
+                  <TextField fx:id="txtCustoRealCompra" disable="true" editable="false" layoutX="126.0" layoutY="381.0" prefHeight="22.0" prefWidth="121.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutX="270.0" layoutY="60.0" prefHeight="422.0" prefWidth="279.0" text="Incidencia - [Venda]" textAlignment="RIGHT" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="60.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="396.0" prefWidth="288.0">
+               <children>
+                  <Label layoutX="4.0" layoutY="7.0" text="\% Margen Liquida" />
+                  <Label layoutX="4.0" layoutY="35.0" text="\% Custo Operacional" />
+                  <Label layoutX="4.0" layoutY="63.0" text="\% PIS s/ Faturamento" />
+                  <Label layoutX="4.0" layoutY="90.0" text="\% COFINS" />
+                  <Label layoutX="4.0" layoutY="117.0" text="\% ICMS/ISS s/ Venda" />
+                  <Label layoutX="4.0" layoutY="145.0" text="\% Comissão Vendas" />
+                  <Label layoutX="4.0" layoutY="173.0" text="\% Imposto de Renda" />
+                  <Label layoutX="4.0" layoutY="201.0" text="\% Contribuição Social" />
+                  <Label layoutX="4.0" layoutY="227.0" text="\% Frete s/ Vendas" />
+                  <Label layoutX="4.0" layoutY="253.0" text="\% Simples Nacional" />
+                  <Label layoutX="4.0" layoutY="280.0" text="\% Outras Despesas" />
+                  <Label layoutX="4.0" layoutY="304.0" text="\% Margen Bruta" />
+                  <Label blendMode="DARKEN" layoutX="5.0" layoutY="330.0" text="Vlr Venda Embalagem" />
+                  <Label blendMode="DARKEN" layoutX="6.0" layoutY="357.0" text="Valor Venda Unitário" />
+                  <TextField fx:id="txtPercMargenLiquidaVar" layoutX="127.0" layoutY="2.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrMargenLiquidaVar" disable="true" layoutX="200.0" layoutY="2.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercCustoOperacionalVar" layoutX="127.0" layoutY="29.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrCustoOperacionalVar" disable="true" layoutX="200.0" layoutY="29.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercPISVar" layoutX="127.0" layoutY="56.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrPISVar" disable="true" layoutX="200.0" layoutY="56.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercCOFINSVar" layoutX="127.0" layoutY="83.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrCOFINSVar" disable="true" layoutX="200.0" layoutY="83.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercICMSVar" layoutX="127.0" layoutY="110.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrICMSVar" disable="true" layoutX="200.0" layoutY="110.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercComissaoVar" layoutX="127.0" layoutY="137.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrComissaoVar" disable="true" layoutX="200.0" layoutY="137.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercImpostoRendaVar" layoutX="127.0" layoutY="164.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrImpostoRendaVar" disable="true" layoutX="200.0" layoutY="164.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercContSocialVar" layoutX="127.0" layoutY="191.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrContSocialVar" disable="true" layoutX="200.0" layoutY="191.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercFreteVendasVar" layoutX="127.0" layoutY="218.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrFreteVendasVar" disable="true" layoutX="200.0" layoutY="218.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercSimplesVar" layoutX="127.0" layoutY="245.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrSimplesVar" disable="true" layoutX="200.0" layoutY="245.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercOutrasDespVendaVar" layoutX="127.0" layoutY="272.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrOutrasDespVendaVar" disable="true" layoutX="200.0" layoutY="272.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercMargenBrutaVar" disable="true" layoutX="127.0" layoutY="299.0" prefHeight="22.0" prefWidth="142.0" />
+                  <TextField fx:id="txtValorVendaEmbVar" disable="true" editable="false" layoutX="127.0" layoutY="326.0" prefHeight="22.0" prefWidth="141.0" />
+                  <TextField fx:id="txtValorVendaVar" layoutX="127.0" layoutY="353.0" onKeyPressed="#onKeyPressedTxtVlrVendaVar" prefHeight="22.0" prefWidth="141.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutX="553.0" layoutY="60.0" prefHeight="422.0" prefWidth="155.0" text="Incidencia - [Atacado]" textAlignment="RIGHT" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="553.0" AnchorPane.topAnchor="60.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="132.0">
+               <children>
+                  <TextField fx:id="txtPercMargenLiquidaAta" layoutX="5.0" layoutY="2.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrMargenLiquidaAta" disable="true" layoutX="78.0" layoutY="2.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercCustoOperacionalAta" layoutX="5.0" layoutY="29.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrCustoOperacionalAta" disable="true" layoutX="78.0" layoutY="29.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercPISAta" layoutX="5.0" layoutY="56.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrPISAta" disable="true" layoutX="78.0" layoutY="56.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercCOFINSAta" layoutX="5.0" layoutY="83.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrCOFINSAta" disable="true" layoutX="78.0" layoutY="83.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercICMSAta" layoutX="5.0" layoutY="110.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrICMSAta" disable="true" layoutX="78.0" layoutY="110.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercComissaoAta" layoutX="5.0" layoutY="137.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrComissaoAta" disable="true" layoutX="78.0" layoutY="137.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercImpostoRendaAta" layoutX="5.0" layoutY="164.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrImpostoRendaAta" disable="true" layoutX="78.0" layoutY="164.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercContSocialAta" layoutX="5.0" layoutY="191.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrContSocialAta" disable="true" layoutX="78.0" layoutY="191.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercFreteVendasAta" layoutX="5.0" layoutY="218.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrFreteVendasAta" disable="true" layoutX="78.0" layoutY="218.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercSimplesAta" layoutX="5.0" layoutY="245.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrSimplesAta" disable="true" layoutX="78.0" layoutY="245.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercOutrasDespVendaAta" layoutX="5.0" layoutY="272.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtVlrOutrasDespVendaAta" disable="true" layoutX="78.0" layoutY="272.0" prefHeight="22.0" prefWidth="70.0" />
+                  <TextField fx:id="txtPercMargenBrutaAta" disable="true" layoutX="5.0" layoutY="299.0" prefHeight="22.0" prefWidth="142.0" />
+                  <TextField fx:id="txtValorVendaEmbAta" disable="true" editable="false" layoutX="5.0" layoutY="326.0" prefHeight="22.0" prefWidth="141.0" />
+                  <TextField fx:id="txtValorVendaAta" layoutX="5.0" layoutY="353.0" onKeyPressed="#onKeyPressedTxtVlrVendaAta" prefHeight="22.0" prefWidth="141.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <Button fx:id="btnConfirm" layoutX="758.0" layoutY="565.0" mnemonicParsing="false" onAction="#actionBtnConfirm" prefHeight="25.0" prefWidth="55.0">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHECK" size="20" />
+         </graphic>
+      </Button>
+      <Pane layoutX="13.0" layoutY="529.0" prefHeight="56.0" prefWidth="535.0">
+         <children>
+            <Label id="title-label" layoutX="3.0" layoutY="2.0" text="Dados da Última Reposicao" />
+            <Label id="title-label" layoutX="3.0" layoutY="19.0" text="Data:" />
+            <Label id="title-label" layoutX="3.0" layoutY="33.0" text="Fornecedor:" />
+            <Label id="title-label" layoutX="128.0" layoutY="19.0" text="Qtd" />
+            <Label id="title-label" layoutX="230.0" layoutY="18.0" text="Valor:" />
+            <Label id="title-label" fx:id="lblRepData" layoutX="33.0" layoutY="19.0" text="Data:" />
+            <Label id="title-label" fx:id="lblRepQtd" layoutX="152.0" layoutY="19.0" text="Qtd" />
+            <Label id="title-label" fx:id="lblRepValor" layoutX="264.0" layoutY="18.0" text="Valor:" />
+            <Label id="title-label" fx:id="lblRepFornecedor" layoutX="69.0" layoutY="33.0" text="Fornecedor:" />
+         </children>
+      </Pane>
+      <Pane layoutX="710.0" layoutY="60.0" prefHeight="422.0" prefWidth="113.0">
+         <children>
+            <Label id="title-label" layoutX="3.0" layoutY="2.0" text="Histórico:" />
+            <Label id="title-label" layoutX="3.0" layoutY="22.0" text="Custo Médio:" />
+            <Label id="title-label" layoutX="3.0" layoutY="65.0" text="Custo Compra:" />
+            <Label id="title-label" layoutX="4.0" layoutY="111.0" text="Custo Anterior:" />
+            <Label id="title-label" layoutX="5.0" layoutY="153.0" text="Preco Venda Var:" />
+            <Label id="title-label" layoutX="7.0" layoutY="193.0" text="Preco Venda Ata:" />
+            <Label id="title-label" fx:id="lblCustoMedio" layoutX="3.0" layoutY="39.0" text="Custo Médio:" />
+            <Label id="title-label" fx:id="lblCustoCompra" layoutX="3.0" layoutY="82.0" text="Custo Compra:" />
+            <Label id="title-label" fx:id="lblCustoAnterior" layoutX="9.0" layoutY="128.0" text="Custo Real:" />
+         </children>
+      </Pane>
+      <Button fx:id="btnCancel" layoutX="695.0" layoutY="565.0" mnemonicParsing="false" onAction="#actionBtnClose" prefHeight="25.0" prefWidth="55.0">
+         <graphic>
+            <FontAwesomeIconView glyphName="BAN" size="20" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

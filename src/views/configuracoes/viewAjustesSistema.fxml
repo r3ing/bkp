@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="769.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="internalPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f3f3f3; -fx-border-color: #BDBDBD;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <TextField fx:id="txtCodigo" layoutX="10.0" layoutY="30.0" onKeyPressed="#keyPressedTxtCodigo" onKeyTyped="#keyTypedTxtCodigo" prefHeight="25.0" prefWidth="65.0" />
+            <TextField fx:id="txtNome" disable="true" layoutX="84.0" layoutY="30.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label fx:id="lblCodigo" layoutX="11.0" layoutY="10.0" text="Codigo" />
+            <Label fx:id="lblNome" layoutX="85.0" layoutY="10.0" text="Nome" />
+            <CustomTextField fx:id="txtBuscarContenido" layoutX="493.0" layoutY="30.0" />
+         </children>
+      </Pane>
+      <TabPane id="tabPane-inside" fx:id="tabPane" layoutY="90.0" prefHeight="396.0" prefWidth="605.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="75.0">
+         <tabs>
+            <Tab fx:id="tabParg" text="Parametros Gerais">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneParg" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <tabs>
+                              <Tab>
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="10.0" layoutY="10.0" prefHeight="399.0" prefWidth="712.0" style="-fx-border-color: #B0BEC5;">
+                                             <children>
+                                                <Label fx:id="lblGerQtdCaracterbusca" layoutX="10.0" layoutY="10.0" text="01) Quantidade de Caracteres p/ Busca no F2" />
+                                                <Spinner fx:id="spnGerQtdCaracterbusca" layoutX="350.0" layoutY="6.0" prefHeight="25.0" prefWidth="60.0" />
+                                                <Label fx:id="lblGerFlagModulofidelidade" layoutX="10.0" layoutY="48.0" text="02) Utiliza módulo de Programa de Fidelidade Clientes" />
+                                                <JFXToggleButton fx:id="tgbGerFlagModulofidelidade" layoutX="335.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblGerPerccargatribgeral" layoutX="10.0" layoutY="86.0" text="03) Percentual da Carga Tributária (Lei 12.741/12)" />
+                                                <TextField fx:id="txtGerPerccargatribgeral" layoutX="350.0" layoutY="82.0" prefHeight="25.0" prefWidth="110.0" />
+                                                <Label fx:id="lblGerFlagEmailcopyoculta" layoutX="10.0" layoutY="124.0" text="04) Envia Cópia Oculta de Email para Remetente" />
+                                                <JFXToggleButton fx:id="tgbGerFlagEmailcopyoculta" layoutX="335.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblGerEmailoculta" disable="true" layoutX="40.0" layoutY="153.0" text="a) Cópia Oculta Adicional" />
+                                                <TextField fx:id="txtGerEmailoculta" disable="true" layoutX="350.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+                                                <Label fx:id="lblGerFlagNotificacao" layoutX="11.0" layoutY="191.0" prefHeight="17.0" prefWidth="282.0" text="05) Utiliza Notificações de Sucesso" />
+                                                <JFXToggleButton fx:id="tgbGerFlagNotificacao" layoutX="335.0" layoutY="187.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblGerNotificacaoestilo" disable="true" layoutX="40.0" layoutY="225.0" prefHeight="17.0" prefWidth="236.0" text="a) Estilo da Notificação" />
+                                                <RadioButton fx:id="rdbGerNotificacaoestilo0" disable="true" layoutX="350.0" layoutY="225.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="87.0" text="Clássico">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpGerNotificacaoestilo" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="rdbGerNotificacaoestilo1" disable="true" layoutX="455.0" layoutY="225.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="87.0" selected="true" text="Dark Style" toggleGroup="$grpGerNotificacaoestilo" />
+                                                <Label fx:id="lblGerNotificacaoposicao" disable="true" layoutX="40.0" layoutY="252.0" prefHeight="17.0" prefWidth="259.0" text="b) Posiçao a ser Exibida a Notificação" />
+                                                <RadioButton fx:id="rdbGerNotificacaoposicao0" disable="true" layoutX="350.0" layoutY="252.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="115.0" selected="true" text="Rodapé Direito">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpGerNotificacaoposicao" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="rdbGerNotificacaoposicao1" disable="true" layoutX="497.0" layoutY="252.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" text="Rodapé Esquerdo" toggleGroup="$grpGerNotificacaoposicao" />
+                                                <RadioButton fx:id="rdbGerNotificacaoposicao2" disable="true" layoutX="350.0" layoutY="279.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="126.0" text="Cabeçalho Direito" toggleGroup="$grpGerNotificacaoposicao" />
+                                                <RadioButton fx:id="rdbGerNotificacaoposicao3" disable="true" layoutX="497.0" layoutY="280.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Cabeçalho Esquerdo" toggleGroup="$grpGerNotificacaoposicao" />
+                                                <RadioButton fx:id="rdbGerNotificacaoposicao4" disable="true" layoutX="350.0" layoutY="307.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="126.0" text="Centro" toggleGroup="$grpGerNotificacaoposicao" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefHeight="4.0" prefWidth="709.0" />
+                                                <Separator layoutX="1.0" layoutY="75.0" prefHeight="3.0" prefWidth="710.0" />
+                                                <Separator layoutX="1.0" layoutY="113.0" prefHeight="1.0" prefWidth="710.0" />
+                                                <Separator layoutX="1.0" layoutY="179.0" prefHeight="4.0" prefWidth="710.0" />
+                                                <Separator layoutX="1.0" layoutY="331.0" prefHeight="3.0" prefWidth="709.0" />
+                                                <Label fx:id="lblGerCertDigital" layoutX="11.0" layoutY="334.0" prefHeight="17.0" prefWidth="282.0" text="06) Certificado Digital" />
+                                                <Label fx:id="lblGerCertificado" layoutX="8.0" layoutY="359.0" text="Certificado" />
+                                                <CustomTextField fx:id="txtCertificado" editable="false" layoutX="67.0" layoutY="354.0" prefHeight="25.0" prefWidth="322.0" />
+                                                <HBox alignment="CENTER_RIGHT" layoutX="394.0" layoutY="354.0" prefHeight="25.0" prefWidth="177.0" spacing="2.0">
+                                                   <children>
+                                                      <Label fx:id="lblGerDataVencto" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="106.0" text="Data Vencimento" />
+                                                      <TextField fx:id="txtDataVencto" editable="false" prefHeight="25.0" prefWidth="76.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" layoutX="572.0" layoutY="354.0" prefHeight="25.0" prefWidth="139.0" spacing="2.0">
+                                                   <children>
+                                                      <Label fx:id="lblGerDiasRest" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="86.0" text="Dias Restantes" />
+                                                      <TextField fx:id="txtDiasRestant" editable="false" prefHeight="25.0" prefWidth="50.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabComp" text="Compras">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="145.0" prefWidth="512.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneComp" layoutX="30.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                          <tabs>
+                            <Tab>
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="10.0" layoutY="10.0" prefHeight="399.0" prefWidth="640.0" style="-fx-border-color: #B0BEC5;">
+                                             <children>
+                                                <Label fx:id="lblCpaTiposequenciaprod" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="273.0" text="01) Tipo de Sequência Código de Produtos" />
+                                                <RadioButton fx:id="rdbCpaTiposequenciaprod0" layoutX="380.0" layoutY="11.0" mnemonicParsing="false" text="Manual">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpCpaTiposequenciaprod" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbCpaTiposequenciaprod1" layoutX="457.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="Automático" toggleGroup="$grpCpaTiposequenciaprod" />
+                                                <RadioButton fx:id="rdbCpaTiposequenciaprod2" layoutX="555.0" layoutY="10.0" mnemonicParsing="false" text="A Definir" toggleGroup="$grpCpaTiposequenciaprod" />
+                                                <Label fx:id="lblCpaQtdcasasdecimaisestoque" layoutX="10.0" layoutY="48.0" prefHeight="17.0" prefWidth="289.0" text="02) Casas Decimais Produtos - Campo SALDOS" />
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisestoque2" layoutX="380.0" layoutY="48.0" mnemonicParsing="false" selected="true" text="2">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpCpaQtdcasasdecimaisestoque" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisestoque3" layoutX="440.0" layoutY="48.0" mnemonicParsing="false" text="3" toggleGroup="$grpCpaQtdcasasdecimaisestoque" />
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisestoque4" layoutX="500.0" layoutY="48.0" mnemonicParsing="false" text="4" toggleGroup="$grpCpaQtdcasasdecimaisestoque" />
+                                                <Label fx:id="lblCpaQtdcasasdecimaisvalor" layoutX="10.0" layoutY="86.0" prefHeight="17.0" prefWidth="295.0" text="03) Casas Decimais Produtos - Campo VALORES" />
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisvalor2" layoutX="380.0" layoutY="86.0" mnemonicParsing="false" selected="true" text="2">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpCpaQtdcasasdecimaisvalor" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisvalor3" layoutX="440.0" layoutY="86.0" mnemonicParsing="false" text="3" toggleGroup="$grpCpaQtdcasasdecimaisvalor" />
+                                                <RadioButton fx:id="rdbCpaQtdcasasdecimaisvalor4" layoutX="500.0" layoutY="86.0" mnemonicParsing="false" text="4" toggleGroup="$grpCpaQtdcasasdecimaisvalor" />
+                                                <Label fx:id="lblCpaTipocodprodutocompras" layoutX="10.0" layoutY="123.0" prefHeight="17.0" prefWidth="322.0" text="04) Código de Produtos Utilizado no Módulo de Compras" />
+                                                <RadioButton fx:id="rdbCpaTipocodprodutocompras0" layoutX="380.0" layoutY="124.0" mnemonicParsing="false" selected="true" text="Eptus">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpCpaTipocodprodutocompras" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbCpaTipocodprodutocompras1" layoutX="444.0" layoutY="124.0" mnemonicParsing="false" text="№ Fabricante" toggleGroup="$grpCpaTipocodprodutocompras" />
+                                                <RadioButton fx:id="rdbCpaTipocodprodutocompras2" layoutX="549.0" layoutY="124.0" mnemonicParsing="false" text="Cód Barras" toggleGroup="$grpCpaTipocodprodutocompras" />
+                                                <Label fx:id="lblCpaFlagDadosultimoproduto" layoutX="10.0" layoutY="162.0" prefHeight="17.0" prefWidth="335.0" text="05) Mantem dados último cadastro na Inclusão de Produtos" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagDadosultimoproduto" layoutX="363.0" layoutY="156.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblCpaFlagControlelote" layoutX="11.0" layoutY="200.0" prefHeight="17.0" prefWidth="287.0" text="06) Utiliza Controle de estoque p/ Lote" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagControlelote" layoutX="363.0" layoutY="193.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblCpaTipolotedefault" disable="true" layoutX="40.0" layoutY="227.0" prefHeight="17.0" prefWidth="200.0" text=" a) Tipo do Controle de Lote" />
+                                                <ComboBox fx:id="cboxCpaTipolotedefault" disable="true" layoutX="380.0" layoutY="226.0" prefHeight="25.0" prefWidth="200.0" />
+                                                <Label fx:id="lblCpaFlagDadosveiculo" layoutX="11.0" layoutY="267.0" prefHeight="17.0" prefWidth="342.0" text="07) Habilita &quot;Dados do Veículo&quot; no Cadastro de Produtos" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagDadosveiculo" layoutX="363.0" layoutY="261.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Text fx:id="lblCpaFlagTabprogressivadescprod" layoutX="11.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08) Utiliza Tabela Progressiva de descontos no Cadastro de Produtos" wrappingWidth="350.671875" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagTabprogressivadescprod" layoutX="363.0" layoutY="299.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="75.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="113.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="151.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="189.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="256.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="294.0" prefWidth="638.0" />
+                                             </children></Pane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab>
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" prefHeight="377.0" prefWidth="640.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label fx:id="lblCpaTipocalculopreco" layoutX="11.0" layoutY="11.0" text="09) Tipo Formação do Preço de Venda" />
+                                                <RadioButton fx:id="rdbCpaTipocalculopreco0" layoutX="380.0" layoutY="11.0" mnemonicParsing="false" selected="true" text="Simples">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpCpaTipocalculopreco" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbCpaTipocalculopreco1" layoutX="493.0" layoutY="11.0" mnemonicParsing="false" text="Detalhada" toggleGroup="$grpCpaTipocalculopreco" />
+                                                <Label fx:id="lblCpaCriterioprecosfiliais" layoutX="11.0" layoutY="48.0" text="10) Critérios p/ Compartilhamento de Preços entre Filiais" />
+                                                <Label fx:id="lblCpaFlagTribautomaticafiliais" layoutX="11.0" layoutY="177.0" text="11) Cadastra o Cód. Trib. automaticamente nas Filiais" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagTribautomaticafiliais" layoutX="368.0" layoutY="171.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Text fx:id="lblCpaFlagEnviaobsitensvenda" layoutX="10.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12) Envia dados da Oservação do Produto para o módulo de Proposta/Vendas" wrappingWidth="304.671875" />
+                                                <JFXToggleButton fx:id="tgbCpaFlagEnviaobsitensvenda" layoutX="368.0" layoutY="210.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Text fx:id="lblCpaQtddiaschegadanfe" layoutX="10.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13)  № máximo de dias p/ Data de Chegada na Reposição de Produtos" wrappingWidth="298.671875" />
+                                                <Spinner fx:id="spnCpaQtddiaschegadanfe" layoutX="385.0" layoutY="262.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="166.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="204.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="256.0" prefWidth="638.0" />
+                                                <ComboBox fx:id="cBoxCpaCriterioPrecoFilial" layoutX="22.0" layoutY="73.0" prefHeight="25.0" prefWidth="424.0" />
+                                                <Label layoutX="33.0" layoutY="314.0" text="14) Caminho XML de Entrada" />
+                                                <CustomTextField fx:id="txtDiretorioXml" disable="true" layoutX="134.0" layoutY="331.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="415.0" />
+                                                <Button fx:id="btnFileChooser" layoutX="550.0" layoutY="330.0" mnemonicParsing="false" onAction="#actionBtnFileChooserXML" prefHeight="25.0" prefWidth="23.0">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="FOLDER_OPEN" size="16" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </Pane>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab>
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="38.0" layoutY="41.0" text="Label" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabVend" text="Vendas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneVend" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <tabs>
+                              <Tab closable="false">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="640.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label fx:id="lblVdaTiposequenciacli" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="259.0" text="01) Tipo Código de Clientes" />
+                                                <RadioButton fx:id="rdbVdaTiposequenciacli0" layoutX="360.0" layoutY="10.0" mnemonicParsing="false" text="Manual">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaTiposequenciacli" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaTiposequenciacli1" layoutX="438.0" layoutY="10.0" mnemonicParsing="false" selected="true" text="Automático" toggleGroup="$grpVdaTiposequenciacli" />
+                                                <RadioButton fx:id="rdbVdaTiposequenciacli2" layoutX="539.0" layoutY="10.0" mnemonicParsing="false" text="A Definir" toggleGroup="$grpVdaTiposequenciacli" />
+                                                <Label fx:id="lblVdaFlagJustificaliberacao" layoutX="10.0" layoutY="48.0" prefHeight="17.0" prefWidth="276.0" text="02) Justifica Vendas/Operações Liberadas" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagJustificaliberacao" layoutX="342.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblVdaFlagBloqvdacadvencido" layoutX="10.0" layoutY="85.0" prefHeight="17.0" prefWidth="313.0" text="03) Bloqueia Vendas p/ Clientes Cadastro Vencido" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagBloqvdacadvencido" layoutX="342.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblVdaDiasBloqvdacadvencido" disable="true" layoutX="40.0" layoutY="117.0" prefHeight="17.0" prefWidth="281.0" text="a) Dias de Validade Cadastro de Clientes" />
+                                                <Spinner fx:id="spnVdaDiasBloqvdacadvencido" disable="true" layoutX="360.0" layoutY="114.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Label fx:id="lblVdaFlagBloqvdainadimplente" layoutX="10.0" layoutY="154.0" prefHeight="17.0" prefWidth="318.0" text="04) Bloqueia Vendas p/ Clientes Inadimplentes" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagBloqvdainadimplente" layoutX="342.0" layoutY="151.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblVdaDiasBloqvdainadimplente" disable="true" layoutX="40.0" layoutY="186.0" prefHeight="17.0" prefWidth="290.0" text="a) Dias p/ Considerar Cliente Inadimplente" />
+                                                <Spinner fx:id="spnVdaDiasBloqvdainadimplente" disable="true" layoutX="360.0" layoutY="183.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="638.0" />
+                                                <Separator layoutY="75.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="144.0" prefWidth="638.0" />
+                                                <Separator layoutX="1.0" layoutY="213.0" prefWidth="638.0" />
+                                                <Separator layoutX="2.0" layoutY="283.0" prefWidth="638.0" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagBloqvdadesatualizado" layoutX="343.0" layoutY="219.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblVdaFlagBloqvdadesatualizado" layoutX="12.0" layoutY="223.0" prefHeight="17.0" prefWidth="305.0" text="05) Bloqueia Vendas p/ Clientes Desatualizados" />
+                                                <Label fx:id="lblVdaDiasBloqvdadesatualizado" disable="true" layoutX="40.0" layoutY="256.0" text="a) Dias p/ Atualização do Cadastro de Clientes" />
+                                                <Spinner fx:id="spnVdaDiasBloqvdadesatualizado" disable="true" layoutX="360.0" layoutY="251.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagBloqvdasemmovimento" layoutX="346.0" layoutY="288.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblVdaFlagBloqvdasemmovimento" layoutX="12.0" layoutY="294.0" prefHeight="17.0" prefWidth="318.0" text="06) Bloqueia Vendas p/ Clientes sem Movimento" />
+                                                <Label fx:id="lblVdaDiasBloqvdasemmovimento" disable="true" layoutX="40.0" layoutY="325.0" text="a) Dias p/ Considerar Cliente sem Movimento" />
+                                                <Spinner fx:id="spnVdaDiasBloqvdasemmovimento" disable="true" layoutX="360.0" layoutY="320.0" prefHeight="25.0" prefWidth="65.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab closable="false">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" prefHeight="377.0" prefWidth="620.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label fx:id="lblVdaLimiteCreditoDefault" layoutX="11.0" layoutY="11.0" prefHeight="17.0" prefWidth="334.0" text="07) Default p/ Cadastro de Limite de Crédito Clientes" />
+                                                <TextField fx:id="txtVdaLimiteCreditoDefault" alignment="CENTER_RIGHT" layoutX="380.0" layoutY="7.0" text="0,00" />
+                                                <Label fx:id="lblVdaTipolimcreditoClientes" layoutX="11.0" layoutY="48.0" prefHeight="17.0" prefWidth="289.0" text="08) Tipo Limite de Crédito Clientes" />
+                                                <RadioButton fx:id="rdbVdaTipolimcreditoClientes0" layoutX="380.0" layoutY="48.0" mnemonicParsing="false" text="Total">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaTipolimcreditoClientes" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaTipolimcreditoClientes1" layoutX="512.0" layoutY="48.0" mnemonicParsing="false" text="Mensal" toggleGroup="$grpVdaTipolimcreditoClientes" />
+                                                <Label fx:id="lblVdaFlagVinculaVendedorcli" layoutX="11.0" layoutY="86.0" prefHeight="17.0" prefWidth="297.0" text="09) Vincula Vendedor a Cliente" />
+                                                <RadioButton fx:id="rdbVdaFlagVinculaVendedorcli1" layoutX="380.0" layoutY="86.0" mnemonicParsing="false" text="Sim">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaFlagVinculaVendedorcli" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaFlagVinculaVendedorcli0" layoutX="450.0" layoutY="86.0" mnemonicParsing="false" text="Não" toggleGroup="$grpVdaFlagVinculaVendedorcli" />
+                                                <RadioButton fx:id="rdbVdaFlagVinculaVendedorcli2" layoutX="512.0" layoutY="86.0" mnemonicParsing="false" text="Aleatório" toggleGroup="$grpVdaFlagVinculaVendedorcli" />
+                                                <Label fx:id="lblVdaFlagUtilizaCliassociados" layoutX="11.0" layoutY="124.0" text="10) Utiliza Clientes Associados no Cadastro de Clientes" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagUtilizaCliassociados" layoutX="365.0" layoutY="120.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" text="-" />
+                                                <Label fx:id="lblVdaTipolimcreditoCliassociados" disable="true" layoutX="40.0" layoutY="155.0" text="a) Tipo do Limite de Crédito Clientes" />
+                                                <RadioButton fx:id="rdbVdaTipolimcreditoCliassociados0" disable="true" layoutX="380.0" layoutY="155.0" mnemonicParsing="false" text="Consolidado">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaTipolimcreditoCliassociados" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaTipolimcreditoCliassociados1" disable="true" layoutX="512.0" layoutY="155.0" mnemonicParsing="false" text="Individual" toggleGroup="$grpVdaTipolimcreditoCliassociados" />
+                                                <Label fx:id="lblVdaFlagEnviaclicartorio" layoutX="11.0" layoutY="193.0" text="11) Default - Envia Clientes p/ Cartório de Cobrança Bancária" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagEnviaclicartorio" layoutX="365.0" layoutY="187.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" text="-" />
+                                                <Label fx:id="lblVdaDiasEnviocartorio" disable="true" layoutX="40.0" layoutY="221.0" text="a) Dias p/ Envio" />
+                                                <Spinner fx:id="spnVdaDiasEnviocartorio" disable="true" layoutX="380.0" layoutY="217.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Label fx:id="lblVdaFlagExibedadosfiliaisVenda" layoutX="11.0" layoutY="258.0" text="12) Mostra Informações dos Produtos das Filiais na Venda" />
+                                                <Label fx:id="lblVdaTipoExibedadosfiliasVenda" disable="true" layoutX="40.0" layoutY="288.0" text="a) Informações a Serem Mostradas" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagExibedadosfiliaisVenda" layoutX="365.0" layoutY="252.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <RadioButton fx:id="rdbVdaTipoExibedadosfiliasVenda0" disable="true" layoutX="380.0" layoutY="288.0" mnemonicParsing="false" selected="true" text="Estoque/Vir Venda">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaTipoExibedadosfiliasVenda" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaTipoExibedadosfiliasVenda1" disable="true" layoutX="512.0" layoutY="288.0" mnemonicParsing="false" text="Estoque" toggleGroup="$grpVdaTipoExibedadosfiliasVenda" />
+                                                <Label fx:id="lblVdaFlagDescontoprodsPromocao" layoutX="11.0" layoutY="325.0" text="13) O Desconto é Normal /p Produtos em Promoção" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagDescontoprodsPromocao" layoutX="365.0" layoutY="319.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" text="-" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="75.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="113.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="182.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="247.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="315.0" prefWidth="618.0" />
+                                             </children>
+                                          </Pane>
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab closable="false">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" prefHeight="395.0" prefWidth="620.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label fx:id="lblVdaFlagExibeprodsSimilares" layoutX="11.0" layoutY="10.0" prefHeight="17.0" prefWidth="321.0" text="14) Mostra Produtos Similares na busca de Itens" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagExibeprodsSimilares" layoutX="365.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" text="-" />
+                                                <Label fx:id="lblVdaComissaoLocalorigem" layoutX="10.0" layoutY="48.0" text="15) Local Origem p/ Calculo de Pagamento de Comissões" />
+                                                <Button fx:id="btnVdaComissaoLocalorigem" layoutX="335.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0">
+                                                   <graphic>
+                                                      <FontAwesomeIconView glyphName="INFO" />
+                                                   </graphic>
+                                                   <tooltip>
+                                                      <Tooltip text="Informações sobre Comissão" />
+                                                   </tooltip>
+                                                </Button>
+                                                <RadioButton fx:id="rdbVdaComissaoLocalorigem2" layoutX="380.0" layoutY="72.0" mnemonicParsing="false" text="Cadastro Funcionário">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaComissaoLocalorigem" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaComissaoLocalorigem3" layoutX="522.0" layoutY="72.0" mnemonicParsing="false" text="Fabricante" toggleGroup="$grpVdaComissaoLocalorigem" />
+                                                <RadioButton fx:id="rdbVdaComissaoLocalorigem0" layoutX="380.0" layoutY="48.0" mnemonicParsing="false" text="Grupo" toggleGroup="$grpVdaComissaoLocalorigem" />
+                                                <RadioButton fx:id="rdbVdaComissaoLocalorigem1" layoutX="522.0" layoutY="48.0" mnemonicParsing="false" text="Sub-Grupo" toggleGroup="$grpVdaComissaoLocalorigem" />
+                                                <RadioButton fx:id="rdbVdaComissaoLocalorigem4" layoutX="380.0" layoutY="96.0" mnemonicParsing="false" text="Produto/Serviço" toggleGroup="$grpVdaComissaoLocalorigem" />
+                                                <Label fx:id="lblVdaComissaoTipopagamento" layoutX="40.0" layoutY="120.0" text="a) Data Base do Pagamento da Comissão" />
+                                                <RadioButton fx:id="rdbVdaComissaoTipopagamento0" layoutX="380.0" layoutY="119.0" mnemonicParsing="false" text="Emissão da Venda">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaComissaoTipopagamento" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaComissaoTipopagamento1" layoutX="522.0" layoutY="120.0" mnemonicParsing="false" text="Liquidação" toggleGroup="$grpVdaComissaoTipopagamento" />
+                                                <Label fx:id="lblVdaFiltrodefaultBuscaitens" layoutX="11.0" layoutY="154.0" text="16) Tipo Consulta Produtos Default na Proposta de Preços" />
+                                                <ComboBox fx:id="cboxVdaFiltrodefaultBuscaitens" layoutX="380.0" layoutY="150.0" prefHeight="25.0" prefWidth="170.0" />
+                                                <Label fx:id="lblVdaDiasvalidadeProposta" layoutX="11.0" layoutY="191.0" text="17) Dias de Validade dos Preços na Pré-Venda" />
+                                                <Spinner fx:id="spnVdaDiasvalidadeProposta" layoutX="380.0" layoutY="187.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Label fx:id="lblVdaFreteTipodefault" layoutX="10.0" layoutY="229.0" text="18) Tipo Padrão do Frete utilizado no Módulo de Vendas" />
+                                                <ComboBox fx:id="cboxVdaFreteTipodefault" layoutX="380.0" layoutY="225.0" prefHeight="25.0" prefWidth="170.0" />
+                                                <Label fx:id="lblVdaFlagUtilizatabelaPrecocli" layoutX="10.0" layoutY="266.0" text="19) Utiliza Tabela de Preços Personalizada por Cliente" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagUtilizatabelaPrecocli" layoutX="365.0" layoutY="262.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" text="-" />
+                                                <Label fx:id="lblVdaTipoidentificacaoVendedor" layoutX="10.0" layoutY="304.0" text="20) Tipo Identificação Vendedor no Módulo de Propostas" />
+                                                <RadioButton fx:id="rdbVdaTipoidentificacaoVendedor0" layoutX="380.0" layoutY="304.0" mnemonicParsing="false" text="Código ">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaTipoidentificacaoVendedor" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaTipoidentificacaoVendedor1" layoutX="522.0" layoutY="304.0" mnemonicParsing="false" text="Senha" toggleGroup="$grpVdaTipoidentificacaoVendedor" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="143.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="180.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="218.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="256.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="293.0" prefWidth="618.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab closable="false">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" prefHeight="395.0" prefWidth="640.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <Label fx:id="lblVdaTipocodigoTeladevendas" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="346.0" text="21) Código de Produto Utilizado no Módulo de Vendas" />
+                                                <ComboBox fx:id="cboxVdaTipocodigoTeladevendas" layoutX="380.0" layoutY="7.0" prefWidth="150.0" />
+                                                <Text fx:id="lblVdaFlagCodigobalanca" layoutX="40.0" layoutY="52.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text="a) Considera Produto de Balança, Items com Código de Barra Iniciados c/ &quot;2&quot;" textAlignment="JUSTIFY" wrappingWidth="274.47265625" />
+                                                <JFXToggleButton fx:id="tgbVdaFlagCodigobalanca" layoutX="365.0" layoutY="38.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Text fx:id="lblVdaCodigobalancaQtddigitos" disable="true" layoutX="40.0" layoutY="92.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text="b) Quantidade de Digitos Produtos na Etiqueta Balança" textAlignment="JUSTIFY" wrappingWidth="274.47265625" />
+                                                <RadioButton fx:id="rdbVdaCodigobalancaQtddigitos4" disable="true" layoutX="380.0" layoutY="80.0" mnemonicParsing="false" selected="true" text="4 Digitos">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpVdaCodigobalancaQtddigitos" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbVdaCodigobalancaQtddigitos5" disable="true" layoutX="470.0" layoutY="80.0" mnemonicParsing="false" text="5 Digitos" toggleGroup="$grpVdaCodigobalancaQtddigitos" />
+                                                <RadioButton fx:id="rdbVdaCodigobalancaQtddigitos6" disable="true" layoutX="560.0" layoutY="80.0" mnemonicParsing="false" text="6 Digitos" toggleGroup="$grpVdaCodigobalancaQtddigitos" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabFinc" text="Financeiro">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneFinc" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <tabs>
+                              <Tab>
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="10.0" layoutY="10.0" prefHeight="399.0" prefWidth="620.0" style="-fx-border-color: #B0BEC5;">
+                                             <children>
+                                                <Label fx:id="lblFinDiascarenciaGerarjuros" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="332.0" text="01) Dias de Carência p/ Geração de Juros" />
+                                                <TextField fx:id="txtFinDiascarenciaGerarjuros" layoutX="380.0" layoutY="7.0" prefHeight="25.0" prefWidth="50.0" />
+                                                <Label fx:id="lblFinMultactasrec" layoutX="10.0" layoutY="48.0" prefHeight="17.0" prefWidth="295.0" text="02) % Multa Utilizada no Contas a Receber" />
+                                                <TextField fx:id="txtFinMultactasrec" layoutX="380.0" layoutY="44.0" prefHeight="25.0" prefWidth="50.0" />
+                                                <Label fx:id="lblFinTaxajuros" layoutX="10.0" layoutY="85.0" prefHeight="17.0" prefWidth="320.0" text="03) Taxa de Juros Utilizada no Contas a Receber" />
+                                                <TextField fx:id="txtFinTaxajuros" layoutX="380.0" layoutY="80.0" prefHeight="25.0" prefWidth="50.0" />
+                                                <Label fx:id="lblFinTipointevaloTaxajuros" layoutX="40.0" layoutY="111.0" prefHeight="17.0" prefWidth="299.0" text="a) Periodo para aplicação da Taxa de Juros" />
+                                                <RadioButton fx:id="rdbFinTipointevaloTaxajuros0" layoutX="380.0" layoutY="111.0" mnemonicParsing="false" selected="true" text="Mensal">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="grpFinTipointevaloTaxajuros" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rdbFinTipointevaloTaxajuros1" layoutX="480.0" layoutY="111.0" mnemonicParsing="false" text="Diária" toggleGroup="$grpFinTipointevaloTaxajuros" />
+                                                <Label fx:id="lblFinTaxajurosMinima" layoutX="10.0" layoutY="149.0" prefHeight="17.0" prefWidth="345.0" text="04) Taxa de Juros Mínima para Geração de Juros Manual (Mês)" />
+                                                <TextField fx:id="txtFinTaxajurosMinima" layoutX="380.0" layoutY="149.0" prefHeight="25.0" prefWidth="65.0" />
+                                                <Separator layoutX="1.0" layoutY="37.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="74.0" prefWidth="618.0" />
+                                                <Separator layoutX="1.0" layoutY="138.0" prefWidth="618.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabLivf" text="Livros Fiscais">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabRhum" text="Recursos Humanos">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabServ" text="Seviços">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabProd" text="Produção">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabCont" text="Contabilidade">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabConf" text="Configurações">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tabImg" text="Images">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneImg" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                          <tabs>
+                            <Tab>
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="625.0" style="-fx-border-width: 1; -fx-border-color: #B0BEC5;">
+                                             <children>
+                                                <Label fx:id="lblImgLogomarca" layoutX="10.0" layoutY="10.0" text="01) Imagem da Logomarca da Empresa" />
+                                                <Pane id="border-pane" layoutX="433.0" layoutY="10.0" prefHeight="140.0" prefWidth="180.0" style="-fx-border-width: 1; -fx-border-color: #B0BEC5;">
+                                                   <children>
+                                                      <Button fx:id="btnImgLogomarca" layoutX="57.0" layoutY="149.0" mnemonicParsing="false" onAction="#actionBtnImgLogomarca" text="Procurar">
+                                                         <graphic>
+                                                            <FontAwesomeIconView glyphName="SEARCH" />
+                                                         </graphic>
+                                                      </Button>
+                                                      <ImageView fx:id="imgImgLogomarca" fitHeight="130.0" fitWidth="160.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabSeg" text="Validaçao de Segurança">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane id="tabPane-horizontal" fx:id="tabPaneSeg" layoutX="67.0" layoutY="61.0" prefHeight="284.0" prefWidth="662.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                          <tabs>
+                            <Tab>
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane id="border-pane" layoutX="10.0" layoutY="10.0" prefHeight="224.0" prefWidth="600.0" style="-fx-border-width: 1; -fx-border-color: #B0BEC5;">
+                                             <children>
+                                                <Label fx:id="lblSegFlagAltsenhaperio" layoutX="10.0" layoutY="14.0" text="01) Obrigatória a Ateraçao Periódica de Senha de Acesso" />
+                                                <JFXToggleButton fx:id="tgbSegFlagAltsenhaperio" layoutX="415.0" layoutY="8.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblSegPrazoAlterasenha" disable="true" layoutX="40.0" layoutY="47.0" text="a) Prazo Máximo p/ Alteração da Senha de Acesso" />
+                                                <Spinner fx:id="spnSegPrazoAlterasenha" disable="true" layoutX="430.0" layoutY="43.0" prefHeight="25.0" prefWidth="55.0" />
+                                                <Label fx:id="lblSegPrazoAlterasenhadias" disable="true" layoutX="493.0" layoutY="47.0" text="(Dias)" />
+                                                <Label fx:id="lblSegQtdcaracter" layoutX="10.0" layoutY="93.0" text="02) Quantidade Minima de Caracteres" />
+                                                <Spinner fx:id="spnSegQtdcaracter" layoutX="430.0" layoutY="89.0" prefHeight="25.0" prefWidth="55.0" />
+                                                <Label fx:id="lblSegSeqdigitos" layoutX="10.0" layoutY="128.0" text="03) Aceita Sequência de 3 Dígitos" />
+                                                <JFXToggleButton fx:id="tgbSegSeqdigitos" layoutX="415.0" layoutY="121.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblSegFlagContemletra" layoutX="10.0" layoutY="157.0" text="04) É Obrigatória a Presença de Letras" />
+                                                <JFXToggleButton fx:id="tgbSegFlagContemletra" layoutX="415.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Label fx:id="lblSegFlagReutilizapwd" layoutX="10.0" layoutY="190.0" text="05) Aceita Redigitação de Senha Anteriores (Últimas 3)" />
+                                                <JFXToggleButton fx:id="tgbSegFlagReutilizapwd" layoutX="415.0" layoutY="183.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0" />
+                                                <Separator layoutX="1.0" layoutY="78.0" prefWidth="598.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="367.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="10.0" prefWidth="10.0">
+               <graphic>
+                  <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets right="8.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>

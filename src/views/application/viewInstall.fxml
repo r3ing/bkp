@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="panePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="751.0" styleClass="pane-principal" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="btn-minimizar" fx:id="btnClose" layoutX="709.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionBtnClose" prefHeight="25.0" prefWidth="29.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0">
+         <graphic>
+            <MaterialDesignIconView id="button-icons" glyphName="CLOSE" size="20" />
+         </graphic>
+      </Button>
+      <TabPane fx:id="tabPane" layoutY="58.0" prefHeight="308.0" prefWidth="751.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <tabs>
+          <Tab fx:id="tab1" closable="false" text="Bancos de Dados">
+            <content>
+              <AnchorPane id="pane-tab-1" minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="600.0">
+                     <children>
+                        <RadioButton fx:id="rdbMysql0" layoutX="78.0" layoutY="16.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="138.0" selected="true" text="MySQL">
+                           <graphic>
+                              <MaterialDesignIconView fill="#409e01" glyphName="DATABASE" size="35" />
+                           </graphic>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grpTipoBanco" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rdbOracle1" layoutX="78.0" layoutY="77.0" mnemonicParsing="false" text="Oracle" toggleGroup="$grpTipoBanco">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <graphic>
+                              <MaterialDesignIconView fill="#d70b0b" glyphName="DATABASE" size="35" />
+                           </graphic>
+                        </RadioButton>
+                        <TextField fx:id="txtIpServer" alignment="CENTER" layoutX="224.0" layoutY="26.0" prefHeight="9.0" prefWidth="136.0" promptText="IP SERVER">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtPorta" alignment="CENTER" layoutX="371.0" layoutY="26.0" prefHeight="28.0" prefWidth="160.0" promptText="PORTA">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtSid" alignment="CENTER" disable="true" layoutX="541.0" layoutY="26.0" prefHeight="15.0" prefWidth="141.0" promptText="SID">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <Spinner fx:id="spinCodemp" editable="true" layoutX="303.0" layoutY="80.0" prefHeight="28.0" prefWidth="57.0" />
+                        <TextField fx:id="txtBaseDados" alignment="CENTER" layoutX="373.0" layoutY="80.0" prefHeight="29.0" prefWidth="157.0" promptText="BANCO DE DADOS">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="txtUser" alignment="CENTER" layoutX="542.0" layoutY="80.0" prefHeight="29.0" prefWidth="139.0" promptText="USER">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <HBox layoutX="52.0" layoutY="147.0" prefHeight="80.0" prefWidth="596.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="1.0">
+                           <children>
+                              <Pane fx:id="paneProfessional" prefHeight="80.0" prefWidth="240.0">
+                                 <children>
+                                    <RadioButton fx:id="rdbProfessional1" layoutX="21.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="193.0" selected="true" text="Professional" textFill="#e0e0e0">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grpVersaoSistema" />
+                                       </toggleGroup>
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="BLUR_RADIAL" size="24" />
+                                       </graphic>
+                                    </RadioButton>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneEnterprise" prefHeight="80.0" prefWidth="240.0">
+                                 <children>
+                                    <RadioButton fx:id="rdbEnterprise2" layoutX="28.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="170.0" text="Enterprise" textFill="#e0e0e0" toggleGroup="$grpVersaoSistema">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="CHART_ARC" size="24" />
+                                       </graphic>
+                                    </RadioButton>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneUltimate" prefHeight="80.0" prefWidth="240.0">
+                                 <children>
+                                    <RadioButton fx:id="rdbUltimate3" layoutX="36.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="168.0" text="Ultimate" textFill="#e0e0e0" toggleGroup="$grpVersaoSistema">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <graphic>
+                                          <MaterialDesignIconView glyphName="FIRE" size="24" />
+                                       </graphic>
+                                    </RadioButton>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <graphic>
+                  <MaterialDesignIconView fx:id="iconDatabase" glyphName="DATABASE" size="22" />
+               </graphic>
+          </Tab>
+          <Tab id="pane-tab-2" fx:id="tab2" closable="false" disable="true" text="Central de Atendimento">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="150.0" layoutY="95.0" prefHeight="57.0" prefWidth="469.0">
+                           <children>
+                              <MaterialDesignIconView fill="#0a750f" glyphName="MAP_MARKER_RADIUS" size="50" />
+                              <RadioButton fx:id="rdbManaus0" mnemonicParsing="false" prefHeight="49.0" prefWidth="121.0" selected="true" text="Manaus-AM">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grpCentralAtendimento" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <Pane prefHeight="100.0" prefWidth="89.0" />
+                              <MaterialDesignIconView fill="#e13c3c" glyphName="MAP_MARKER_RADIUS" size="50" />
+                              <RadioButton fx:id="rdbBoaVista1" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="121.0" text="Boa Vista-RR" toggleGroup="$grpCentralAtendimento">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+            </content>
+               <graphic>
+                  <MaterialDesignIconView fx:id="iconCentralAtendimento" glyphName="HEADSET" size="22" />
+               </graphic>
+          </Tab>
+            <Tab id="pane-tab-3" fx:id="tab3" closable="false" disable="true" text="Tipo de Instalação">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="62.0" layoutY="87.0" prefHeight="38.0" prefWidth="645.0">
+                           <children>
+                              <RadioButton fx:id="rdbInstalInicial0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" selected="true" text="Instalação Inicial">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grpTipoInstalacao" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <Pane prefHeight="38.0" prefWidth="49.0" />
+                              <RadioButton fx:id="rdbUpgrade1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" selected="true" text="Upgrade" toggleGroup="$grpTipoInstalacao">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                              <Pane prefHeight="38.0" prefWidth="49.0" />
+                              <RadioButton fx:id="rdbConvDados3" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Conversão de Dados" toggleGroup="$grpTipoInstalacao">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+               </content>
+               <graphic>
+                  <MaterialDesignIconView fx:id="iconTipoInstalacao" glyphName="LAPTOP" size="22" />
+               </graphic>
+            </Tab>
+            <Tab id="pane-tab-4" fx:id="tab4" closable="false" disable="true" text="Numero de Série">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="62.0" layoutY="86.0" prefHeight="39.0" prefWidth="644.0">
+                           <children>
+                              <TextField fx:id="txtSerie1" alignment="CENTER" onKeyReleased="#keyReleasedTxtSerie1" onKeyTyped="#keyTypedTxtSerie1" prefHeight="31.0" prefWidth="149.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Separator prefHeight="37.0" prefWidth="20.0" />
+                              <TextField fx:id="txtSerie2" alignment="CENTER" layoutX="10.0" layoutY="10.0" onKeyReleased="#keyReleasedTxtSerie2" onKeyTyped="#keyTypedTxtSerie2" prefHeight="31.0" prefWidth="149.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Separator layoutX="159.0" layoutY="10.0" prefHeight="37.0" prefWidth="20.0" />
+                              <TextField fx:id="txtSerie3" alignment="CENTER" layoutX="159.0" layoutY="10.0" onKeyReleased="#keyReleasedTxtSerie3" onKeyTyped="#keyTypedTxtSerie3" prefHeight="31.0" prefWidth="149.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Separator layoutX="332.0" layoutY="10.0" prefHeight="37.0" prefWidth="20.0" />
+                              <TextField fx:id="txtSerie4" alignment="CENTER" layoutX="308.0" layoutY="10.0" onKeyReleased="#keyReleasedTxtSerie4" onKeyTyped="#keyTypedTxtSerie4" prefHeight="31.0" prefWidth="149.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+               </content>
+               <graphic>
+                  <MaterialDesignIconView fx:id="iconNumeroSerie" glyphName="KEY_VARIANT" size="22" />
+               </graphic>
+            </Tab>
+            <Tab id="pane-tab-5" fx:id="tab5" closable="false" disable="true" text="Dados da Empresa">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txtRazaoSocial" layoutX="57.0" layoutY="59.0" prefHeight="25.0" prefWidth="313.0" promptText="Razão Social" />
+                        <TextField fx:id="txtNomeFant" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="320.0" promptText="Nome de Fantasia" />
+                        <TextField fx:id="txtCidade" layoutX="57.0" layoutY="182.0" promptText="Cidade" />
+                        <ComboBox fx:id="cboxUF" layoutX="219.0" layoutY="182.0" prefHeight="25.0" prefWidth="62.0" promptText="UF" />
+                        <TextField fx:id="txtVersao" disable="true" layoutX="452.0" layoutY="100.0" prefHeight="25.0" prefWidth="190.0" promptText="Versão" />
+                        <Text layoutX="451.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liberação Mensal">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <CheckBox fx:id="chkAtivaMensal" layoutX="453.0" layoutY="63.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="18.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </CheckBox>
+                        <Label layoutX="552.0" layoutY="43.0" text="Dia" />
+                        <Text layoutX="57.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados da Empresa">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cboxDiaLibMen" disable="true" layoutX="551.0" layoutY="59.0" prefHeight="25.0" prefWidth="78.0" />
+                        <TextField fx:id="txtPwdHash" layoutX="57.0" layoutY="222.0" prefHeight="25.0" prefWidth="614.0" promptText="Versão" />
+                        <TextField fx:id="txtCnpj" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="320.0" promptText="CNPJ" />
+                        <Label layoutX="453.0" layoutY="43.0" prefHeight="17.0" prefWidth="87.0" text="Exige Ativação" />
+                        <Label layoutX="58.0" layoutY="43.0" text="Razão Social" />
+                        <Label layoutX="58.0" layoutY="86.0" text="Nome Fantasia" />
+                        <Label layoutX="58.0" layoutY="124.0" text="CNPJ" />
+                        <Label layoutX="58.0" layoutY="165.0" prefHeight="17.0" prefWidth="52.0" text="Cidade" />
+                        <Label layoutX="221.0" layoutY="165.0" prefHeight="17.0" prefWidth="52.0" text="UF" />
+                        <Label layoutX="60.0" layoutY="205.0" prefHeight="17.0" prefWidth="168.0" text="Senha de Instalação" />
+                        <Label layoutX="453.0" layoutY="85.0" text="Versão Build" />
+                     </children></AnchorPane>
+               </content>
+               <graphic>
+                  <MaterialDesignIconView fx:id="iconEmpresa" glyphName="FILE_DOCUMENT" size="22" />
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnAvancar" layoutX="662.0" layoutY="371.0" mnemonicParsing="false" onAction="#actionBtnAvancar" text="PRÓXIMO" />
+      <Button fx:id="btnRetornar" disable="true" layoutX="8.0" layoutY="370.0" mnemonicParsing="false" onAction="#actionBtnRetornar" text="ATRÁS" />
+      <ProgressBar fx:id="pgbPaso1" layoutY="54.0" prefHeight="18.0" prefWidth="179.0" progress="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ProgressBar fx:id="pBar" layoutX="68.0" layoutY="375.0" prefHeight="18.0" prefWidth="589.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="233.0" layoutY="13.0" prefHeight="35.0" prefWidth="320.0" text="Instalador Eptus Amazon" textFill="#e4cd1b">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#e4cd1b" glyphName="AIRPLAY" size="30" />
+         </graphic>
+      </Label>
+   </children>
+   
+</AnchorPane>

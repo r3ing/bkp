@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneListagem" minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="497.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar id="tool-bar-form" fx:id="toolBarListagem" prefHeight="26.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <items>
+                  <Button fx:id="btnInsertGrid" mnemonicParsing="false" onAction="#actionBtnInsertGrid">
+                     <tooltip>
+                        <Tooltip text="Novo (F5)" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="16" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnDelete" disable="true" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnDelete">
+                     <tooltip>
+                        <Tooltip text="Excluir (F7)" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="TRASH" size="16" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRefresh" layoutX="50.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnRefresh">
+                     <graphic>
+                        <MaterialDesignIconView id="icons" fill="#01579b" glyphName="AUTORENEW" size="16" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Atualizar" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="btnFilter" layoutX="128.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnFilter">
+                     <tooltip>
+                        <Tooltip text="Localizar Registro" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="FILTER" size="16" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnPrint" disable="true" mnemonicParsing="false" onAction="#actionBtnPrint">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PRINT" size="16" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnConfig" layoutX="247.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnConfig">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="GEAR" size="16" />
+                     </graphic>
+                  </Button>
+                  <ToggleButton fx:id="toggleBtnHelp" mnemonicParsing="false" onMouseClicked="#mouseClickedToggleHelp">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="QUESTION_CIRCLE" size="16" />
+                     </graphic>
+                  </ToggleButton>
+               </items>
+            </ToolBar>
+            <SplitPane fx:id="splitPaneFilter" dividerPositions="1.0" layoutY="34.0" orientation="VERTICAL" prefHeight="166.0" prefWidth="160.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
+              <items>
+                <AnchorPane fx:id="anchorPaneFilter" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="65.0" prefWidth="495.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <ComboBox fx:id="cboxFilterColumn" layoutX="76.0" layoutY="7.0" prefHeight="25.0" prefWidth="142.0" />
+                        <TextField fx:id="txtFilterColumn" layoutX="225.0" layoutY="7.0" onKeyPressed="#keyPressedTxtFilterColumn" onKeyReleased="#keyReleasedTxtFilterColumn" />
+                        <Button fx:id="btnQueryFilter" layoutX="379.0" layoutY="7.0" mnemonicParsing="false" onAction="#actionBtnQueryFilter">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="SEARCH" size="16" />
+                           </graphic>
+                        </Button>
+                        <ComboBox fx:id="cboxFlagAtivo" layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="141.0" />
+                        <Label fx:id="lblCboxFilterColumn" layoutX="13.0" layoutY="11.0" text="Buscar por:" />
+                        <Label fx:id="lblCboxFlagAtivo" layoutX="25.0" layoutY="42.0" text="Registro:" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="tbView" prefHeight="130.0" prefWidth="573.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tbColCodigo" prefWidth="118.0" text="Código" />
+                            <TableColumn fx:id="tbColDescricao" prefWidth="186.0" text="Nome" />
+                              <TableColumn fx:id="tbColCodemp" prefWidth="243.0" text="Cod Empresa" visible="false" />
+                              <TableColumn fx:id="tbColAtivoInat" prefWidth="75.0" text="Ativo/Inativo" visible="false" />
+                              <TableColumn fx:id="tbColIdioma" prefWidth="75.0" text="Idioma" visible="false" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <Pane layoutX="5.0" layoutY="449.0" prefHeight="61.0" prefWidth="558.0" styleClass="border-pane" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+               <children>
+                  <TextField fx:id="txtNomeGrid" disable="true" layoutX="5.0" layoutY="28.0" onKeyPressed="#keyPressedTxtNomeGrid" onKeyTyped="#keyTypedTxtNomeGrid" prefHeight="25.0" prefWidth="141.0" />
+                  <PasswordField fx:id="txtPwdGrid" disable="true" layoutX="162.0" layoutY="28.0" prefHeight="25.0" prefWidth="131.0" />
+                  <PasswordField fx:id="txtPwdConfGrid" disable="true" layoutX="317.0" layoutY="28.0" prefHeight="25.0" prefWidth="131.0" />
+                  <Button fx:id="btnSaveGrid" disable="true" layoutX="479.0" layoutY="28.0" mnemonicParsing="false" onAction="#actionBtnSaveGrid">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="SAVE" size="17" />
+                     </graphic>
+                  </Button>
+                  <Label layoutX="6.0" layoutY="11.0" text="Nome:" />
+                  <Label layoutX="162.0" layoutY="11.0" text="Senha:" />
+                  <Label layoutX="317.0" layoutY="10.0" text="Confirma Senha:" />
+               </children>
+            </Pane>
+            <Label layoutX="11.0" layoutY="440.0" style="-fx-background-color: #eeeeee;" styleClass="title-label" text="Detalhes" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="11.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="17.0" prefWidth="491.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0">
+               <children>
+                  <Label fx:id="lblTotalLinhas" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: Bold;" text="Total Linhas:  ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numLinhas" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="56.0" style="-fx-alignment: top_left; -fx-font-weight: bold;" text="0" textFill="#d74a4a" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="pBar" prefWidth="200.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane id="background-form-cad" fx:id="anchorPaneDetalhes" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Pane id="title-bar-form-cad" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnCloseCadUser" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnCloseCadUser">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="lbTitleFormCadUsuario" nodeOrientation="LEFT_TO_RIGHT" text="Cadastro Usuario" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="EDIT" size="18" />
+               </graphic>
+            </Label>
+            <Pane id="vbox-form-cad" fx:id="searchPane" prefHeight="245.0" prefWidth="454.0" style="-fx-border-color: BDBDBD;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="35.0">
+               <children>
+                  <Label fx:id="lblCodigo" layoutX="19.0" layoutY="10.0" text="Código" />
+                  <TextField fx:id="txtCodigo" alignment="TOP_RIGHT" layoutX="18.0" layoutY="30.0" onKeyPressed="#keyPressedTxtCodigo" onKeyTyped="#keyTypedTxtCodigo" prefHeight="25.0" prefWidth="70.0" />
+                  <Label fx:id="lblNome" layoutX="98.0" layoutY="10.0" text="Nome" />
+                  <TextField fx:id="txtNome" layoutX="97.0" layoutY="30.0" onKeyPressed="#keyPressedTxtNome" onKeyTyped="#keyTypedTxtNome" prefHeight="25.0" prefWidth="143.0" />
+                  <Label fx:id="lblPwd" layoutX="251.0" layoutY="10.0" text="Senha" />
+                  <PasswordField fx:id="txtPwd" layoutX="250.0" layoutY="30.0" onKeyPressed="#keyPressedTxtPwd" prefHeight="25.0" prefWidth="140.0" />
+                  <Label fx:id="lblPwdConf" layoutX="399.0" layoutY="10.0" text="Confirma Senha" />
+                  <PasswordField fx:id="txtPwdConf" layoutX="399.0" layoutY="30.0" onKeyPressed="#keyPressedTxtPwdConf" prefHeight="25.0" prefWidth="140.0" />
+                  <Label fx:id="lblIdioma" layoutX="551.0" layoutY="12.0" text="Idioma" />
+                  <ComboBox fx:id="cboxIdioma" layoutX="549.0" layoutY="30.0" prefHeight="25.0" prefWidth="100.0" />
+                  <CustomTextField fx:id="txtSearch" layoutX="657.0" layoutY="30.0" />
+               </children>
+            </Pane>
+            <TabPane fx:id="tpCadastroUsr" prefHeight="340.0" prefWidth="731.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+              <tabs>
+                <Tab fx:id="tabCompras" text="Compras">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="145.0" prefWidth="512.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" fx:id="tabPaneCompras" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                  <Tab>
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                  </Tab>
+                                  <Tab>
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tabVendas" text="Vendas">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" fx:id="tabPaneVendas" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <tabs>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="23.0" layoutY="21.0" prefHeight="298.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblVdaAltObsRestritiva" layoutX="10.0" layoutY="10.0" text="01) Altera Observação Restritiva de Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaAltObsRestritiva" layoutX="430.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAltLimiteCredito" layoutX="10.0" layoutY="48.0" text="02) Altera Limite de Crédito de Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaAltLimiteCredito" layoutX="430.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Label fx:id="lblVdaMaxLimiteCredito" disable="true" layoutX="40.0" layoutY="78.0" text="a) Limite de Crédito de Clientes" />
+                                                      <TextField fx:id="txtVdaMaxLimiteCredito" disable="true" layoutX="445.0" layoutY="76.0" prefHeight="25.0" prefWidth="80.0" promptText="0,0000" />
+                                                      <Separator layoutX="1.0" layoutY="106.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaFaturamentoAltTipo" layoutX="10.0" layoutY="117.0" text="03) Altera Tipo de Faturamento de Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaFaturamentoAltTipo" layoutX="430.0" layoutY="111.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="144.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAltVendedorPadrao" layoutX="10.0" layoutY="155.0" text="04) Altera Vendedor Padrão de Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaAltVendedorPadrao" layoutX="430.0" layoutY="149.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="182.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaFaturamentoAltConvenio" layoutX="10.0" layoutY="193.0" text="05) Altera Convênio de Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaFaturamentoAltConvenio" layoutX="430.0" layoutY="187.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="220.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaFaturamentoAltTipoPreco" layoutX="10.0" layoutY="231.0" text="06) Altera Tipo de Preço Utilizado na Proposta (Preço de Custo/Venda)" />
+                                                      <JFXToggleButton fx:id="tgbVdaFaturamentoAltTipoPreco" layoutX="430.0" layoutY="225.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="258.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAltDadosProtesto" layoutX="10.0" layoutY="269.0" text="07) Altera Dados de Instruções p/ Protesto (Envio de títulos ao cartório)" />
+                                                      <JFXToggleButton fx:id="tgbVdaAltDadosProtesto" layoutX="430.0" layoutY="263.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                   </children>
+                                                </Pane>
+                                             </children></AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="23.0" layoutY="21.0" prefHeight="298.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblVdaAltCpfCnpj" layoutX="10.0" layoutY="10.0" text="08) Altera CPF/CNPJ dos Clientes" />
+                                                      <JFXToggleButton fx:id="tgbVdaAltCpfCnpj" layoutX="450.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaCliAltConsultProposta" layoutX="10.0" layoutY="48.0" text="09) Altera o Cliente de consultas/Propostas Efetuadas" />
+                                                      <JFXToggleButton fx:id="tgbVdaCliAltConsultProposta" layoutX="450.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="75.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaVenAltConsultProposta" layoutX="10.0" layoutY="86.0" text="10) Altera o Vendedor de consultas/Propostas Efetuadas" />
+                                                      <JFXToggleButton fx:id="tgbVdaVenAltConsultProposta" layoutX="450.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="113.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaCpfDuplicado" layoutX="10.0" layoutY="124.0" text="11) Autoriza o Cadastro de Clientes/Fornecedores com CPF/CNPJ em Duplicidade" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaCpfDuplicado" layoutX="450.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="151.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaCpfZerado" layoutX="10.0" layoutY="162.0" text="12) Autoriza o Cadastro de Clientes com CPF/CNPJ Zerado" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaCpfZerado" layoutX="450.0" layoutY="156.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="189.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaClienteInadimplente" layoutX="10.0" layoutY="200.0" text="13) Autoriza Venda p/ Clientes Inadimplentes" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaClienteInadimplente" layoutX="450.0" layoutY="194.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="227.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaLimiteExedido" layoutX="10.0" layoutY="238.0" text="14) Autoriza Venda p/ Clientes c/ Limite de Crédito Excedido" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaLimiteExedido" layoutX="450.0" layoutY="232.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Label fx:id="lblVdaMaxLimiteExedido" disable="true" layoutX="40.0" layoutY="268.0" text="a) Limite de Autorização p/ Limite de Crédito Excedido" />
+                                                      <TextField fx:id="txtVdaMaxLimiteExedido" disable="true" layoutX="465.0" layoutY="264.0" prefWidth="80.0" promptText="0,0000" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="23.0" layoutY="21.0" prefHeight="298.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblVdaAutorizaEstoqueNegativo" layoutX="10.0" layoutY="10.0" text="15) Autoriza Venda c/ Saldo em Estoque Menor que Quantidade Vendida" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaEstoqueNegativo" layoutX="450.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaPlanoPagto" layoutX="10.0" layoutY="48.0" text="16) Autoriza Planos de Pagamento" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaPlanoPagto" layoutX="450.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="75.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaDescontoExcedido" layoutX="10.0" layoutY="86.0" text="17) Autoriza Desconto Maior que o Permitido" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaDescontoExcedido" layoutX="450.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Label fx:id="lblVdaMaxDescontoExcedido" disable="true" layoutX="40.0" layoutY="116.0" text="a) Limite de Autorização p/ Desconto Excedido (%)" />
+                                                      <TextField fx:id="txtVdaMaxDescontoExcedido" disable="true" layoutX="465.0" layoutY="112.0" prefWidth="80.0" promptText="0,0000" />
+                                                      <Separator layoutX="1.0" layoutY="143.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaMarkupMinimo" layoutX="10.0" layoutY="154.0" text="18) Autoriza Vendas Abaixo do Mark-Up Mínimo" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaMarkupMinimo" layoutX="450.0" layoutY="148.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="181.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaDevolucao" layoutX="10.0" layoutY="192.0" text="19) Autoriza Devolução de Produtos na Proposta" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaDevolucao" layoutX="450.0" layoutY="186.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="219.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaClienteObsRestritiva" layoutX="10.0" layoutY="230.0" text="20) Autoriza Venda p/ Clientes c/ Observações Restritivas" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaClienteObsRestritiva" layoutX="450.0" layoutY="224.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="256.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaClienteCadVencido" layoutX="10.0" layoutY="267.0" text="21) Autoriza Venda p/ Clientes c/ Data de Validade do Cadastro Vencida" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaClienteCadVencido" layoutX="450.0" layoutY="261.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="23.0" layoutY="21.0" prefHeight="298.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblVdaAutorizaOperacaoSaida" layoutX="10.0" layoutY="10.0" text="22) Autoriza Operações de saida" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaOperacaoSaida" layoutX="480.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaPortadorDiferenteCliente" layoutX="10.0" layoutY="48.0" text="23) Autoriza Venda c/ Portador diferente do Tipo de Faturamento no Cadastro do Cliente" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaPortadorDiferenteCliente" layoutX="480.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="75.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaDescontoPromocao" layoutX="10.0" layoutY="86.0" text="24) Autoriza Descontos em Produtos em Promoção" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaDescontoPromocao" layoutX="480.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="113.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaClienteInativo" layoutX="10.0" layoutY="124.0" text="25) Autoriza Venda p/ Clientes Inativos" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaClienteInativo" layoutX="480.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="151.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAutorizaAcresimo" layoutX="10.0" layoutY="162.0" text="26) Autoriza Acrésimo Maior que o Permitido" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaAcresimo" layoutX="480.0" layoutY="154.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="217.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaMaxAcresimo" disable="true" layoutX="40.0" layoutY="190.0" text="a) Limite Acrésimo Maior que o Permitido (%)" />
+                                                      <TextField fx:id="txtVdaMaxAcresimo" disable="true" layoutX="495.0" layoutY="187.0" prefWidth="80.0" promptText="0,0000" />
+                                                      <Label fx:id="lblVdaAutorizaPortadorRestrito" layoutX="10.0" layoutY="228.0" text="27) Autoriza utilização de Portador Restrito" />
+                                                      <JFXToggleButton fx:id="tgbVdaAutorizaPortadorRestrito" layoutX="480.0" layoutY="222.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="255.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaShowPrecoCusto" layoutX="10.0" layoutY="266.0" text="28) Mostra Preço de Custo na Proposta" />
+                                                      <JFXToggleButton fx:id="tgbVdaShowPrecoCusto" layoutX="480.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="23.0" layoutY="21.0" prefHeight="298.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblVdaShowPrecoAtacado" layoutX="10.0" layoutY="10.0" text="29) Mostra Preço de Atacado na Proposta" />
+                                                      <JFXToggleButton fx:id="tgbVdaShowPrecoAtacado" layoutX="480.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaShowDebitoClientes" layoutX="10.0" layoutY="48.0" text="30) Mostra Débito dos Clientes na Proposta" />
+                                                      <JFXToggleButton fx:id="tgbVdaShowDebitoClientes" layoutX="480.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="75.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaShowMargemLucro" layoutX="10.0" layoutY="86.0" text="31) Mostra Margem de Lucro Bruto na Proposta" />
+                                                      <JFXToggleButton fx:id="tgbVdaShowMargemLucro" layoutX="480.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="113.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaShowCreditoCliente" layoutX="10.0" layoutY="124.0" text="32) Mostra Crédito de Clientes no Módulo de Proposta/Vendas" />
+                                                      <JFXToggleButton fx:id="tgbVdaShowCreditoCliente" layoutX="480.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="151.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaLiberacaoRemota" layoutX="10.0" layoutY="162.0" text="33) Libera Proposta Bloqueada por outro Computador" />
+                                                      <JFXToggleButton fx:id="tgbVdaLiberacaoRemota" layoutX="480.0" layoutY="156.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                      <Separator layoutX="1.0" layoutY="189.0" prefWidth="648.0" />
+                                                      <Label fx:id="lblVdaAcessaClientePrecoCusto" layoutX="10.0" layoutY="200.0" text="34) Acessa clientes que utilizam preço de custo no módulo de Proposta/Venda" />
+                                                      <JFXToggleButton fx:id="tgbVdaAcessaClientePrecoCusto" layoutX="480.0" layoutY="194.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" text="ToggleButton" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabFinanceiro" text="Financeiro">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" fx:id="tabPaneCompras1" prefHeight="300.0" prefWidth="616.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="240.0" text="Altera Valor do Título Contas a Receber:" />
+                                                <JFXToggleButton fx:id="tgBtnFinAltValorTitCtasRec" layoutX="320.0" layoutY="11.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="141.0" />
+                                                <Label layoutX="14.0" layoutY="37.0" prefHeight="17.0" prefWidth="306.0" text="Altera Data de Vencimento do Título Contas a Receber:" />
+                                                <JFXToggleButton fx:id="tgBtnFinAltDtVenctoTitCtasRec" layoutX="320.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="141.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab>
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabLivrosFiscales" text="Livros Fiscais">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabRecursosH" text="Recursos Humanos">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabServicos" text="Serviços">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabProducao" text="Produção">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabContabilidade" text="Contabilidade">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabConfiguracoes" text="Configurações">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" fx:id="tabPaneConfig" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <tabs>
+                                    <Tab fx:id="tabConfigTela1">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane id="border-pane" layoutX="14.0" layoutY="13.0" prefHeight="284.0" prefWidth="670.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="270.0" text="1) Empresas Disponíveis Login: " />
+                                                      <CheckComboBox fx:id="cBoxEmpDispLogin" layoutX="460.0" layoutY="7.0" prefHeight="25.0" prefWidth="200.0" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="668.0" />
+                                                      <Label layoutX="10.0" layoutY="48.0" prefHeight="17.0" prefWidth="314.0" text="2) Altera data de movimentação do Sistema:" />
+                                                      <JFXToggleButton fx:id="tgBtnAltDtMovtoSistema" layoutX="445.0" layoutY="42.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#actionTgBtnAltDtMovtoSistema" prefHeight="30.0" prefWidth="70.0" />
+                                                      <Separator layoutX="1.0" layoutY="75.0" prefWidth="668.0" />
+                                                      <Label layoutX="10.0" layoutY="86.0" prefHeight="17.0" prefWidth="314.0" text="3) Limite de dias para alterar data do sistema:" />
+                                                      <Label layoutX="460.0" layoutY="78.0" prefHeight="17.0" prefWidth="66.0" text="Retroage" />
+                                                      <TextField fx:id="txtLimDiasDtMovtoAvan" disable="true" layoutX="460.0" layoutY="95.0" prefHeight="25.0" prefWidth="40.0" text="0" />
+                                                      <Label layoutX="520.0" layoutY="78.0" prefHeight="17.0" prefWidth="61.0" text="Avança" />
+                                                      <TextField fx:id="txtLimDiasDtMovtoRetro" disable="true" layoutX="520.0" layoutY="95.0" prefHeight="25.0" prefWidth="40.0" text="0" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabConfigAcoes">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="148.0" text="1 - Define nível de acesso:" />
+                                                <Label layoutX="14.0" layoutY="45.0" prefHeight="17.0" prefWidth="102.0" text="2 - Copia usuário:" />
+                                                <Label layoutX="16.0" layoutY="75.0" prefHeight="17.0" prefWidth="145.0" text="3 - Copia Nível de Acesso:" />
+                                                <JFXToggleButton fx:id="tgBtnDefNiv" layoutX="249.0" layoutY="9.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXToggleButton fx:id="tgBtnCopyUsu" layoutX="250.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
+                                                <JFXToggleButton fx:id="tgBtnCopyNivAcesso" layoutX="251.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabParamGerais" text="Parametros Gerais">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" fx:id="tabPaneParamGerais" layoutX="58.0" layoutY="36.0" prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                  <Tab>
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane layoutX="14.0" layoutY="14.0" prefHeight="295.0" prefWidth="650.0" style="-fx-border-color: #B0BEC5;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                                   <children>
+                                                      <Label fx:id="lblCodFuncionario" layoutX="10.0" layoutY="10.0" text="01) Codigo Funcionario" />
+                                                      <CustomTextField fx:id="txtCodFuncionario" layoutX="435.0" layoutY="6.0" prefHeight="25.0" prefWidth="80.0" />
+                                                      <TextField fx:id="txtFuncionario" layoutX="524.0" layoutY="6.0" prefWidth="117.0" />
+                                                      <Separator layoutX="1.0" layoutY="37.0" prefWidth="648.0" />
+                                                   </children>
+                                                </Pane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab>
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="367.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#actionBtnInsert" prefHeight="36.0" prefWidth="40.0">
+                     <tooltip>
+                        <Tooltip text="Novo (F5)" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="28" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave" prefHeight="36.0" prefWidth="40.0">
+                     <tooltip>
+                        <Tooltip text="Gravar (F6)" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancel" disable="true" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="36.0" prefWidth="40.0">
+                     <tooltip>
+                        <Tooltip text="Cancelar (F8)" />
+                     </tooltip>
+                     <graphic>
+                        <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="lblErrorMessage" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="241.0" style="-fx-text-fill: red;" text="Code not found" textFill="#f50606" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="background-form-cad" fx:id="anchorPaneNivelAcesso" focusTraversable="true" layoutX="2.0" layoutY="31.0" minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="681.0" visible="false" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Pane id="title-bar-form-cad" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnCloseNivelAcesso" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnCloseNivelAcesso">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="lbTitleFormCadNivelAcesso" nodeOrientation="LEFT_TO_RIGHT" text="Niveis de Acesso" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="EXPEDITEDSSL" size="18" />
+               </graphic>
+            </Label>
+            <VBox id="vbox-form-cad" fx:id="hboxFormNivelAcesso" layoutY="32.0" prefHeight="341.0" prefWidth="781.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="34.0" />
+            <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" layoutX="13.0" layoutY="237.0" prefHeight="36.0" prefWidth="367.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <Button fx:id="btnSaveNivelAcesso" disable="true" mnemonicParsing="false" onAction="#actionBtnSaveNivelAcesso">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancelNivelAcesso" mnemonicParsing="false" onAction="#actionBtnCancelNivelAcesso" prefHeight="10.0" prefWidth="10.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

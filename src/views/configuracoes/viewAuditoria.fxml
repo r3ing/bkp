@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" prefHeight="461.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar fx:id="toolBarAuditoria" prefHeight="26.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+         <items>
+            <Button fx:id="btnRefresh" layoutX="50.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnRefresh">
+               <graphic>
+                  <MaterialDesignIconView id="icons" fill="#021421" glyphName="AUTORENEW" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnFilter" layoutX="128.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnFilter">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="FILTER" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnPrint" disable="true" mnemonicParsing="false" onAction="#actionBtnPrint">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="PRINT" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnConfig" layoutX="247.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnConfig">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+               </graphic>
+            </Button>
+            <ToggleButton fx:id="toggleBtnHelp" mnemonicParsing="false">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="QUESTION_CIRCLE" size="18" />
+               </graphic>
+            </ToggleButton>
+         </items>
+      </ToolBar>
+      <SplitPane fx:id="splitPaneFilter" dividerPositions="1.0" focusTraversable="false" orientation="VERTICAL" prefHeight="188.0" prefWidth="566.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+        <items>
+          <AnchorPane focusTraversable="true" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="115.0" prefWidth="564.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label fx:id="lblTipoOperacao" layoutX="16.0" layoutY="9.0" text="Tipo Operação" />
+                  <ComboBox fx:id="cboxFiltros" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="135.0" />
+                  <Label fx:id="lblBuscarPor" layoutX="14.0" layoutY="59.0" text="Buscar por" />
+                  <DatePicker fx:id="dateInicial" layoutX="300.0" layoutY="29.0" prefHeight="25.0" prefWidth="105.0" />
+                  <DatePicker fx:id="dateFinal" layoutX="416.0" layoutY="29.0" prefHeight="25.0" prefWidth="105.0" />
+                  <ComboBox fx:id="cboxPeriodo" layoutX="159.0" layoutY="29.0" prefHeight="25.0" prefWidth="131.0" />
+                  <Label fx:id="lblPeriodo" layoutX="160.0" layoutY="9.0" text="Período" />
+                  <Label fx:id="lblDataIni" layoutX="301.0" layoutY="9.0" text="Data Inicial" />
+                  <Label fx:id="lblDataFin" layoutX="415.0" layoutY="9.0" text="Data Final" />
+                  <CheckComboBox fx:id="cboxTipoOperacion" layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="135.0" />
+                  <CustomTextField fx:id="txtFilterColumn" layoutX="159.0" layoutY="79.0" onAction="#actionTxtFilterColumn" onKeyReleased="#keyReleasedTxtFilterColumn" prefHeight="25.0" prefWidth="362.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="284.0" prefWidth="564.0">
+               <children>
+                  <TableView fx:id="tbView" layoutX="7.0" layoutY="14.0" prefHeight="293.0" prefWidth="564.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tbColCodemp" prefWidth="100.0" text="Cod Empresa" />
+                      <TableColumn fx:id="tbColCodUsuario" prefWidth="100.0" text="Cod Usuario" />
+                        <TableColumn fx:id="tbColUsuario" prefWidth="90.0" text="Usuario" />
+                        <TableColumn fx:id="tbColSistema" prefWidth="90.0" text="Sistema" />
+                        <TableColumn fx:id="tbColTipoOperacion" prefWidth="110.0" text="Tipo Operação" />
+                        <TableColumn fx:id="tbColTipoRegistro" prefWidth="120.0" text="Tipo Registro" />
+                        <TableColumn fx:id="tbColDataMovt" prefWidth="100.0" text="Data" />
+                        <TableColumn fx:id="tbColValAnterior" prefWidth="110.0" text="Valor Anterior" />
+                        <TableColumn fx:id="tbColValNovo" prefWidth="110.0" text="Novo Valor" />
+                        <TableColumn fx:id="tbColHistorico" prefWidth="90.0" text="Historico" />
+                        <TableColumn fx:id="tbColDocCodigo" prefWidth="90.0" text="Doc Codigo" />
+                    </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" layoutY="232.0" prefHeight="17.0" prefWidth="491.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Label fx:id="lblTotalLinhas" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: Bold;" text="Total Linhas:  ">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblNumLinhas" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="59.0" style="-fx-alignment: top_left; -fx-font-weight: bold;" text="0" textFill="#d74a4a" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ProgressBar fx:id="pBar" prefHeight="18.0" prefWidth="336.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>

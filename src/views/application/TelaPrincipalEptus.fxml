@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="panePrincipal" prefHeight="533.0" prefWidth="672.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <StackPane fx:id="stackPane" layoutY="101.0" prefHeight="432.0" prefWidth="672.0" />
+		<TabPane fx:id="tabPanePrincipal" layoutY="62.0" prefHeight="441.0" prefWidth="672.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="62.0">
+			<tabs>
+				<Tab fx:id="tab" closable="false" text="Principal">
+					<content>
+      						<AnchorPane fx:id="anchorPaneTab" minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="672.0" styleClass="background-principal">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="94.0" text="Menus Favoritos" />
+                        <Hyperlink layoutX="32.0" layoutY="31.0" text="Vendas" />
+                        <Hyperlink layoutX="32.0" layoutY="49.0" text="Cadastro de Produto" />
+                        <Hyperlink layoutX="33.0" layoutY="70.0" text="Consulta Contas a Receber" />
+                     </children></AnchorPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+		<MenuBar fx:id="mnBar" layoutY="27.0" prefHeight="36.0" prefWidth="672.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+			<menus>
+				<Menu id="mnHea1111Compras" fx:id="mnHeaCompras" mnemonicParsing="false" text="Compras">
+					<items>
+						<Menu id="mnRot1111ComprasCadastros" fx:id="mnRotComprasCadastros" mnemonicParsing="false" text="Cadastros">
+							<items>
+										<MenuItem id="miCad1111Item" fx:id="miCadItem" mnemonicParsing="false" onAction="#actionMniItem" text="Itens">
+                           <graphic>
+                              <Label fx:id="C100" text="C100" visible="false" />
+                           </graphic>
+                        </MenuItem>
+								<MenuItem id="miCad1111Unidade" fx:id="miCadUnidade" mnemonicParsing="false" onAction="#actionMniUnidade" text="Unidades">
+                           <graphic>
+                              <Label fx:id="C101" text="C101" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111Grupo" fx:id="miCadGrupo" mnemonicParsing="false" onAction="#actionMniGrupo" text="Grupos">
+                           <graphic>
+                              <Label fx:id="C102" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C102" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111SubGrupo" fx:id="miCadSubGrupo" mnemonicParsing="false" onAction="#actionMniSubGrupo" text="Sub-Grupos">
+                           <graphic>
+                              <Label fx:id="C103" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C103" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111Fabricante" fx:id="miCadFabricante" mnemonicParsing="false" onAction="#actionMniFabricante" text="Fabricantes">
+                           <graphic>
+                              <Label fx:id="C104" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C104" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111Departamento" fx:id="miCadDepartamento" mnemonicParsing="false" onAction="#actionMniDepartamento" text="Departamentos">
+                           <graphic>
+                              <Label fx:id="C105" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C105" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111Grade" fx:id="miCadGrade" mnemonicParsing="false" onAction="#actionMniGrade" text="Grades de Produtos">
+                           <graphic>
+                              <Label fx:id="C106" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C106" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111CorEstilo" fx:id="miCadCorEstilo" mnemonicParsing="false" onAction="#actionMniCorEstilo" text="Cores/Estilos">
+                           <graphic>
+                              <Label fx:id="C107" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C107" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111Fornecedor" fx:id="miCadFornecedor" mnemonicParsing="false" onAction="#actionMniFornecedor" text="Fornecedores">
+                           <graphic>
+                              <Label fx:id="C108" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C108" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111Tributacao" fx:id="miCadTributacao" mnemonicParsing="false" onAction="#actionMniTributacao" text="Tributação">
+                           <graphic>
+                              <Label fx:id="C109" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C109" visible="false" />
+                           </graphic></MenuItem>
+								<MenuItem id="miCad1111Aplicacao" fx:id="miCadAplicacao" mnemonicParsing="false" onAction="#actionMniAplicacao" text="Aplicações">
+                           <graphic>
+                              <Label fx:id="C110" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C110" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111FamiliaPreco" fx:id="miCadFamiliaPreco" mnemonicParsing="false" onAction="#actionMniFamiliaPreco" text="Familias de Precificação">
+                           <graphic>
+                              <Label fx:id="C111" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C111" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111BoxLocalEstoque" fx:id="miCadBoxLocalEstoque" mnemonicParsing="false" onAction="#actionMniBoxLocalEstoque" text="Box - Local Estoque">
+                           <graphic>
+                              <Label fx:id="C112" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C112" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111TabelaLcServico" fx:id="miCadTabelaLcServico" mnemonicParsing="false" onAction="#actionMniTabelaLcServico" text="Tabela Serviços LC 116/03">
+                           <graphic>
+                              <Label fx:id="C113" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C113" visible="false" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miCad1111TabelaNCM" fx:id="miCadTabelaNCM" mnemonicParsing="false" onAction="#actionMniTabelaNCM" text="Tabela de NCM">
+                           <graphic>
+                              <Label fx:id="C114" maxHeight="0.0" maxWidth="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" text="C114" visible="false" />
+                           </graphic></MenuItem>
+							</items>
+						</Menu>
+						<Menu id="mnRot1111ComprasConsultas" fx:id="mnRotComprasConsultas" mnemonicParsing="false" text="Consultas" />
+						<Menu id="mnRot1111ComprasRelatorios" fx:id="mnRotComprasRelatorios" mnemonicParsing="false" text="Relatórios" />
+                  <Menu id="mnRot1111ComprasOperacoes" fx:id="mnRotComprasOperacoes" mnemonicParsing="false" text="Operações">
+                     <items>
+      						<Menu id="mnRot0111PromocaoProd" fx:id="mnRot1111PromocaoProd" mnemonicParsing="false" text="Promoção de Produtos" />
+      						<Menu fx:id="mnRot0111ReposicaoProd" mnemonicParsing="false" text="Reposição de Produtos" />
+      						<Menu fx:id="mnRot0111CancelReposicoes" mnemonicParsing="false" text="Cancelamentos de Reposições" />
+      						<Menu fx:id="mnRot0111PlanilhaControl" mnemonicParsing="false" text="Planilha de Control de Produção" />
+                        <Menu fx:id="mnRot0111DesagregacaoProd" mnemonicParsing="false" text="Desagregação de Produtos" />
+                        <MenuItem fx:id="miOpe0111SugestaoComp" mnemonicParsing="false" text="Sugestão de Compras" />
+                        <MenuItem fx:id="miOpe0111CalcEstoqueReg" mnemonicParsing="false" text="Calculo de Estoque Regulador" />
+                        <MenuItem fx:id="miOpe0111CotacaoPrecos" mnemonicParsing="false" text="Cotação de Preços" />
+                        <Menu fx:id="mnRot0111PedidosCompras" mnemonicParsing="false" text="Pedidos de Compras" />
+                        <MenuItem id="miOpe0111NotaFiscais" fx:id="miOpeNotaFiscais" mnemonicParsing="false" onAction="#actionMniNotaFiscEntrada" text="Notas Fiscais de Entrada" />
+                        <Menu fx:id="mnRot0111GestaoDocFiscElect" mnemonicParsing="false" text="Gestão Documentos Fiscais Eletrônicos" />
+                        <Menu fx:id="mnRot0111GestaoComprasABC" mnemonicParsing="false" text="Gestão de Compras ABC" />
+                     </items>
+                  </Menu>
+					</items>
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="CUBE_OUTLINE" size="26" />
+               </graphic>
+				</Menu>
+				<Menu id="mnHea1111Vendas" fx:id="mnHeaVendas" mnemonicParsing="false" text="Vendas">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="CASH_USD" size="26" />
+               </graphic>
+               <items>
+                  <Menu fx:id="mnRot0111Cadastros" mnemonicParsing="false" text="Cadastros">
+                     <items>
+                        <MenuItem id="miCad0111Cliente" fx:id="miCadCliente" mnemonicParsing="false" onAction="#actionMiCliente" text="Clientes">
+                           <graphic>
+                              <Label fx:id="V1001" text="V100" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Pais" fx:id="miCadPais" mnemonicParsing="false" onAction="#actionMiCadPais" text="País">
+                           <graphic>
+                              <Label fx:id="V1031" text="V103" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111UF" fx:id="miCadUF" mnemonicParsing="false" onAction="#actionMiCadUF" text="UF">
+                           <graphic>
+                              <Label fx:id="V1021" text="V102" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Cidade" fx:id="miCadCidade" mnemonicParsing="false" onAction="#actionMiCadCidade" text="Cidades">
+                           <graphic>
+                              <Label fx:id="V1011" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Rotas" fx:id="miCadRotas" mnemonicParsing="false" onAction="#actionMiCadRotas" text="Rotas">
+                           <graphic>
+                              <Label fx:id="V10111" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111RamoAtividade" fx:id="miCadRamoAtividade" mnemonicParsing="false" onAction="#actionMiCadRamoAtividade" text="Ramos de Atividade Clientes">
+                           <graphic>
+                              <Label fx:id="V101111" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111RegioesClientes" fx:id="miCadRegioesClientes" mnemonicParsing="false" onAction="#actionMiCadRegioesClientes" text="Regiões de Clientes">
+                           <graphic>
+                              <Label fx:id="V1011111" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Convenio" fx:id="miCadConvenio" mnemonicParsing="false" onAction="#actionMiCadConvenio" text="Convênios">
+                           <graphic>
+                              <Label fx:id="V10111111" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Segmento" fx:id="miCadSegmento" mnemonicParsing="false" onAction="#actionMiCadSegmento" text="Segmento">
+                           <graphic>
+                              <Label fx:id="V101111111" text="V101" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111PlanoPagamento" fx:id="miCadPlanoPagamento" mnemonicParsing="false" onAction="#actionMiCadPlanoPagamento" text="Planos de Pagamento">
+                           <graphic>
+                              <Label fx:id="V10012" text="V100" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111Mensagem" fx:id="miCadMensagem" mnemonicParsing="false" onAction="#actionMiCadMensagem" text="Mensagens da Nota Fiscal">
+                           <graphic>
+                              <Label fx:id="V10011" text="V100" />
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="mnRot0111Consultas1" mnemonicParsing="false" text="Consultas" />
+                  <Menu fx:id="mnRot0111Relatorios1" mnemonicParsing="false" text="Relatórios" />
+                  <Menu fx:id="mnRot0111Operacoes1" mnemonicParsing="false" text="Operações">
+                     <items>
+                        <Menu fx:id="mnRot0111PromocaoProd1" mnemonicParsing="false" text="Promoção de Produtos" />
+                        <Menu fx:id="mnRot0111ReposicaoProd1" mnemonicParsing="false" text="Reposição de Produtos" />
+                        <Menu fx:id="mnRot0111CancelReposicoes1" mnemonicParsing="false" text="Cancelamentos de Reposições" />
+                        <Menu fx:id="mnRot0111PlanilhaControl1" mnemonicParsing="false" text="Planilha de Control de Produção" />
+                        <Menu fx:id="mnRot0111DesagregacaoProd1" mnemonicParsing="false" text="Desagregação de Produtos" />
+                        <MenuItem fx:id="miOpe0111SugestaoComp1" mnemonicParsing="false" text="Sugestão de Compras" />
+                        <MenuItem fx:id="miOpe0111CalcEstoqueReg1" mnemonicParsing="false" text="Calculo de Estoque Regulador" />
+                        <MenuItem fx:id="miOpe0111CotacaoPrecos1" mnemonicParsing="false" text="Cotação de Preços" />
+                        <Menu fx:id="mnRot0111PedidosCompras1" mnemonicParsing="false" text="Pedidos de Compras" />
+                        <Menu fx:id="mnRot0111NotaFiscais1" mnemonicParsing="false" text="Notas Fiscais de Entrada" />
+                        <Menu fx:id="mnRot0111GestaoDocFiscElect1" mnemonicParsing="false" text="Gestão Documentos Fiscais Eletrônicos" />
+                        <Menu fx:id="mnRot0111GestaoComprasABC1" mnemonicParsing="false" text="Gestão de Compras ABC" />
+                     </items>
+                  </Menu>
+               </items>
+				</Menu>
+				<Menu id="mnHea0111Financeiro" fx:id="mnHeaFinanceiro" mnemonicParsing="false" text="Financeiro">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="CHART_LINE" size="26" />
+               </graphic>
+               <items>
+                  <Menu id="mnRot1111FinancieroCadastros" fx:id="mnRotFinancieroCadastros" mnemonicParsing="false" text="Cadastros">
+                    <items>
+                      <MenuItem id="miCad0111Secao" fx:id="miCadSecao" mnemonicParsing="false" onAction="#actionMiCadSecao" text="Seções" />
+                        <MenuItem id="miCad0111Moeda" fx:id="miCadMoeda" mnemonicParsing="false" onAction="#actionMiCadMoeda" text="Moedas" />
+                        <MenuItem id="miCad0111Portador" fx:id="miCadPortador" mnemonicParsing="false" onAction="#actionMiCadPortador" text="Portadores" />
+                        <MenuItem id="miCad0111CentroCusto" fx:id="miCadCentroCusto" mnemonicParsing="false" onAction="#actionMiCentroCusto" text="Centros de Custo" />
+                        <MenuItem id="miCad0111ClienteFin" fx:id="miCadClienteFin" mnemonicParsing="false" onAction="#actionMiCliente" text="Cliente" />
+                        <MenuItem id="miCad0111PlanoContas" fx:id="miCadPlanoContas" mnemonicParsing="false" onAction="#actionMiPlanoContas" text="Plano de Contas" />
+                        <MenuItem id="miCad0111CaixaBanco" fx:id="miCadCaixaBanco" mnemonicParsing="false" onAction="#actionMiCadCaixaBanco" text="Caixa/Contas Bancárias" />
+                    </items>
+                  </Menu>
+                  <Menu id="mnRot0111ConsultasFin" fx:id="mnRotConsultasFin" mnemonicParsing="false" text="Consultas" />
+                  <Menu id="mnRot0111OperacoesFin" fx:id="mnRotOperacoesFin" mnemonicParsing="false" text="Operações">
+                     <items>
+                        <MenuItem id="miOpe0111ContasReceberFin" fx:id="miOpeContasReceberFin" mnemonicParsing="false" onAction="#actionMiOpeContasReceberFin" text="Contas a Receber" />
+                     </items>
+                  </Menu>
+               </items>
+				</Menu>
+            <Menu fx:id="mnHea0111Producao" mnemonicParsing="false" text="Produção">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="FACTORY" size="26" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="miCad0111TabProdutoNCM12" mnemonicParsing="false" text="Operações de Produção">
+                     <graphic>
+                        <Label fx:id="C11412" text="C900" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+				<Menu fx:id="mnHea0111Servicos" mnemonicParsing="false" text="Serviços">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="BACKBURGER" size="26" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="miCad0111TabProdutoNCM13" mnemonicParsing="false" text="Operações de Serviços">
+                     <graphic>
+                        <Label fx:id="C11413" text="C900" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+				</Menu>
+				<Menu fx:id="mnHea0101LivFiscais" mnemonicParsing="false" text="Livros Fiscais">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="LIBRARY_BOOKS" size="26" />
+               </graphic>
+				</Menu>
+            <Menu fx:id="mnHea0111Contabilidade" mnemonicParsing="false" text="Contabilidade">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="SCALE_BALANCE" size="26" />
+               </graphic>
+            </Menu>
+				<Menu id="mnHea0111RecHumanos" fx:id="mnHeaRecHumanos" mnemonicParsing="false" text="Recursos Humanos">
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="ACCOUNT_BOX_OUTLINE" size="26" />
+               </graphic>
+               <items>
+                  <Menu id="mnRot1111RHCadastros" fx:id="mnRotRHCadastros" mnemonicParsing="false" text="Cadastros">
+                    <items>
+                      <MenuItem id="miCad1111Funcionario" fx:id="miCadFuncionario" mnemonicParsing="false" onAction="#actionMiCadFuncionario" text="Funcionario" />
+                    </items>
+                  </Menu>
+               </items>
+				</Menu>
+				<Menu id="mnHea0111Configuracao" fx:id="mnHeaConfiguracao" mnemonicParsing="false" text="Configurações">
+					<items>
+                  <Menu id="mnRot0111CadConfig" fx:id="mnRotCadConfig" mnemonicParsing="false" text="Cadastros">
+                     <items>
+                        <MenuItem id="miCad0111Usuarios" fx:id="miCadUsuarios" mnemonicParsing="false" onAction="#actionMniUtilCadUsuarios" text="Usuários">
+                           <graphic>
+                              <Label fx:id="U100" text="U100" />
+                           </graphic></MenuItem>
+                        <MenuItem id="miOpe0111EmpresaConfig" fx:id="miOpeEmpresaConfig" mnemonicParsing="false" onAction="#actionMiOpeEmpresaConifg" text="Empresa">
+                           <graphic>
+                              <Label fx:id="U1001" text="U100" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad1111OperacaoEntrada" fx:id="miCadOperacaoEntrada" mnemonicParsing="false" onAction="#actionMiCadOperacaoEntrada" text="Operações de Entrada">
+                           <graphic>
+                              <Label fx:id="C900" text="U500" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111OperacaoSaida" fx:id="miCadOperacaoSaida" mnemonicParsing="false" onAction="#actionMiCadOperacaoSaida" text="Operações de Saida">
+                           <graphic>
+                              <Label fx:id="V900" text="V900" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad0111OperacaoFinanceiro" fx:id="miCadOperacaoFinanceiro" mnemonicParsing="false" onAction="#actionMiCadOperacaoFinanceiro" text="Operações Financeiro">
+                           <graphic>
+                              <Label fx:id="F900" text="F900" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad1111DepositoEstoque" fx:id="miCadDepositoEstoque" mnemonicParsing="false" onAction="#actionMiCadDepositoEstoque" text="Depósitos de Estoque">
+                           <graphic>
+                              <Label fx:id="C9001" text="U600" />
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem id="miCad1111LayoutsArquivo" fx:id="miCadLayoutsArquivo" mnemonicParsing="false" onAction="#actionMiCadLayoutsArquivo" text="Layouts Arquivo">
+                           <graphic>
+                              <Label fx:id="C90012" text="U600" />
+                           </graphic>
+                        </MenuItem>
+                        <Menu id="mnRot0111CadTabelasAuxiliares" fx:id="mnRotCadTabelasAuxiliares" mnemonicParsing="false" text="Tabelas Auxiliares">
+                           <items>
+                              <MenuItem id="miCad1111Cfop" fx:id="miCadCfop" mnemonicParsing="false" onAction="#actionMiCadCfop" text="Cfop">
+                                 <graphic>
+                                    <Label fx:id="C90011" text="U600" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem id="miCad1111CstCofins" fx:id="miCadCstCofins" mnemonicParsing="false" onAction="#actionMiCadCstCofins" text="Cst Cofins">
+                                 <graphic>
+                                    <Label fx:id="C900111" text="U600" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem id="miCad1111CstIcms" fx:id="miCadCstIcms" mnemonicParsing="false" onAction="#actionMiCadCstIcms" text="Cst Icms">
+                                 <graphic>
+                                    <Label fx:id="C900112" text="U600" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem id="miCad1111CstIpi" fx:id="miCadCstIpi" mnemonicParsing="false" onAction="#actionMiCadCstIpi" text="Cst Ipi">
+                                 <graphic>
+                                    <Label fx:id="C900113" text="U600" />
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem id="miCad1111CstPis" fx:id="miCadCstPis" mnemonicParsing="false" onAction="#actionMiCadCstPis" text="Cst Pis">
+                                 <graphic>
+                                    <Label fx:id="C900114" text="U600" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                     </items></Menu>
+                  <MenuItem id="miOpe0111Auditoria" fx:id="miOpeAuditoria" mnemonicParsing="false" onAction="#actionMniAuditar" text="Auditoria">
+                     <graphic>
+                        <Label fx:id="U900" text="U900" />
+                     </graphic></MenuItem>
+                  <MenuItem id="miOpe0111ControlCompartilhamento" fx:id="miOpeControlCompartilhamento" mnemonicParsing="false" onAction="#actionMniCompartihamento" text="Controle de Compartilhamento ">
+                     <graphic>
+                        <Label fx:id="U9001" text="C999" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem id="miOpe01111AjusteSistema" fx:id="miOpeAjusteSistema" mnemonicParsing="false" onAction="#actionMniOpe01111AjusteSistema" text="Ajustes do Sistema">
+                     <graphic>
+                        <Label fx:id="U90011" text="U999" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem id="miOpe0111ManutencaoParam" fx:id="miOpeManutencaoParam" mnemonicParsing="false" onAction="#actionMiOpe01111ManutencaoParam" text="Manutenção de Paramẽtros">
+                     <graphic>
+                        <Label text="Label" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem id="miOpe0111ImportacaoDados" fx:id="miOpeImportacaoDados" mnemonicParsing="false" onAction="#actionImportacaoDados" text="Importacao de Dados (CSV)">
+                     <graphic>
+                        <Label fx:id="C900121" text="U600" />
+                     </graphic>
+                  </MenuItem>
+					</items>
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="SETTINGS" size="24" />
+               </graphic>
+				</Menu>
+            <Menu fx:id="mnHea0111Ajuda" mnemonicParsing="false" text="Ajuda">
+               <items>
+                  <Menu fx:id="mnRot0111Lenguagem" mnemonicParsing="false" text="Lenguagem">
+                    <items>
+                        <CheckMenuItem fx:id="ckmniEspanhol" mnemonicParsing="false" onAction="#actionCkmniES" text="Espanhol" />
+                        <CheckMenuItem fx:id="ckmniPortugues" mnemonicParsing="false" onAction="#actionCkmniPT" text="Português" />
+                        <CheckMenuItem fx:id="ckmniEnglish" mnemonicParsing="false" onAction="#actionCkmniEN" text="Ingles" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="mnRot0111Temas" mnemonicParsing="false" text="Temas">
+                     <items>
+                        <CheckMenuItem fx:id="ckmiTemStarter" mnemonicParsing="false" text="Starter" />
+                        <CheckMenuItem fx:id="ckmniProfTemAju1" mnemonicParsing="false" onAction="#actionCkmniProfTemAju" text="Professional" />
+                        <CheckMenuItem fx:id="ckmniEntTemAju2" mnemonicParsing="false" onAction="#actionCkmniEntTemAju" text="Enterprise" />
+                        <CheckMenuItem fx:id="ckmniUltTemAju3" mnemonicParsing="false" onAction="#actionCkmniUltTemAju" text="Ultimate" />
+                     </items>
+                  </Menu>
+                  <MenuItem fx:id="miCad0111CadPadrao" mnemonicParsing="false" onAction="#actionMniAjuCadPadrao" text="Cadastro Padrão">
+                     <graphic>
+                        <Label fx:id="A100" text="A100" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="miCad0111GerarMenu" mnemonicParsing="false" onAction="#actionMiGerarMenu" text="Gerar Menus">
+                     <graphic>
+                        <Label fx:id="A1001" text="A100" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="miCad0011NuevoMenu" mnemonicParsing="false" onAction="#actionMiGerarMenu" text="Probando Nuevo Menus">
+                     <graphic>
+                        <Label fx:id="A10011" text="A100" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+               <graphic>
+                  <MaterialDesignIconView fill="#f8f8f8" glyphName="HELP_CIRCLE_OUTLINE" size="26" />
+               </graphic>
+            </Menu>
+			</menus>
+		</MenuBar>
+      <AnchorPane fx:id="panelEscondido" layoutX="-203.0" layoutY="221.0" prefHeight="282.0" prefWidth="200.0" style="-fx-background-color: #96c440; -fx-border-insets: 2;" AnchorPane.bottomAnchor="30.0">
+         <children>
+            <ScrollPane fx:id="scrollPaneEscond" prefHeight="254.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <content>
+                  <ListView fx:id="listViewMenu" prefHeight="282.0" prefWidth="200.0" />
+               </content>
+            </ScrollPane>
+            <Text fill="WHITE" layoutX="29.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisa" wrappingWidth="76.13671875">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Label layoutX="8.0" layoutY="6.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#f8f8f8" glyphName="SEARCH" size="18" />
+               </graphic>
+            </Label>
+            <Button fx:id="btnClosedPaneEscond" layoutX="170.0" layoutY="1.0" mnemonicParsing="false" onAction="#actionFecharEscondida" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <FontAwesomeIconView fill="#f8f6f6" glyphName="CLOSE" size="16" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <HBox alignment="BASELINE_RIGHT" layoutX="9.0" layoutY="539.0" minHeight="-Infinity" prefHeight="23.0" prefWidth="668.0" styleClass="pane-bottom" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="txtBuscarMenu" opacity="0.89" prefHeight="50.0" prefWidth="400.0" promptText="Pesquisar.." visible="false">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Pane prefHeight="23.0" prefWidth="126.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="empresaText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onClickLbEmpresa" prefHeight="25.0" prefWidth="206.0" textFill="#eae7e7">
+                     <graphic>
+                        <FontAwesomeIconView fill="#eae7e7" glyphName="HOME" size="14" />
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator opacity="0.27" orientation="VERTICAL" prefHeight="25.0" prefWidth="27.0" visible="false" />
+            <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
+               <children>
+                  <Label fx:id="usuarioText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onClickLbUsuario" prefHeight="25.0" prefWidth="206.0" textFill="#eae7e7">
+                     <graphic>
+                        <FontAwesomeIconView fill="#eae7e7" glyphName="USER" />
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator layoutX="544.0" layoutY="10.0" opacity="0.27" orientation="VERTICAL" prefHeight="25.0" prefWidth="25.0" visible="false" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="serverText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="206.0" textFill="#eae7e7">
+                     <graphic>
+                        <FontAwesomeIconView fill="#eae7e7" glyphName="SITEMAP" size="14" />
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator layoutX="481.0" layoutY="10.0" opacity="0.27" orientation="VERTICAL" prefHeight="25.0" prefWidth="25.0" visible="false" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="dataLocalText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onClickLbDataSistema" prefHeight="25.0" prefWidth="206.0" textFill="#eae7e7">
+                     <graphic>
+                        <FontAwesomeIconView fill="#eae7e7" glyphName="CALENDAR" size="14" />
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator layoutX="490.0" layoutY="10.0" opacity="0.27" orientation="VERTICAL" prefHeight="25.0" prefWidth="25.0" visible="false" />
+            <HBox fx:id="ImgHBox" alignment="CENTER" layoutX="572.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="30.0">
+               <children>
+                  <ImageView fx:id="idiomaImg" fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Button fx:id="btnClose" layoutX="638.0" layoutY="2.0" mnemonicParsing="false" onAction="#actionBtnClose" prefHeight="5.0" prefWidth="33.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="2.0">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" wrappingWidth="10.428571701049805" />
+         </graphic>
+      </Button>
+      <Label fx:id="lblTitle" alignment="TOP_LEFT" layoutY="4.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="162.0" text="Eptus@M - Enterprise" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="4.0">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../styles/img/logoReport.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Button fx:id="btnMinimize" layoutX="605.0" layoutY="2.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#actionBtnMinimize" prefHeight="5.0" prefWidth="33.0" style="-fx-background-color: transparent;" textFill="WHITE" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="2.0">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" wrappingWidth="10.428571701049805" />
+         </graphic>
+      </Button>
+	</children>
+</AnchorPane>

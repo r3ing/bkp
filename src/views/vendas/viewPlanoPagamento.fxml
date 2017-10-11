@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneListagem" minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="497.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar id="tool-bar-form" fx:id="toolBar" prefHeight="26.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+               <items>
+                  <Button fx:id="btnInsertGrid" mnemonicParsing="false" onAction="#actionBtnInsertGrid">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button id="tool-bar-form" fx:id="btnDelete" disable="true" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnDelete">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="TRASH" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRefresh" layoutX="50.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnRefresh">
+                     <graphic>
+                        <MaterialDesignIconView id="icons" fill="#01579b" glyphName="AUTORENEW" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnFilter" layoutX="128.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnFilter">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="FILTER" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnPrint" disable="true" mnemonicParsing="false" onAction="#actionBtnPrint">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PRINT" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnConfig" layoutX="247.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnConfig">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+                     </graphic>
+                  </Button>
+                  <ToggleButton fx:id="toggleHelp" mnemonicParsing="false" onMouseClicked="#mouseClickedToggleHelp">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="INFO_CIRCLE" size="18" />
+                     </graphic>
+                  </ToggleButton>
+               </items>
+            </ToolBar>
+            <SplitPane fx:id="splitPaneFilter" dividerPositions="1.0" layoutY="32.0" orientation="VERTICAL" prefHeight="286.0" prefWidth="497.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+              <items>
+                <AnchorPane fx:id="anchorPaneFilter" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="495.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <ComboBox fx:id="cboxFilterColumn" layoutX="76.0" layoutY="7.0" prefHeight="25.0" prefWidth="142.0" />
+                        <ComboBox fx:id="cboxFlagAtivo" layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="141.0" />
+                        <Label fx:id="lblCboxFilterColumn" layoutX="13.0" layoutY="11.0" text="Buscar por:" />
+                        <Label fx:id="lblCboxFlagAtivo" layoutX="13.0" layoutY="42.0" text="Registro:" />
+                        <CustomTextField fx:id="txtFilterColumn" layoutX="228.0" layoutY="7.0" onAction="#actionTxtFilterColumn" onKeyPressed="#keyPressedTxtFilterColumn" onKeyReleased="#keyReleasedTxtFilterColumn" prefHeight="25.0" prefWidth="300.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="tbView" prefHeight="182.0" prefWidth="485.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tbColCodigo" prefWidth="118.0" text="Código" />
+                            <TableColumn fx:id="tbColDescricao" prefWidth="186.0" text="Descrição" />
+                              <TableColumn fx:id="tbColAtivoInat" prefWidth="75.0" text="Ativo/Inativo" visible="false" />
+                              <TableColumn fx:id="tbColDesReduc" prefWidth="186.0" text="Descrição Reduzida" />
+                              <TableColumn fx:id="tbColTxJuros" prefWidth="186.0" text="Tipo de Conta p/ Taxa de Juros" />
+                              <TableColumn fx:id="tbColNumParcelas" prefWidth="186.0" text="Número de Parcelas" />
+                              <TableColumn fx:id="tbColIntervaloParcelas" prefWidth="186.0" text="Días de Intervalo entre as Parcelas" />
+                              <TableColumn fx:id="tbColVariacaoMaxVencto" prefWidth="186.0" text="Máxima Variação Data Vencimento (Dias)" />
+                              <TableColumn fx:id="tbColValorMinRecebimento" prefWidth="186.0" text="\% Mínimo do Primeiro Pagamento" />
+                              <TableColumn fx:id="tbColDiasMinRecebimento" prefWidth="186.0" text="Dias p/ Priemiro Recebimento" />
+                              <TableColumn fx:id="tbColTipoPrazo" prefWidth="186.0" text="Tipo de Prazo" />
+                              <TableColumn fx:id="tbColVenctoDiaCombinado" prefWidth="186.0" text="Carência / Dias Vencto Combinado" />
+                              <TableColumn fx:id="tbColTaxaDescontoAcrecimo" prefWidth="186.0" text="Taxa de Juros Utilizada no Módulo de Vendas" />
+                              <TableColumn fx:id="tbColSolicitaAutorizacao" prefWidth="186.0" text="Solicita Autorização" />
+                              <TableColumn fx:id="tbColMostraVendas" prefWidth="186.0" text="Mostra Plano no Módulo de Vendas" />
+                              <TableColumn fx:id="tbColValorMinVenda" prefWidth="186.0" text="Valor Mínimo de Venda" />
+                              <TableColumn fx:id="tbColDescontoMaxVenda" prefWidth="186.0" text="Desconto Máximo na Venda" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <HBox alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="17.0" prefWidth="491.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0">
+               <children>
+                  <Label fx:id="lblTotalLinhas" alignment="CENTER_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="129.0" style="-fx-font-weight: Bold;" text="Total Linhas:  " textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNumLinhas" alignment="TOP_LEFT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="56.0" style="-fx-alignment: top_left; -fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#d74a4a" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="pBar" layoutY="321.0" prefHeight="18.0" prefWidth="534.0" progress="0.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane id="background-form-cad" fx:id="anchorPaneDetalhes" layoutX="11.0" layoutY="8.0" minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="713.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Pane id="title-bar-form-cad" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnClose" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnClose">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="lbTitleFormCad" nodeOrientation="LEFT_TO_RIGHT" text="Cadastro Planos de Pagamentos" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="EDIT" size="18" />
+               </graphic>
+            </Label>
+            <Pane id="vbox-form-cad" layoutY="33.0" prefHeight="245.0" prefWidth="454.0" style="-fx-border-color: BDBDBD;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0">
+               <children>
+                  <Label fx:id="lblCodigo" layoutX="10.0" layoutY="10.0" style="-fx-text-fill: Black;" text="Código" />
+                  <TextField fx:id="txtCodigo" alignment="TOP_RIGHT" layoutX="10.0" layoutY="30.0" onKeyPressed="#keyPressedTxtCodigo" prefHeight="25.0" prefWidth="70.0" />
+                  <Label fx:id="lblDescricao" layoutX="91.0" layoutY="10.0" style="-fx-text-fill: Black;" text="Descrição" />
+                  <TextField fx:id="txtDescricao" layoutX="90.0" layoutY="30.0" prefHeight="25.0" prefWidth="240.0" />
+                  <Label fx:id="lblDesReduc" layoutX="340.0" layoutY="10.0" style="-fx-text-fill: Black;" text="Descrição Reduzida" />
+                  <TextField fx:id="txtDesReduc" layoutX="340.0" layoutY="30.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label fx:id="lblTxJuros" layoutX="10.0" layoutY="65.0" text="Tipo de Conta p/ Taxa de Juros" />
+                  <RadioButton fx:id="rdbTxJuros0" layoutX="340.0" layoutY="65.0" mnemonicParsing="false" selected="true" text="Manual">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grpTxJuros" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rdbTxJuros1" layoutX="430.0" layoutY="65.0" mnemonicParsing="false" text="Automático" toggleGroup="$grpTxJuros" />
+                  <Label fx:id="lblNumParcelas" layoutX="11.0" layoutY="91.0" style="-fx-text-fill: Black;" text="Número de Parcelas" />
+                  <TextField fx:id="txtNumParcelas" layoutX="340.0" layoutY="90.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <Label fx:id="lblIntervaloParcelas" layoutX="10.0" layoutY="127.0" style="-fx-text-fill: Black;" text="Días de Intervalo entre as Parcelas" />
+                  <TextField fx:id="txtIntervaloParcelas" layoutX="340.0" layoutY="124.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <Label fx:id="lblVariacaoMaxVencto" layoutX="10.0" layoutY="162.0" style="-fx-text-fill: Black;" text="Máxima Variação Data Vencimento (Dias)" />
+                  <TextField fx:id="txtVariacaoMaxVencto" layoutX="340.0" layoutY="159.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <Label fx:id="lblValorMinRecebimento" layoutX="10.0" layoutY="196.0" style="-fx-text-fill: Black;" text="\% Mínimo do Primeiro Pagamento" />
+                  <TextField fx:id="txtValorMinRecebimento" layoutX="340.0" layoutY="193.0" prefHeight="25.0" prefWidth="100.0" text="0,0000" />
+                  <Label fx:id="lblDiasMinRecebimento" layoutX="10.0" layoutY="230.0" style="-fx-text-fill: Black;" text="Dias p/ Primeiro Recebimento" />
+                  <TextField fx:id="txtDiasMinRecebimento" layoutX="340.0" layoutY="227.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <Label fx:id="lblTipoPrazo" layoutX="10.0" layoutY="265.0" style="-fx-text-fill: Black;" text="Tipo de Prazo" />
+                  <ComboBox fx:id="cboxTipoPrazo" layoutX="340.0" layoutY="262.0" prefWidth="150.0" />
+                  <Label fx:id="lblVenctoDiaCombinado" layoutX="10.0" layoutY="299.0" style="-fx-text-fill: Black;" text="Carência / Dias Vencto Combinado" />
+                  <TextField fx:id="txtVenctoDiaCombinado" layoutX="340.0" layoutY="296.0" prefHeight="25.0" prefWidth="100.0" text="0" />
+                  <Label fx:id="lblTaxaDescontoAcrecimo" layoutX="10.0" layoutY="338.0" style="-fx-text-fill: Black;" text="Taxa de Juros Utilizada no Módulo de Vendas" />
+                  <TextField fx:id="txtTaxaDescontoAcrecimo" layoutX="340.0" layoutY="330.0" prefHeight="25.0" prefWidth="100.0" text="0,0000" />
+                  <Label fx:id="lblSolicitaAutorizacao" layoutX="10.0" layoutY="366.0" style="-fx-text-fill: Black;" text="Solicita Autorização" />
+                  <JFXToggleButton fx:id="tgbSolicitaAutorizacao" layoutX="330.0" layoutY="363.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="60.0" />
+                  <Label fx:id="lblMostraVendas" layoutX="10.0" layoutY="399.0" style="-fx-text-fill: Black;" text="Mostra Plano no Módulo de Vendas" />
+                  <JFXToggleButton fx:id="tgbMostraVendas" layoutX="330.0" layoutY="396.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="60.0" />
+                  <Label fx:id="lblValorMinVenda" layoutX="10.0" layoutY="433.0" style="-fx-text-fill: Black;" text="Valor Mínimo de Venda" />
+                  <TextField fx:id="txtValorMinVenda" layoutX="340.0" layoutY="429.0" prefHeight="25.0" prefWidth="100.0" text="0,0000" />
+                  <Label fx:id="lblDescontoMaxVenda" layoutX="10.0" layoutY="463.0" style="-fx-text-fill: Black;" text="Desconto Máximo na Venda" />
+                  <TextField fx:id="txtDescontoMaxVenda" layoutX="340.0" layoutY="463.0" prefHeight="25.0" prefWidth="100.0" text="0,0000" />
+               </children>
+            </Pane>
+            <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" layoutX="13.0" layoutY="237.0" prefHeight="36.0" prefWidth="367.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#actionBtnInsert" prefHeight="17.0" prefWidth="29.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="10.0" prefWidth="10.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="lblErrorMessage" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="241.0" style="-fx-text-fill: red;" text="Code not found" textFill="#f50606" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

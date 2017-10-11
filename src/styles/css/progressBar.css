@@ -1,0 +1,31 @@
+.root { -fx-background-color: rgba(0.0, 0.0, 0.0, 0.4) }
+
+.label {
+	-fx-text-fill: #e0e0e0;
+	-fx-font-size: 12.0px;
+	-fx-font-family: "verdana";
+	}
+	
+#info {
+	-fx-text-fill: black;
+	-fx-font-size: 18.0px;
+	-fx-font-family: "verdana";
+
+}
+	
+.button {
+	-fx-background-color: transparent;
+}
+
+.button #icons {
+	-fx-fill: #616161;
+}
+
+.button #icons:hover{
+	-fx-fill: #EEEEEE;
+}
+
+ .progress-indicator {
+	-fx-progress-color: #2196F3;
+}
+

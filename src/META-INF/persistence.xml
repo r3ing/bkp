@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+	
+	<persistence-unit name="ConnectionData" transaction-type="RESOURCE_LOCAL">
+		<class>models.compras.Aplicacao</class>
+		<class>models.compras.BoxLocalEstoque</class>
+		<class>models.compras.CorEstilo</class>
+		<class>models.compras.Departamento</class>
+		<class>models.compras.Fabricante</class>
+		<class>models.compras.FamiliaPreco</class>
+		<class>models.compras.Fornecedor</class>
+		<class>models.compras.FornecedorPK</class>
+		<class>models.compras.Grade</class>
+		<class>models.compras.Grupo</class>
+		<class>models.compras.GrupoPK</class>
+		<class>models.compras.Item</class>
+		<class>models.compras.ItemCodBar</class>
+		<class>models.compras.ItemCodBarPK</class>
+		<class>models.compras.ItemEstoqueDeposito</class>
+		<class>models.compras.ItemEstoqueDepositoPK</class>
+		<class>models.compras.ItemFornecedor</class>
+		<class>models.compras.ItemFornecedorPK</class>
+		<class>models.compras.ItemMovimentacao</class>
+		<class>models.compras.ItemMovimentacaoPK</class>
+		<class>models.compras.ItemValor</class>
+		<class>models.compras.ItemValorPK</class>
+		<class>models.compras.LcServico</class>
+		<class>models.compras.NfEntradaCab</class>
+		<class>models.compras.NfEntradaCabPK</class>
+		<class>models.compras.NfEntradaDet</class>
+		<class>models.compras.NfEntradaDetPK</class>
+		<class>models.compras.NfEntradaFat</class>
+		<class>models.compras.NfEntradaFatPK</class>
+		<class>models.compras.NfEntradaXml</class>
+		<class>models.compras.NfEntradaXmlPK</class>
+		<class>models.compras.OperacaoEntrada1</class>
+		<class>models.compras.Segmento</class>
+		<class>models.compras.SegmentoPK</class>
+		<class>models.compras.SubGrupo</class>
+		<class>models.compras.TabelaLcServico</class>
+		<class>models.compras.TabelaLcServicoPK</class>
+		<class>models.compras.TabelaNCM</class>
+		<class>models.compras.Tributacao</class>
+		<class>models.compras.Unidade</class>
+		<class>models.configuracoes.Auditoria</class>
+		<class>models.configuracoes.Compartilhamento</class>
+		<class>models.configuracoes.CompartilhamentoPK</class>
+		<class>models.configuracoes.Config</class>
+		<class>models.configuracoes.DepositoEstoque</class>
+		<class>models.configuracoes.Empresa</class>
+		<class>models.configuracoes.LayoutArquivoCab</class>
+		<class>models.configuracoes.LayoutArquivoCabPK</class>
+		<class>models.configuracoes.LayoutArquivoDet</class>
+		<class>models.configuracoes.LayoutArquivoDetPK</class>
+		<class>models.configuracoes.NivelAcesso</class>
+		<class>models.configuracoes.NivelAcessoPK</class>
+		<class>models.configuracoes.OperacaoEntrada</class>
+		<class>models.configuracoes.OperacaoEntradaPK</class>
+		<class>models.configuracoes.OperacaoFinanceiro</class>
+		<class>models.configuracoes.OperacaoFinanceiroPK</class>
+		<class>models.configuracoes.OperacaoSaida</class>
+		<class>models.configuracoes.OperacaoSaidaPK</class>
+		<class>models.configuracoes.Sequencial</class>
+		<class>models.configuracoes.SequencialPK</class>
+		<class>models.configuracoes.TabelaAuxiliarCfop</class>
+		<class>models.configuracoes.TabelaAuxiliarCfopPK</class>
+		<class>models.configuracoes.TabelaAuxiliarCstCofin</class>
+		<class>models.configuracoes.TabelaAuxiliarCstCofinPK</class>
+		<class>models.configuracoes.TabelaAuxiliarCstIcm</class>
+		<class>models.configuracoes.TabelaAuxiliarCstIcmPK</class>
+		<class>models.configuracoes.TabelaAuxiliarCstIpi</class>
+		<class>models.configuracoes.TabelaAuxiliarCstIpiPK</class>
+		<class>models.configuracoes.TabelaAuxiliarCstPi</class>
+		<class>models.configuracoes.TabelaAuxiliarCstPiPK</class>
+		<class>models.configuracoes.Usuario</class>
+		<class>models.financeiro.CaixaBanco</class>
+		<class>models.financeiro.CaixaBancoPK</class>
+		<class>models.financeiro.CentroCusto</class>
+		<class>models.financeiro.CentroCustoPK</class>
+		<class>models.financeiro.ContasReceber</class>
+		<class>models.financeiro.ContasReceberPK</class>
+		<class>models.financeiro.Moeda</class>
+		<class>models.financeiro.MoedaPK</class>
+		<class>models.financeiro.PlanoConta</class>
+		<class>models.financeiro.PlanoContaPK</class>
+		<class>models.financeiro.Portador</class>
+		<class>models.financeiro.PortadorPK</class>
+		<class>models.financeiro.Secao</class>
+		<class>models.financeiro.SecaoPK</class>
+		<class>models.recursosHumanos.Funcionario</class>
+		<class>models.recursosHumanos.FuncionarioPK</class>
+		<class>models.vendas.Cidade</class>
+		<class>models.vendas.CidadePK</class>
+		<class>models.vendas.Cliente</class>
+		<class>models.vendas.ClienteEndEntrega</class>
+		<class>models.vendas.ClienteEndEntregaPK</class>
+		<class>models.vendas.ClientePK</class>
+		<class>models.vendas.Convenio</class>
+		<class>models.vendas.ConvenioPK</class>
+		<class>models.vendas.MensagemNotaFiscal</class>
+		<class>models.vendas.MensagemNotaFiscalPK</class>
+		<class>models.vendas.Pais</class>
+		<class>models.vendas.PlanoPagamento</class>
+		<class>models.vendas.PlanoPagamentoPK</class>
+		<class>models.vendas.RamoAtividade</class>
+		<class>models.vendas.RamoAtividadePK</class>
+		<class>models.vendas.Regiao</class>
+		<class>models.vendas.RegiaoPK</class>
+		<class>models.vendas.Rota</class>
+		<class>models.vendas.RotaPK</class>
+		<class>models.vendas.Uf</class>
+
+		<!-- <class>model.Prueba</class> -->
+		
+		<properties>
+			<property name="hibernate.show_sql" value="true"/>
+			
+		</properties>	
+		<!-- <properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.20:3306/eptus3" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="7I504A0l194w544m7H" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+		</properties> -->
+	</persistence-unit>
+		
+</persistence>

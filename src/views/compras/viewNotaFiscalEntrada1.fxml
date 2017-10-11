@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ProgressBar fx:id="pBar" layoutY="377.0" prefHeight="18.0" prefWidth="534.0" progress="0.0" visible="false" />
+      <HBox layoutX="2.0" layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="237.0" prefWidth="886.0" spacing="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <AnchorPane prefHeight="239.0" prefWidth="887.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label layoutX="9.0" layoutY="11.0" text="Operação" />
+                  <CustomTextField fx:id="txtCodigoOperacao" layoutX="80.0" layoutY="6.0" minHeight="-Infinity" onKeyPressed="#actionKeyPressedOperacao" prefHeight="22.0" prefWidth="85.0" />
+                  <TextField fx:id="txtOperacao" layoutX="167.0" layoutY="6.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="217.0" />
+                  <Label layoutX="8.0" layoutY="42.0" text="Arquivo XML" />
+                  <CustomTextField fx:id="txtFileChooser" layoutX="80.0" layoutY="35.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="415.0" />
+                  <Button fx:id="btnFileChooser" layoutX="505.0" layoutY="34.0" mnemonicParsing="false" onAction="#actionBtnFileChooserXML" prefHeight="25.0" prefWidth="23.0">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="FOLDER_OPEN" size="16" />
+                     </graphic>
+                  </Button>
+                  <Label layoutX="8.0" layoutY="62.0" text="Código" />
+                  <CustomTextField fx:id="txtCodigoFornecedor" layoutX="7.0" layoutY="78.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="85.0" />
+                  <Label layoutX="94.0" layoutY="62.0" text="Fornecedor" />
+                  <TextField fx:id="txtFornecedor" layoutX="94.0" layoutY="78.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="205.0" />
+                  <Label layoutX="310.0" layoutY="63.0" text="No CNPJ" />
+                  <TextField fx:id="txtNoCNPJ" layoutX="308.0" layoutY="78.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="127.0" />
+                  <Label layoutX="444.0" layoutY="63.0" text="No Nota Fiscal" />
+                  <TextField fx:id="txtNoNotaFiscal" layoutX="444.0" layoutY="78.0" minHeight="-Infinity" prefHeight="22.0" />
+                  <Label layoutX="606.0" layoutY="61.0" text="Código Seção" />
+                  <CustomTextField fx:id="txtCodigoSecao" layoutX="605.0" layoutY="77.0" minHeight="-Infinity" onKeyPressed="#actionKeyPressedSecao" prefHeight="22.0" prefWidth="85.0" />
+                  <TextField fx:id="txtSecao" layoutX="692.0" layoutY="77.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="126.0" />
+                  <CustomTextField fx:id="txtCodigoPlanosContas" layoutX="9.0" layoutY="121.0" minHeight="-Infinity" onKeyPressed="#actionKeyPressedPlanosContas" prefHeight="22.0" prefWidth="85.0" />
+                  <TextField fx:id="txtPlanoContas" layoutX="96.0" layoutY="121.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="126.0" />
+                  <CustomTextField fx:id="txtCodigoPortador" layoutX="231.0" layoutY="121.0" minHeight="-Infinity" onKeyPressed="#actionKeyPressedPortador" prefHeight="22.0" prefWidth="85.0" />
+                  <TextField fx:id="txtPortador" layoutX="318.0" layoutY="121.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="96.0" />
+                  <TextField fx:id="txtCFOP" layoutX="420.0" layoutY="120.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="56.0" />
+                  <DatePicker fx:id="dtxtDataEmissao" layoutX="481.0" layoutY="120.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                  <DatePicker fx:id="dtxtDataChegada" layoutX="607.0" layoutY="119.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                  <Label layoutX="8.0" layoutY="105.0" text="Código Planos de Contas" />
+                  <Label layoutX="231.0" layoutY="106.0" text="Código Portador" />
+                  <Label layoutX="420.0" layoutY="105.0" text="CFOP" />
+                  <Label layoutX="483.0" layoutY="105.0" text="Data Emissão" />
+                  <Label layoutX="607.0" layoutY="104.0" text="Data Chegada" />
+                  <Label layoutX="542.0" layoutY="204.0" />
+                  <ToggleButton fx:id="btnDownloadNFe" layoutX="550.0" layoutY="34.0" mnemonicParsing="false" onAction="#actionBtnDownloadNFe" prefHeight="25.0" prefWidth="34.0">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="DOWNLOAD" size="16" />
+                     </graphic>
+                  </ToggleButton>
+                  <Label layoutX="8.0" layoutY="168.0" text="Produtos [itens/qtd]" />
+                  <TextField fx:id="txtTotalItens" editable="false" layoutX="119.0" layoutY="165.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="39.0" />
+                  <TextField fx:id="txtVTotalQtdComercialProd" editable="false" layoutX="161.0" layoutY="165.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="56.0" />
+                  <Label layoutX="434.0" layoutY="168.0" text="Total IPI" />
+                  <TextField fx:id="txtVTotalIPI" editable="false" layoutX="517.0" layoutY="164.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="228.0" layoutY="194.0" text="Total ICMS Deson" />
+                  <TextField fx:id="txtVTotalICMSDeson" editable="false" layoutX="326.0" layoutY="191.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="228.0" layoutY="220.0" text="Total ICMS ST" />
+                  <TextField fx:id="txtVTotalICMSST" editable="false" layoutX="327.0" layoutY="217.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="8.0" layoutY="193.0" text="Total Produtos" />
+                  <TextField fx:id="txtVTotalProducto" editable="false" layoutX="119.0" layoutY="191.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="625.0" layoutY="194.0" text="Total Frete [DES]" />
+                  <TextField fx:id="txtVTotalFrete" editable="false" layoutX="717.0" layoutY="191.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="626.0" layoutY="166.0" text="Total Seguro" />
+                  <TextField fx:id="txtVTotalSeguro" editable="false" layoutX="717.0" layoutY="163.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="434.0" layoutY="193.0" text="Total Desconto" />
+                  <TextField fx:id="txtVTotalDesconto" editable="false" layoutX="517.0" layoutY="190.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="434.0" layoutY="220.0" text="Total Desp. Ac." />
+                  <TextField fx:id="txtVTotalDespAc" editable="false" layoutX="517.0" layoutY="217.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Label layoutX="8.0" layoutY="218.0" text="Total Nota Fiscal" />
+                  <TextField fx:id="txtVTotalNotaFiscal" editable="false" layoutX="119.0" layoutY="217.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+                  <Separator layoutX="8.0" layoutY="154.0" prefHeight="7.0" prefWidth="805.0" />
+                  <Label layoutX="228.0" layoutY="167.0" text="Total ICMS" />
+                  <TextField fx:id="txtVTotalICMS" editable="false" layoutX="325.0" layoutY="164.0" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="96.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <VBox id="tabPane-inside" layoutX="5.0" layoutY="246.0" prefWidth="886.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="246.0">
+         <children>
+            <TabPane prefHeight="270.0" prefWidth="886.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Nota Fiscal Eletrônica">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane id="tabPane-horizontal" layoutX="7.0" layoutY="4.0" prefWidth="884.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                <tabs>
+                                  <Tab fx:id="tabCabecalho" closable="false">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tbViewCabecalhoNotFisc" layoutX="6.0" layoutY="3.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="3.0">
+                                                   <columns>
+	                                                    <TableColumn fx:id="ideCUF" prefWidth="75.0" text="Ide_cUF" />
+	                                                    <TableColumn fx:id="ideCNF" prefWidth="75.0" text="Ide_cNF" />	                                                    
+	                                                    <TableColumn fx:id="ideNatOp" prefWidth="75.0" text="Ide_natOp" />
+	                                                    <TableColumn fx:id="ideIndPag" prefWidth="75.0" text="Ide_indPag" />
+	                                                    <TableColumn fx:id="ideMod" prefWidth="75.0" text="Ide_mod" />
+	                                                    <TableColumn fx:id="ideSerie" prefWidth="75.0" text="Ide_serie" />
+	                                                    <TableColumn fx:id="ideNNF" prefWidth="75.0" text="Ide_nNF" />
+	                                                    <TableColumn fx:id="ideDEmi" prefWidth="75.0" text="Ide_dEmi" />
+	                                                    <TableColumn fx:id="ideDSaiEnt" prefWidth="75.0" text="Ide_dSaiEnt" />
+	                                                    <TableColumn fx:id="ideTpNF" prefWidth="75.0" text="Ide_tpNF" />
+	                                                    <TableColumn fx:id="ideCMunFG" prefWidth="75.0" text="Ide_cMunFG" />
+	                                                    <TableColumn fx:id="ideTpImp" prefWidth="75.0" text="Ide_tpImp" />
+	                                                    <TableColumn fx:id="ideTpEmis" prefWidth="75.0" text="Ide_tpEmis" />
+	                                                    <TableColumn fx:id="ideCDV" prefWidth="75.0" text="Ide_cDV" />
+	                                                    <TableColumn fx:id="ideTpAmb" prefWidth="75.0" text="Ide_tpAmb" />
+	                                                    <TableColumn fx:id="ideFinNFe" prefWidth="75.0" text="Ide_finNFe" />
+	                                                    <TableColumn fx:id="ideProEmi" prefWidth="75.0" text="Ide_proEmi" />
+	                                                    <TableColumn fx:id="ideVerProc" prefWidth="75.0" text="Ide_verProc" />	                                                    	                                                    
+	                                                    <TableColumn fx:id="emitCNPJ" prefWidth="75.0" text="Emit_CNPJ" />
+	                                                    <TableColumn fx:id="emitCPF" prefWidth="75.0" text="Emit_CPF" />
+	                                                    <TableColumn fx:id="emitxNome" prefWidth="75.0" text="Emit_xNome" />
+	                                                    <TableColumn fx:id="emitxFant" prefWidth="75.0" text="Emit_xFant" />
+	                                                    <TableColumn fx:id="enderEmitxLgr" prefWidth="75.0" text="EnderEmit_xLgr" />
+	                                                    <TableColumn fx:id="enderEmitNro" prefWidth="75.0" text="EnderEmit_nro" />
+	                                                    <TableColumn fx:id="enderEmitxCpl" prefWidth="75.0" text="EnderEmit_xCpl" />
+	                                                    <TableColumn fx:id="enderEmitxBairro" prefWidth="75.0" text="EnderEmit_xBairro" />
+	                                                    <TableColumn fx:id="enderEmitcMun" prefWidth="75.0" text="EnderEmit_cMun" />
+	                                                    <TableColumn fx:id="enderEmitxMun" prefWidth="75.0" text="EnderEmit_xMun" />
+	                                                    <TableColumn fx:id="enderEmitUF" prefWidth="75.0" text="EnderEmit_UF" />
+	                                                    <TableColumn fx:id="enderEmitCEP" prefWidth="75.0" text="EnderEmit_CEP" />	                                                    
+	                                                    <TableColumn fx:id="enderEmitcPais" prefWidth="75.0" text="EnderEmit_cPaís" />
+	                                                    <TableColumn fx:id="enderEmitxPais" prefWidth="75.0" text="EnderEmit_xPaís" />
+	                                                    <TableColumn fx:id="enderEmitFone" prefWidth="75.0" text="EnderEmit_fone" />
+	                                                    <TableColumn fx:id="emitIE" prefWidth="75.0" text="Emit_IE" />
+	                                                    <TableColumn fx:id="emitIEST" prefWidth="75.0" text="Emit_IEST" />
+	                                                    <TableColumn fx:id="emitIM" prefWidth="75.0" text="Emit_IM" />
+	                                                    <TableColumn fx:id="emitCNAE" prefWidth="75.0" text="Emit_CNAE" />
+	                                                    <TableColumn fx:id="emitCRT" prefWidth="75.0" text="Emit_CRT" />	                                                                                                      
+	                                                    <TableColumn fx:id="destCNPJ" prefWidth="75.0" text="Dest_CNPJ" />
+	                                                    <TableColumn fx:id="destCPF" prefWidth="75.0" text="Dest_CPF" />
+	                                                    <TableColumn fx:id="destxNome" prefWidth="75.0" text="Dest_xNome" />
+	                                                    <TableColumn fx:id="destEmail" prefWidth="75.0" text="Dest_Email" />
+	                                                    <TableColumn fx:id="enderDestxLgr" prefWidth="75.0" text="EnderDest_xLgr" />
+	                                                    <TableColumn fx:id="enderDestNro" prefWidth="75.0" text="EnderDest_nro" />
+	                                                    <TableColumn fx:id="enderDestxCpl" prefWidth="75.0" text="EnderDest_xCpl" />
+	                                                    <TableColumn fx:id="enderDestxBairro" prefWidth="75.0" text="EnderDest_xBairro" />
+	                                                    <TableColumn fx:id="enderDestcMun" prefWidth="75.0" text="EnderDest_cMun" />
+	                                                    <TableColumn fx:id="enderDestxMun" prefWidth="75.0" text="EnderDest_xMun" />
+	                                                    <TableColumn fx:id="enderDestUF" prefWidth="75.0" text="EnderDest_UF" />
+	                                                    <TableColumn fx:id="enderDestCEP" prefWidth="75.0" text="EnderDest_CEP" />	                                                    
+	                                                    <TableColumn fx:id="enderDestcPais" prefWidth="75.0" text="EnderDest_cPaís" />
+	                                                    <TableColumn fx:id="enderDestxPais" prefWidth="75.0" text="EnderDest_xPaís" />
+	                                                    <TableColumn fx:id="enderDestFone" prefWidth="75.0" text="EnderDest_fone" />
+	                                                    <TableColumn fx:id="destIE" prefWidth="75.0" text="Dest_IE" />
+	                                                    <TableColumn fx:id="destISUF" prefWidth="75.0" text="Dest_ISUF" />	                                                    
+	                                                    <TableColumn fx:id="entregaCNPJ" prefWidth="75.0" text="Entrega_CNPJ" />	                                                    
+	                                                    <TableColumn fx:id="entregaxLgr" prefWidth="75.0" text="Entrega_xLgr" />
+	                                                    <TableColumn fx:id="entregaNro" prefWidth="75.0" text="Entrega_nro" />
+	                                                    <TableColumn fx:id="entregaxCpl" prefWidth="75.0" text="Entrega_xCpl" />
+	                                                    <TableColumn fx:id="entregaxBairro" prefWidth="75.0" text="Entrega_xBairro" />
+	                                                    <TableColumn fx:id="entregacMun" prefWidth="75.0" text="Entrega_cMun" />
+	                                                    <TableColumn fx:id="entregaxMun" prefWidth="75.0" text="Entrega_xMun" />
+	                                                    <TableColumn fx:id="entregaUF" prefWidth="75.0" text="Entrega_UF" />
+	                                                    <TableColumn fx:id="totalICMSTotvBC" prefWidth="75.0" text="Total_ICMSTot_vBC" />
+	                                                    <TableColumn fx:id="totalICMSTotvICMS" prefWidth="75.0" text="Total_ICMSTot_vICMS" />
+	                                                    <TableColumn fx:id="totalICMSTotvBCST" prefWidth="75.0" text="Total_ICMSTot_vBCST" />
+	                                                    <TableColumn fx:id="totalICMSTotvST" prefWidth="75.0" text="Total_ICMSTot_vST" />
+	                                                    <TableColumn fx:id="totalICMSTotvProd" prefWidth="75.0" text="Total_ICMSTot_vProd" />
+	                                                    <TableColumn fx:id="totalICMSTotvFrete" prefWidth="75.0" text="Total_ICMSTot_vFrete" />
+	                                                    <TableColumn fx:id="totalICMSTotvSeg" prefWidth="75.0" text="Total_ICMSTot_vSeg" />	                                                    
+	                                                    <TableColumn fx:id="totalICMSTotvDesc" prefWidth="75.0" text="Total_ICMSTot_vDesc" />
+	                                                    <TableColumn fx:id="totalICMSTotvII" prefWidth="75.0" text="Total_ICMSTot_vII" />
+	                                                    <TableColumn fx:id="totalICMSTotvIPI" prefWidth="75.0" text="Total_ICMSTot_vIPI" />
+	                                                    <TableColumn fx:id="totalICMSTotvPIS" prefWidth="75.0" text="Total_ICMSTot_vPIS" />
+	                                                    <TableColumn fx:id="totalICMSTotvCOFINS" prefWidth="75.0" text="Total_ICMSTot_vCOFINS" />	                                                    
+	                                                    <TableColumn fx:id="totalICMSTotvOUTRO" prefWidth="75.0" text="Total_ICMSTot_vOUTRO" />	                                                     
+	                                                    <TableColumn fx:id="totalISSTotvServ" prefWidth="75.0" text="Total_ISSTot_vServ" />
+	                                                    <TableColumn fx:id="totalISSTotvBC" prefWidth="75.0" text="Total_ISSTot_vBC" />
+	                                                    <TableColumn fx:id="totalISSTotvISS" prefWidth="75.0" text="Total_ISSTot_vISS" />
+	                                                    <TableColumn fx:id="totalISSTotvPIS" prefWidth="75.0" text="Total_ISSTot_vPIS" />
+	                                                    <TableColumn fx:id="totalISSTotvCOFINS" prefWidth="75.0" text="Total_ISSTot_vCOFINS" />	                                                    	                                                    
+														<TableColumn fx:id="totalRetTribvRetPIS" prefWidth="75.0" text="Total_RetTrib_vRetPIS" />
+														<TableColumn fx:id="totalRetTribvRetCOFINS" prefWidth="75.0" text="Total_RetTrib_vRetCOFINS" />
+														<TableColumn fx:id="totalRetTribvRetCSLL" prefWidth="75.0" text="Total_RetTrib_vRetCSLL" />
+														<TableColumn fx:id="totalRetTribvBCIRRF" prefWidth="75.0" text="Total_RetTrib_vBCIRRF" />
+														<TableColumn fx:id="totalRetTribvIRRF" prefWidth="75.0" text="Total_RetTrib_vIRRF" />
+														<TableColumn fx:id="totalRetTribvBCRetPrev" prefWidth="75.0" text="Total_RetTrib_vBCRetPrev" />
+														<TableColumn fx:id="totalRetTribvRetPrev" prefWidth="75.0" text="Total_RetTrib_vRetPrev" />
+														<TableColumn fx:id="transpModFrete" prefWidth="75.0" text="Transp_modFrete" />
+														<TableColumn fx:id="transportaCNPJ" prefWidth="75.0" text="Transporta_CNPJ" />
+														<TableColumn fx:id="transportaCPF" prefWidth="75.0" text="Transporta_CPF" />
+														<TableColumn fx:id="transportaANTT" prefWidth="75.0" text="Transporta_ANTT" />
+														<TableColumn fx:id="transportaPlaca" prefWidth="75.0" text="Transporta_Placa" />
+														<TableColumn fx:id="transportaPlacaUF" prefWidth="75.0" text="Transporta_PlacaUF" />
+														<TableColumn fx:id="transportaxNome" prefWidth="75.0" text="Transporta_xNome" />
+														<TableColumn fx:id="transportaxEnder" prefWidth="75.0" text="Transporta_xEnder" />
+														<TableColumn fx:id="transportaxMun" prefWidth="75.0" text="Transporta_xMun" />
+														<TableColumn fx:id="transportaUF" prefWidth="75.0" text="Transporta_UF" />
+														<TableColumn fx:id="transpRetTranspvServ" prefWidth="75.0" text="Transp_retTransp_vServ" />
+														<TableColumn fx:id="transpRetTranspvBCRet" prefWidth="75.0" text="Transp_retTransp_vBCRet" />
+														<TableColumn fx:id="transpRetTransppICMSRet" prefWidth="75.0" text="Transp_retTransp_pICMSRet" />
+														<TableColumn fx:id="transpRetTranspvICMSRet" prefWidth="75.0" text="Transp_retTransp_vICMSRet" />
+														<TableColumn fx:id="transpRetTranspCFOP" prefWidth="75.0" text="Transp_retTransp_CFOP" />
+														<TableColumn fx:id="transpRetTranspcMunFG" prefWidth="75.0" text="Transp_retTransp_cMunFG" />
+														<TableColumn fx:id="transpVolqVol" prefWidth="75.0" text="Transp_Vol_qVol" />
+														<TableColumn fx:id="transpVolEsp" prefWidth="75.0" text="Transp_Vol_esp" />
+														<TableColumn fx:id="transpVolMarca" prefWidth="75.0" text="Transp_Vol_marca" />
+														<TableColumn fx:id="transpVolPesoL" prefWidth="75.0" text="Transp_Vol_pesoL" />
+														<TableColumn fx:id="transpVolPesoB" prefWidth="75.0" text="Transp_Vol_pesoB" />
+														<TableColumn fx:id="transpVolnLacres" prefWidth="75.0" text="Transp_Vol_nLacres" />
+														<TableColumn fx:id="exportaUFEmbarq" prefWidth="75.0" text="Exporta_UFEmbarq" />
+														<TableColumn fx:id="exportaxLocEmbarq" prefWidth="75.0" text="Exporta_xLocEmbarq" />
+														<!--<TableColumn fx:id="infAdicInfCpl" prefWidth="75.0" text="InfAdic_infCpl" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl1" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl2" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl3" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl4" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl5" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl6" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl7" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl8" />
+														<TableColumn prefWidth="75.0" text="InfAdic_infCpl9" />
+														<TableColumn fx:id="infAdicInfAdFisco" prefWidth="75.0" text="InfAdic_infAdFisco" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_1" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_2" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_3" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_4" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_5" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_6" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_7" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_8" />
+														<TableColumn prefWidth="75.0" text="Msg_Adi_9" />
+														<TableColumn prefWidth="75.0" text="Msg_Desc_Decreto" />
+														<TableColumn prefWidth="75.0" text="Msg_Reducao_Fuf" />
+														<TableColumn prefWidth="75.0" text="Msg_Reducao_Duf" />
+														<TableColumn prefWidth="75.0" text="Msg_ICMS_Anteci" />
+														<TableColumn prefWidth="75.0" text="Msg_ICMS_Anteci" />
+														<TableColumn prefWidth="75.0" text="Msg_ISS_DCid" />
+														<TableColumn prefWidth="75.0" text="Msg_ISS_FCid" />
+														<TableColumn prefWidth="75.0" text="Msg_ISS_OutraNF" />
+														<TableColumn prefWidth="75.0" text="Msg_NF_Referenciada" />
+														<TableColumn prefWidth="75.0" text="Msg_Pis_Cofins" />
+														<TableColumn prefWidth="75.0" text="Msg_Procom" />
+														<TableColumn prefWidth="75.0" text="Msg_DadosVeiculo" /> -->
+                                                   </columns></TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="tabDetalhe" closable="false">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tbViewDetalheNotFisc" layoutX="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="3.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="detNoItem" prefWidth="75.0" text="Det_nItem" />
+                                                    <TableColumn fx:id="detProdcProd" prefWidth="75.0" text="Det_prod_cProd" />
+                                                    <TableColumn fx:id="detProdcEAN" prefWidth="75.0" text="Det_prod_cEAN" />
+                                                    <TableColumn fx:id="detProdxProd" prefWidth="75.0" text="Det_prod_xProd" />
+                                                    <TableColumn fx:id="detProdNCM" prefWidth="75.0" text="Det_prod_NCM" />
+                                                    <TableColumn fx:id="detProdEXTIPI" prefWidth="75.0" text="Det_prod_EXTIPI" />
+                                                    <TableColumn fx:id="detProdCFOP" prefWidth="75.0" text="Det_prod_CFOP" />
+                                                    <TableColumn fx:id="detProduCom" prefWidth="75.0" text="Det_prod_uCom" />
+                                                    <TableColumn fx:id="detProdqCom" prefWidth="75.0" text="Det_prod_qCom" />
+                                                    <TableColumn fx:id="detProdqDev" prefWidth="75.0" text="Det_prod_qDev" />
+                                                    <TableColumn fx:id="detProdvUnCom" prefWidth="75.0" text="Det_prod_vUnCom" />
+                                                    <TableColumn fx:id="detProdvProd" prefWidth="75.0" text="Det_prod_vProd" />
+                                                    <TableColumn fx:id="detProdcEANTrib" prefWidth="75.0" text="Det_prod_cEANTrib" />
+                                                    <TableColumn fx:id="detProduTrib" prefWidth="75.0" text="Det_prod_uTrib" />
+                                                    <TableColumn fx:id="detProdqTrib" prefWidth="75.0" text="Det_prod_qTrib" />
+                                                    <TableColumn fx:id="detProdvUnTrib" prefWidth="75.0" text="Det_prod_vUnTrib" />
+                                                    <TableColumn fx:id="detProdvFrete" prefWidth="75.0" text="Det_prod_vFrete" />
+                                                    <TableColumn fx:id="detProdvSeg" prefWidth="75.0" text="Det_prod_vSeg" />
+                                                    <TableColumn fx:id="detProdvDesc" prefWidth="75.0" text="Det_prod_vDesc" />
+                                                    <TableColumn fx:id="detProdIndTot" prefWidth="75.0" text="Det_prod_indTot" />
+                                                   	<TableColumn fx:id="detProdVeicFlag" prefWidth="75.0" text="Det_prod_Veic_Flag" />
+                                                  	<TableColumn fx:id="detProdVeictpOP" prefWidth="75.0" text="Det_prod_Veic_tpOP" />
+                                                  	<TableColumn fx:id="detProdVeicChassi" prefWidth="75.0" text="Det_prod_Veic_chassi" />
+                                                  	<TableColumn fx:id="detProdVeiccCor" prefWidth="75.0" text="Det_prod_Veic_cCor" />
+                                                  	<TableColumn fx:id="detProdVeicxCor" prefWidth="75.0" text="Det_prod_Veic_xCor" />
+                                                  	<TableColumn fx:id="detProdVeicPot" prefWidth="75.0" text="Det_prod_Veic_pot" />
+                                                  	<TableColumn fx:id="detProdVeicCm3" prefWidth="75.0" text="Det_prod_Veic_Cm3" />
+                                                  	<TableColumn fx:id="detProdVeicPesoL" prefWidth="75.0" text="Det_prod_Veic_pesoL" />
+                                                  	<TableColumn fx:id="detProdVeicPesoB" prefWidth="75.0" text="Det_prod_Veic_pesoB" />
+                                                  	<TableColumn fx:id="detProdVeicnSerie" prefWidth="75.0" text="Det_prod_Veic_nSerie" />
+                                                  	<TableColumn fx:id="detProdVeicTpComb" prefWidth="75.0" text="Det_prod_Veic_tpComb" />
+                                                  	<TableColumn fx:id="detProdVeicnMotor" prefWidth="75.0" text="Det_prod_Veic_nMotor" />
+                                                  	<TableColumn fx:id="detProdVeicCmkg" prefWidth="75.0" text="Det_prod_Veic_Cmkg" />
+                                                  	<TableColumn fx:id="detProdVeicDist" prefWidth="75.0" text="Det_prod_Veic_Dist" />
+                                                  	<TableColumn fx:id="detProdVeicRenavam" prefWidth="75.0" text="Det_prod_Veic_Renavam" />
+                                                  	<TableColumn fx:id="detProdVeicAnoMod" prefWidth="75.0" text="Det_prod_Veic_AnoMod" />
+                                                  	<TableColumn fx:id="detProdVeicAnoFab" prefWidth="75.0" text="Det_prod_Veic_AnoFab" />
+                                                  	<TableColumn fx:id="detProdVeicTpPint" prefWidth="75.0" text="Det_prod_Veic_tpPint" />
+                                                  	<TableColumn fx:id="detProdVeicTpVeic" prefWidth="75.0" text="Det_prod_Veic_tpVeic" />
+                                                  	<TableColumn fx:id="detProdVeicEspVeic" prefWidth="75.0" text="Det_prod_Veic_espVeic" />
+                                                  	<TableColumn fx:id="detProdVeicVin" prefWidth="75.0" text="Det_prod_Veic_Vin" />
+                                                  	<TableColumn fx:id="detProdVeicCondVeic" prefWidth="75.0" text="Det_prod_Veic_condVeic" />
+                                                  	<TableColumn fx:id="detProdVeicCMod" prefWidth="75.0" text="Det_prod_Veic_cMod" />
+                                                  	<TableColumn fx:id="detProdCombCProdANP" prefWidth="75.0" text="Det_prod_Comb_cProdANP" />                                                  	
+                                                  	<TableColumn fx:id="detProdCombCODIF" prefWidth="75.0" text="Det_prod_Comb_CODIF" />
+                                                  	<TableColumn fx:id="detProdCombQTemp" prefWidth="75.0" text="Det_prod_Comb_qTemp" />
+                                                  	<TableColumn fx:id="detProdCombUFCons" prefWidth="75.0" text="Det_prod_Comb_UFCons" />
+                                                  	<TableColumn fx:id="detProdCombCIDEQBCProd" prefWidth="75.0" text="Det_prod_Comb_CIDE_qBCProd" />
+                                                  	<TableColumn fx:id="detProdCombCIDEVAliqProd" prefWidth="75.0" text="Det_prod_Comb_CIDE_vAliqProd" />
+                                                  	<TableColumn fx:id="detProdCombCIDEvCIDE" prefWidth="75.0" text="Det_prod_Comb_CIDE_vCIDE" />
+                                                  	<TableColumn fx:id="impCargaTribPrc" prefWidth="75.0" text="Imp_CargaTrib_prc" />
+                                                  	<TableColumn fx:id="impCargaTribVlr" prefWidth="75.0" text="Imp_CargaTrib_vlr" />
+                                                  	<TableColumn fx:id="impIPIcIEnq" prefWidth="75.0" text="Imp_IPI_cIEnq" />
+                                                  	<TableColumn fx:id="impIPICNPJProd" prefWidth="75.0" text="Imp_IPI_CNPJProd" />
+                                                  	<TableColumn fx:id="impIPIcSelo" prefWidth="75.0" text="Imp_IPI_cSelo" />
+                                                  	<TableColumn fx:id="impIPIqSelo" prefWidth="75.0" text="Imp_IPI_qSelo" />
+                                                  	<TableColumn fx:id="impIPIcEnq" prefWidth="75.0" text="Imp_IPI_cEnq" />
+                                                  	<TableColumn fx:id="impIPITribCST" prefWidth="75.0" text="Imp_IPITrib_CST" />
+                                                  	<TableColumn fx:id="impIPITribVBC" prefWidth="75.0" text="Imp_IPITrib_vBC" />
+                                                  	<TableColumn fx:id="impIPITribQUnid" prefWidth="75.0" text="Imp_IPITrib_qUnid" />
+                                                  	<TableColumn fx:id="impIPITribVUnid" prefWidth="75.0" text="Imp_IPITrib_vUnid" />
+                                                  	<TableColumn fx:id="impIPITribPIPI" prefWidth="75.0" text="Imp_IPITrib_pIPI" />
+                                                  	<TableColumn fx:id="impIPITribVIPI" prefWidth="75.0" text="Imp_IPITrib_vIPI" />
+                                                  	<TableColumn fx:id="impIPINTCST" prefWidth="75.0" text="Imp_IPINT_CST" />
+                                                  	<TableColumn fx:id="impICMS00Orig" prefWidth="75.0" text="Imp_ICMS_00_Orig" />
+                                                  	<TableColumn fx:id="impICMS00CST" prefWidth="75.0" text="Imp_ICMS_00_CST" />
+                                                  	<TableColumn fx:id="impICMS00ModBC" prefWidth="75.0" text="Imp_ICMS_00_modBC" />
+                                                  	<TableColumn fx:id="impICMS00VBC" prefWidth="75.0" text="Imp_ICMS_00_vBC" />
+                                                  	<TableColumn fx:id="impICMS00PICMS" prefWidth="75.0" text="Imp_ICMS_00_pICMS" />
+                                                  	<TableColumn fx:id="impICMS00VICMS" prefWidth="75.0" text="Imp_ICMS_00_vICMS" />
+                                                  	<TableColumn fx:id="impICMS10Orig" prefWidth="75.0" text="Imp_ICMS_10_Orig" />
+                                                  	<TableColumn fx:id="impICMS10CST" prefWidth="75.0" text="Imp_ICMS_10_CST" />
+                                                  	<TableColumn fx:id="impICMS10ModBC" prefWidth="75.0" text="Imp_ICMS_10_modBC" />
+                                                  	<TableColumn fx:id="impICMS10VBC" prefWidth="75.0" text="Imp_ICMS_10_vBC" />
+                                                  	<TableColumn fx:id="impICMS10PICMS" prefWidth="75.0" text="Imp_ICMS_10_pICMS" />
+                                                  	<TableColumn fx:id="impICMS10VICMS" prefWidth="75.0" text="Imp_ICMS_10_vICMS" />
+                                                  	<TableColumn fx:id="impICMS10ModBCST" prefWidth="75.0" text="Imp_ICMS_10_modBCST" />
+                                                  	<TableColumn fx:id="impICMS10PMVAST" prefWidth="75.0" text="Imp_ICMS_10_pMVAST" />
+                                                  	<TableColumn fx:id="impICMS10PRedBCST" prefWidth="75.0" text="Imp_ICMS_10_pRedBCST" />
+                                                  	<TableColumn fx:id="impICMS10VBCST" prefWidth="75.0" text="Imp_ICMS_10_vBCST" />
+                                                  	<TableColumn fx:id="impICMS10PICMSST" prefWidth="75.0" text="Imp_ICMS_10_pICMSST" />
+                                                  	<TableColumn fx:id="impICMS10VICMSST" prefWidth="75.0" text="Imp_ICMS_10_vICMSST" />                                                  	
+                                                  	<TableColumn fx:id="impICMS20Orig" prefWidth="75.0" text="Imp_ICMS_20_Orig" />
+                                                  	<TableColumn fx:id="impICMS20CST" prefWidth="75.0" text="Imp_ICMS_20_CST" />
+                                                  	<TableColumn fx:id="impICMS20ModBC" prefWidth="75.0" text="Imp_ICMS_20_modBC" />
+                                                  	<TableColumn fx:id="impICMS20VBC" prefWidth="75.0" text="Imp_ICMS_20_vBC" />
+                                                  	<TableColumn fx:id="impICMS20PICMS" prefWidth="75.0" text="Imp_ICMS_20_pICMS" />
+                                                  	<TableColumn fx:id="impICMS20VICMS" prefWidth="75.0" text="Imp_ICMS_20_vICMS" /> 
+                                                  	<TableColumn fx:id="impICMS20VICMSDeson" prefWidth="75.0" text="Imp_ICMS_20_vICMSDeson" />
+                                                  	<TableColumn fx:id="impICMS20MotDesICMS" prefWidth="75.0" text="Imp_ICMS_20_motDesICMS" />                                                
+                                                  	<TableColumn fx:id="impICMS30Orig" prefWidth="75.0" text="Imp_ICMS_30_Orig" />
+                                                  	<TableColumn fx:id="impICMS30CST" prefWidth="75.0" text="Imp_ICMS_30_CST" />
+                                                  	<TableColumn fx:id="impICMS30ModBCST" prefWidth="75.0" text="Imp_ICMS_30_modBCST" />
+                                                  	<TableColumn fx:id="impICMS30PMVAST" prefWidth="75.0" text="Imp_ICMS_30_pMVAST" />
+                                                  	<TableColumn fx:id="impICMS30PRedBCST" prefWidth="75.0" text="Imp_ICMS_30_pRedBCST" />
+                                                  	<TableColumn fx:id="impICMS30VBCST" prefWidth="75.0" text="Imp_ICMS_30_vBCST" />
+                                                  	<TableColumn fx:id="impICMS30PICMSST" prefWidth="75.0" text="Imp_ICMS_30_pICMSST" />
+                                                  	<TableColumn fx:id="impICMS30VICMSST" prefWidth="75.0" text="Imp_ICMS_30_vICMSST" />
+                                                  	<TableColumn fx:id="impICMS30VICMSDeson" prefWidth="75.0" text="Imp_ICMS_30_vICMSDeson" />
+                                                  	<TableColumn fx:id="impICMS30MotDesICMS" prefWidth="75.0" text="Imp_ICMS_30_motDesICMS" />
+                                                  	<TableColumn fx:id="impICMS40Orig" prefWidth="75.0" text="Imp_ICMS_40_Orig" />
+                                                  	<TableColumn fx:id="impICMS40CST" prefWidth="75.0" text="Imp_ICMS_40_CST" />
+                                                  	<TableColumn fx:id="impICMS40VICMSDeson" prefWidth="75.0" text="Imp_ICMS_40_vICMS_Deson" />
+                                                  	<TableColumn fx:id="impICMS40MotDesICMS" prefWidth="75.0" text="Imp_ICMS_40_Mot_Des_ICMS" />
+                                                  	<TableColumn fx:id="impICMS51Orig" prefWidth="75.0" text="Imp_ICMS_51_Orig" />
+                                                  	<TableColumn fx:id="impICMS51CST" prefWidth="75.0" text="Imp_ICMS_51_CST" />
+                                                  	<TableColumn fx:id="impICMS51ModBC" prefWidth="75.0" text="Imp_ICMS_51_modBC" />
+                                                  	<TableColumn fx:id="impICMS51PRedBC" prefWidth="75.0" text="Imp_ICMS_51_pRedBC" />
+                                                  	<TableColumn fx:id="impICMS51VBC" prefWidth="75.0" text="Imp_ICMS_51_vBC" />
+                                                  	<TableColumn fx:id="impICMS51PICMS" prefWidth="75.0" text="Imp_ICMS_51_pICMS" />
+                                                  	<TableColumn fx:id="impICMS51VICMS" prefWidth="75.0" text="Imp_ICMS_51_vICMS" />
+                                               		<TableColumn fx:id="impICMS60Orig" prefWidth="75.0" text="Imp_ICMS_60_Orig" />
+                                                  	<TableColumn fx:id="impICMS60CST" prefWidth="75.0" text="Imp_ICMS_60_CST" />
+                                                  	<TableColumn fx:id="impICMS60VBCSTRet" prefWidth="75.0" text="Imp_ICMS_60_vBCST_Ret" />
+                                                  	<TableColumn fx:id="impICMS60VICMSSTRet" prefWidth="75.0" text="Imp_ICMS_60_vICMSST_Ret" />                                                 
+                                                 	<TableColumn fx:id="impICMS70Orig" prefWidth="75.0" text="Imp_ICMS_70_Orig" />
+                                                  	<TableColumn fx:id="impICMS70CST" prefWidth="75.0" text="Imp_ICMS_70_CST" />
+                                                  	<TableColumn fx:id="impICMS70ModBC" prefWidth="75.0" text="Imp_ICMS_70_modBC" />
+                                                  	<TableColumn fx:id="impICMS70PRedBC" prefWidth="75.0" text="Imp_ICMS_70_pRedBC" />
+                                                  	<TableColumn fx:id="impICMS70VBC" prefWidth="75.0" text="Imp_ICMS_70_vBC" />
+                                                  	<TableColumn fx:id="impICMS70PICMS" prefWidth="75.0" text="Imp_ICMS_70_pICMS" />                                                  	
+                                                  	<TableColumn fx:id="impICMS70VICMS" prefWidth="75.0" text="Imp_ICMS_70_vICMS" />
+                                                  	<TableColumn fx:id="impICMS70ModBCST" prefWidth="75.0" text="Imp_ICMS_70_modBCST" />
+                                                  	<TableColumn fx:id="impICMS70PMVAST" prefWidth="75.0" text="Imp_ICMS_70_pMVAST" />
+                                                  	<TableColumn fx:id="impICMS70PRedBCST" prefWidth="75.0" text="Imp_ICMS_70_pRedBCST" />
+                                                  	<TableColumn fx:id="impICMS70VBCST" prefWidth="75.0" text="Imp_ICMS_70_vBCST" />
+                                                  	<TableColumn fx:id="impICMS70PICMSST" prefWidth="75.0" text="Imp_ICMS_70_pICMSST" />
+                                                  	<TableColumn fx:id="impICMS70VICMSST" prefWidth="75.0" text="Imp_ICMS_70_vICMSST" />
+                                                  	<TableColumn fx:id="impICMS70VICMSDeson" prefWidth="75.0" text="Imp_ICMS_70_vICMSDeson" />
+                                                  	<TableColumn fx:id="impICMS70MotDesICMS" prefWidth="75.0" text="Imp_ICMS_70_motDesICMS" />                                                	
+                                                  	<TableColumn fx:id="impICMS90Orig" prefWidth="75.0" text="Imp_ICMS_90_Orig" />
+                                                  	<TableColumn fx:id="impICMS90CST" prefWidth="75.0" text="Imp_ICMS_90_CST" />
+                                                  	<TableColumn fx:id="impICMS90ModBC" prefWidth="75.0" text="Imp_ICMS_90_modBC" />
+                                                  	<TableColumn fx:id="impICMS90PRedBC" prefWidth="75.0" text="Imp_ICMS_90_pRedBC" />
+                                                  	<TableColumn fx:id="impICMS90VBC" prefWidth="75.0" text="Imp_ICMS_90_vBC" />
+                                                  	<TableColumn fx:id="impICMS90PICMS" prefWidth="75.0" text="Imp_ICMS_90_pICMS" />                                                  	
+                                                  	<TableColumn fx:id="impICMS90VICMS" prefWidth="75.0" text="Imp_ICMS_90_vICMS" />
+                                                  	<TableColumn fx:id="impICMS90ModBCST" prefWidth="75.0" text="Imp_ICMS_90_modBCST" />
+                                                  	<TableColumn fx:id="impICMS90PMVAST" prefWidth="75.0" text="Imp_ICMS_90_pMVAST" />
+                                                  	<TableColumn fx:id="impICMS90PRedBCST" prefWidth="75.0" text="Imp_ICMS_90_pRedBCST" />
+                                                  	<TableColumn fx:id="impICMS90VBCST" prefWidth="75.0" text="Imp_ICMS_90_vBCST" />
+                                                  	<TableColumn fx:id="impICMS90PICMSST" prefWidth="75.0" text="Imp_ICMS_90_pICMSST" />
+                                                  	<TableColumn fx:id="impICMS90VICMSST" prefWidth="75.0" text="Imp_ICMS_90_vICMSST" />
+                                                  	<TableColumn fx:id="impICMS90VICMSDeson" prefWidth="75.0" text="Imp_ICMS_90_vICMSDeson" />
+                                                  	<TableColumn fx:id="impICMS90MotDesICMS" prefWidth="75.0" text="Imp_ICMS_90_motDesICMS" />
+                                                  	<TableColumn fx:id="impICMSPartOrig" prefWidth="75.0" text="Imp_ICMSPart_Orig" />
+                                                  	<TableColumn fx:id="impICMSPartCST" prefWidth="75.0" text="Imp_ICMSPart_CST" />
+                                                  	<TableColumn fx:id="impICMSPartModBC" prefWidth="75.0" text="Imp_ICMSPart_ModBC" />
+                                                  	<TableColumn fx:id="impICMSPartVBC" prefWidth="75.0" text="Imp_ICMSPart_vBC" />
+                                                  	<TableColumn fx:id="impICMSPartPRedBC" prefWidth="75.0" text="Imp_ICMSPart_pRedBC" />
+                                                  	<TableColumn fx:id="impICMSPartPICMS" prefWidth="75.0" text="Imp_ICMSPart_pICMS" />
+                                                  	<TableColumn fx:id="impICMSPartVICMS" prefWidth="75.0" text="Imp_ICMSPart_vICMS" />
+                                                  	<TableColumn fx:id="impICMSPartModBCST" prefWidth="75.0" text="Imp_ICMSPart_modBCST" />
+                                                  	<TableColumn fx:id="impICMSPartPMVAST" prefWidth="75.0" text="Imp_ICMSPart_pMVAST" />
+                                                  	<TableColumn fx:id="impICMSPartPRedBCST" prefWidth="75.0" text="Imp_ICMSPart_pRedBCST" />
+                                                  	<TableColumn fx:id="impICMSPartVBCST" prefWidth="75.0" text="Imp_ICMSPart_vBCST" />
+                                                  	<TableColumn fx:id="impICMSPartPICMSST" prefWidth="75.0" text="Imp_ICMSPart_pICMSST" />
+                                                  	<TableColumn fx:id="impICMSPartVICMSST" prefWidth="75.0" text="Imp_ICMSPart_vICMSST" />
+                                                  	<TableColumn fx:id="impICMSPartPBCOp" prefWidth="75.0" text="Imp_ICMSPart_pBCOp" />
+                                                  	<TableColumn fx:id="impICMSPartUFST" prefWidth="75.0" text="Imp_ICMSPart_UFST" />                                                  	
+                                                  	<TableColumn fx:id="impICMSSTOrig" prefWidth="75.0" text="Imp_ICMSST_Orig" />
+                                                  	<TableColumn fx:id="impICMSSTCST" prefWidth="75.0" text="Imp_ICMSST_CST" />
+                                                  	<TableColumn fx:id="impICMSSTVBCSTRet" prefWidth="75.0" text="Imp_ICMSST_vBCSTRet" />
+                                                  	<TableColumn fx:id="impICMSSTVICMSSTRet" prefWidth="75.0" text="Imp_ICMSST_vICMSSTRet" />
+                                                  	<TableColumn fx:id="impICMSSTVBCSTDest" prefWidth="75.0" text="Imp_ICMSST_vBCSTDest" />
+                                                  	<TableColumn fx:id="impICMSSTVICMSSTDest" prefWidth="75.0" text="Imp_ICMSST_vICMSSTDest" />
+                                                  
+                                                  	<TableColumn fx:id="impCRTCMSSN101Orig" prefWidth="75.0" text="Imp_CRT_CMSSN101_Orig" />
+                                                  	<TableColumn fx:id="impCRTCMSSN101CSOSN" prefWidth="75.0" text="Imp_CRT_CMSSN101_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN101PCredSN" prefWidth="75.0" text="Imp_CRT_CMSSN101_pCredSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN101VCredICMSSN" prefWidth="75.0" text="Imp_CRT_CMSSN101_vCredICMSSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN102Orig" prefWidth="75.0" text="Imp_CRT_CMSSN102_Orig" />
+                                                  	<TableColumn fx:id="impCRTCMSSN102CSOSN" prefWidth="75.0" text="Imp_CRT_CMSSN102_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201Orig" prefWidth="75.0" text="Imp_CRT_CMSSN201_Orig" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201CSOSN" prefWidth="75.0" text="Imp_CRT_CMSSN201_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201ModBCST" prefWidth="75.0" text="Imp_CRT_CMSSN201_modBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201PMVAST" prefWidth="75.0" text="Imp_CRT_CMSSN201_pMVAST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201PRedBCST" prefWidth="75.0" text="Imp_CRT_CMSSN201_pRedBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201VBCST" prefWidth="75.0" text="Imp_CRT_CMSSN201_vBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201PICMSST" prefWidth="75.0" text="Imp_CRT_CMSSN201_pICMSST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201VICMSST" prefWidth="75.0" text="Imp_CRT_CMSSN201_vICMSST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201PCredSN" prefWidth="75.0" text="Imp_CRT_CMSSN201_pCredSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN201VCredICMSSN" prefWidth="75.0" text="Imp_CRT_CMSSN201_vCredICMSSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202Orig" prefWidth="75.0" text="Imp_CRT_CMSSN202_Orig" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202CSOSN" prefWidth="75.0" text="Imp_CRT_CMSSN202_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202ModBCST" prefWidth="75.0" text="Imp_CRT_CMSSN202_modBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202PMVAST" prefWidth="75.0" text="Imp_CRT_CMSSN202_pMVAST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202PRedBCST" prefWidth="75.0" text="Imp_CRT_CMSSN202_pRedBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202VBCST" prefWidth="75.0" text="Imp_CRT_CMSSN202_vBCST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202PICMSST" prefWidth="75.0" text="Imp_CRT_CMSSN202_pICMSST" />
+                                                  	<TableColumn fx:id="impCRTCMSSN202VICMSST" prefWidth="75.0" text="Imp_CRT_CMSSN202_vICMSST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN500Orig" prefWidth="75.0" text="Imp_CRT_ICMSSN500_Orig" />
+                                                  	<TableColumn fx:id="impCRTICMSSN500CSOSN" prefWidth="75.0" text="Imp_CRT_ICMSSN500_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTICMSSN500VBCSTRet" prefWidth="75.0" text="Imp_CRT_ICMSSN500_vBCSTRet" />
+                                                  	<TableColumn fx:id="impCRTICMSSN500VICMSSTRet" prefWidth="75.0" text="Imp_CRT_ICMSSN500_vICMSSTRet" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900Orig" prefWidth="75.0" text="Imp_CRT_ICMSSN900_Orig" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900CSOSN" prefWidth="75.0" text="Imp_CRT_ICMSSN900_CSOSN" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900ModBC" prefWidth="75.0" text="Imp_CRT_ICMSSN900_modBC" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900VBC" prefWidth="75.0" text="Imp_CRT_ICMSSN900_vBC" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PRedBC" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pRedBC" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PICMS" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pICMS" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PICMS" prefWidth="75.0" text="Imp_CRT_ICMSSN900_vICMS" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900ModBCST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_modBCST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PMVAST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pMVAST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PRedBCST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pRedBCST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900VBCST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_vBCST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PICMSST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pICMSST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900VICMSST" prefWidth="75.0" text="Imp_CRT_ICMSSN900_vICMSST" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900PCredSN" prefWidth="75.0" text="Imp_CRT_ICMSSN900_pCredSN" />
+                                                  	<TableColumn fx:id="impCRTICMSSN900VCredICMSSN" prefWidth="75.0" text="Imp_CRT_ICMSSN900_vCredICMSSN" />
+                                                  	
+                                                  	<TableColumn fx:id="impIIVBC" prefWidth="75.0" text="Imp_II_vBC" />
+                                                  	<TableColumn fx:id="impIIVDespAdu" prefWidth="75.0" text="Imp_II_vDespAdu" />
+                                                  	<TableColumn fx:id="impIIVII" prefWidth="75.0" text="Imp_II_vII" />
+                                                  	<TableColumn fx:id="impIIVIOF" prefWidth="75.0" text="Imp_II_vIOF" />
+                                                  	
+                                                  	<TableColumn fx:id="impPISPISAliqCST" prefWidth="75.0" text="Imp_PIS_PISAliq_CST" />
+                                                  	<TableColumn fx:id="impPISPISAliqVBC" prefWidth="75.0" text="Imp_PIS_PISAliq_vBC" />
+                                                  	<TableColumn fx:id="impPISPISAliqPPIS" prefWidth="75.0" text="Imp_PIS_PISAliq_pPIS" />
+                                                  	<TableColumn fx:id="impPISPISAliqVPIS" prefWidth="75.0" text="Imp_PIS_PISAliq_vPIS" />
+                                                  	<TableColumn fx:id="impPISPISQtdeCST" prefWidth="75.0" text="Imp_PIS_PISQtde_CST" />
+                                                  	<TableColumn fx:id="impPISPISQtdeQBCProd" prefWidth="75.0" text="Imp_PIS_PISQtde_qBCProd" />
+                                                  	<TableColumn fx:id="impPISPISQtdeVAliqProd" prefWidth="75.0" text="Imp_PIS_PISQtde_vAliqProd" />
+                                                  	<TableColumn fx:id="impPISPISQtdeVPIS" prefWidth="75.0" text="Imp_PIS_PISQtde_vPIS" />
+                                                  	<TableColumn fx:id="impPISPISNTCST" prefWidth="75.0" text="Imp_PIS_PISNT_CST" />
+                                                  	<TableColumn fx:id="impPISPISOutrCST" prefWidth="75.0" text="Imp_PIS_PISOutr_CST" />
+                                                  	<TableColumn fx:id="impPISPISOutrVBC" prefWidth="75.0" text="Imp_PIS_PISOutr_vBC" />
+                                                  	<TableColumn fx:id="impPISPISOutrPPIS" prefWidth="75.0" text="Imp_PIS_PISOutr_pPIS" />
+                                                  	<TableColumn fx:id="impPISPISOutrQBCProd" prefWidth="75.0" text="Imp_PIS_PISOutr_qBCProd" />
+                                                  	<TableColumn fx:id="impPISPISOutrVAliqProd" prefWidth="75.0" text="Imp_PIS_PISOutr_vAliqProd" />
+                                                  	<TableColumn fx:id="impPISPISOutrVPIS" prefWidth="75.0" text="Imp_PIS_PISOutr_vPIS" />
+                                                  	
+                                                  	<TableColumn fx:id="impPISSTVBC" prefWidth="75.0" text="Imp_PISST_vBC" />
+                                                  	<TableColumn fx:id="impPISSTPPIS" prefWidth="75.0" text="Imp_PISST_pPIS" />
+                                                  	<TableColumn fx:id="impPISSTQBCProd" prefWidth="75.0" text="Imp_PISST_qBCProd" />
+                                                  	<TableColumn fx:id="impPISSTVAliqProd" prefWidth="75.0" text="Imp_PISST_vAliqProd" />
+                                                  	<TableColumn fx:id="impPISSTVPIS" prefWidth="75.0" text="Imp_PISST_vPIS" />
+                                                  	
+                                                  	<TableColumn fx:id="impCOFINSCOFINSAliqCST" prefWidth="75.0" text="Imp_COFINS_COFINSAliq_CST" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSAliqVBC" prefWidth="75.0" text="Imp_COFINS_COFINSAliq_vBC" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSAliqPCOFINS" prefWidth="75.0" text="Imp_COFINS_COFINSAliq_pCOFINS" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSAliqVCOFINS" prefWidth="75.0" text="Imp_COFINS_COFINSAliq_vCOFINS" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSQtdeCST" prefWidth="75.0" text="Imp_COFINS_COFINSQtde_CST" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSQtdeQBCProd" prefWidth="75.0" text="Imp_COFINS_COFINSQtde_qBCProd" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSQtdeVAliqProd" prefWidth="75.0" text="Imp_COFINS_COFINSQtde_vAliqProd" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSQtdeVCOFINS" prefWidth="75.0" text="Imp_COFINS_COFINSQtde_vCOFINS" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSNTCST" prefWidth="75.0" text="Imp_COFINS_COFINSNT_CST" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSOutrCST" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_CST" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSOutrVBC" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_vBC" />
+                                                 	<TableColumn fx:id="impCOFINSCOFINSOutrPCOFINS" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_pCOFINS" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSOutrQBCProd" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_qBCProd" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSOutrVAliqProd" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_VAliqProd" />
+                                                  	<TableColumn fx:id="impCOFINSCOFINSOutrVCOFINS" prefWidth="75.0" text="Imp_COFINS_COFINSOutr_vCOFINS" />
+                                                  	
+                                                  	<TableColumn fx:id="impCOFINSSTVBC" prefWidth="75.0" text="Imp_COFINSST_vBC" />
+                                                  	<TableColumn fx:id="impCOFINSSTPCOFINS" prefWidth="75.0" text="Imp_COFINSST_pCOFINS" />
+                                                  	<TableColumn fx:id="impCOFINSSTQBCProd" prefWidth="75.0" text="Imp_COFINSST_qBCProd" />
+                                                  	<TableColumn fx:id="impCOFINSSTVAliqProd" prefWidth="75.0" text="Imp_COFINSST_vAliqProd" />
+                                                  	<TableColumn fx:id="impCOFINSSTVCOFINS" prefWidth="75.0" text="Imp_COFINSST_vCOFINS" />
+                                                  	
+                                                  	<TableColumn fx:id="impISSQNVBC" prefWidth="75.0" text="Imp_ISSQN_vBC" />
+                                                  	<TableColumn fx:id="impISSQNVAliq" prefWidth="75.0" text="Imp_ISSQN_vAliq" />
+                                                  	<TableColumn fx:id="impISSQNVISSQN" prefWidth="75.0" text="Imp_ISSQN_vISSQN" />
+                                                  	<TableColumn fx:id="impISSQNCMunFG" prefWidth="75.0" text="Imp_ISSQN_cMunFG" />
+                                                  	<TableColumn fx:id="impISSQNCListServ" prefWidth="75.0" text="Imp_ISSQN_cListServ" />
+                                                  	<TableColumn fx:id="impISSQNVDeducao" prefWidth="75.0" text="Imp_ISSQN_vDeducao" />
+                                                  	<TableColumn fx:id="impISSQNVOutro" prefWidth="75.0" text="Imp_ISSQN_vOutro" />
+                                                  	<TableColumn fx:id="impISSQNVDescIncond" prefWidth="75.0" text="Imp_ISSQN_vDescIncond" />
+                                                  	<TableColumn fx:id="impISSQNVDescCond" prefWidth="75.0" text="Imp_ISSQN_vDescCond" />
+                                                  	<TableColumn fx:id="impISSQNVISSRet" prefWidth="75.0" text="Imp_ISSQN_vISSRet" />
+                                                  	<TableColumn fx:id="impISSQNIndISS" prefWidth="75.0" text="Imp_ISSQN_indISS" />
+                                                  	<TableColumn fx:id="impISSQNCServico" prefWidth="75.0" text="Imp_ISSQN_cServico" />
+                                                  	<TableColumn fx:id="impISSQNCMun" prefWidth="75.0" text="Imp_ISSQN_cMun" />
+                                                  	<TableColumn fx:id="impISSQNCPais" prefWidth="75.0" text="Imp_ISSQN_cPais" />
+                                                  	<TableColumn fx:id="impISSQNNProcesso" prefWidth="75.0" text="Imp_ISSQN_nProcesso" />
+                                                  	<TableColumn fx:id="impISSQNIndIncentivo" prefWidth="75.0" text="Imp_ISSQN_indIncentivo" />
+                                                  	
+                                                  	<TableColumn fx:id="detProdInfAdProd" prefWidth="75.0" text="Det_Prod_infAdProd" />
+                                                  	
+                                                  	
+                                                  
+                                                    
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab fx:id="tabFaturamento" closable="false">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="855.0">
+                                             <children>
+                                                <HBox layoutX="43.0" layoutY="53.0" prefHeight="200.0" prefWidth="847.0" spacing="20.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-insets: 1; -fx-border-color: #bdbdbd;">
+                                                         <children>
+                                                            <Label layoutX="5.0" layoutY="10.0" text="Fat_nFat" />
+                                                            <TextField fx:id="fatNFat" layoutX="82.0" layoutY="10.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                                                            <Label layoutX="5.0" layoutY="52.0" text="Fat_vOrig" />
+                                                            <TextField fx:id="fatVOrig" layoutX="81.0" layoutY="52.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                                                            <Label layoutX="5.0" layoutY="95.0" text="Fat_vDesc" />
+                                                            <TextField fx:id="fatVDesc" layoutX="80.0" layoutY="95.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                                                            <Label layoutX="5.0" layoutY="141.0" text="Fat_vLiq" />
+                                                            <TextField fx:id="fatVLiq" layoutX="79.0" layoutY="141.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="105.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <TableView fx:id="tbViewFaturamento" prefHeight="195.0" prefWidth="276.0">
+                                                        <columns>
+                                                          <TableColumn fx:id="dupnDup" prefWidth="75.0" text="Dup_nDup" />
+                                                          <TableColumn fx:id="dupdVenc" prefWidth="75.0" text="Dup_dVenc" />
+                                                          <TableColumn fx:id="dupvDup" prefWidth="75.0" text="Dup_vDup" />
+                                                        </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                      </TableView>
+                                                   </children>
+                                                </HBox>
+                                             </children></AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabProtocolo">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tbViewProtocolo" layoutX="14.0" layoutY="14.0" prefWidth="458.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+                                                   <columns>
+                                                   		<TableColumn fx:id="ideChaveNFe" prefWidth="75.0" text="Ide_chaveNFe" />                                                                                                             
+	                                                    <TableColumn fx:id="ideProtocSEFAZ" prefWidth="75.0" text="Ide_protocSEFAZ" />
+	                                                    <TableColumn fx:id="ideDtProtocSEFAZ" prefWidth="75.0" text="Ide_dtProtocSEFAZ" />
+	                                                    <TableColumn fx:id="ideNLote" prefWidth="75.0" text="Ide_nLote" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab fx:id="tabInfAdic">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="txtAreaInfAdic" editable="false" layoutX="9.0" layoutY="5.0" prefHeight="230.0" prefWidth="205.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="DARF Icms ST / DARE">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                  <Tab text="Situações Especiais">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Pedido de Compra">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Faturamento">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Relação Itens">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tbViewRelacaoProd" layoutX="1.0" layoutY="-44.0" maxHeight="1.7976931348623157E308" prefWidth="382.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="1.0">
+                                <columns>
+                                  <TableColumn fx:id="tbColStatus" prefWidth="23.0" />
+                                    <TableColumn fx:id="tbColCodRelProd" prefWidth="56.0" text="Código" />
+                                  <TableColumn fx:id="tbColDescripcaoNFeRelProd" prefWidth="94.0" text="Descripção [NFe]" />
+                                    <TableColumn fx:id="tbColDescripcaoEptusRelProd" prefWidth="127.0" text="Descripção [Eptus]" />
+                                    <TableColumn fx:id="tbColNoFabricanteRelProd" prefWidth="127.0" text="No Fabricante" />
+                                    <TableColumn fx:id="tbColNoFornecedorRelProd" prefWidth="127.0" text="No Fornecedor" />
+                                    <TableColumn fx:id="tbColCodNCMNFeRelProd" prefWidth="127.0" text="Cód NCM [NFe]" />
+                                    <TableColumn fx:id="tbColCodNCMEptusRelProd" prefWidth="127.0" text="Cód NCM [Eptus]" />
+                                    <TableColumn fx:id="tbColCodBarrasRelProd" prefWidth="127.0" text="Código Barras" />
+                                    <TableColumn fx:id="tbColCFOPRelProd" prefWidth="127.0" text="CFOP" />
+                                    <TableColumn fx:id="tbColCSTICMSRelProd" prefWidth="127.0" text="CST / ICMS" />
+                                    <TableColumn fx:id="tbColQtdNFeRelProd" prefWidth="127.0" text="Qtd NFe" />
+                                    <TableColumn prefWidth="75.0" />
+                                    <TableColumn fx:id="tbColUndRelProd" prefWidth="127.0" text="Und" />
+                                    <TableColumn fx:id="tbColEmbComprasRelProd" prefWidth="127.0" text="Emb Compra" />
+                                    <TableColumn fx:id="tbColQtdReposicaoRelProd" prefWidth="127.0" text="Qtd Reposição" />
+                                    <TableColumn fx:id="tbColVlrUndBrutoRelProd" prefWidth="127.0" text="Vlr Uni Bruto" />
+                                    <TableColumn fx:id="tbColVlrDescontoRelProd" prefWidth="127.0" text="Vlr Desconto" />
+                                    <TableColumn fx:id="tbColVlrDespAcessRelProd" prefWidth="127.0" text="Vlr Desp Acessória " />
+                                    <TableColumn fx:id="tbColVlrUndLiqRelProd" prefWidth="127.0" text="Vlr Uni Liquido" />
+                                    <TableColumn fx:id="tbColQtdConfRelProd" prefWidth="127.0" text="Qtd. Conf. " />
+                                    <TableColumn fx:id="tbColVlrFreteRelProd" prefWidth="127.0" text="Vlr Frete" />
+                                    <TableColumn fx:id="tbColVlrSegRelProd" prefWidth="127.0" text="Vlr Seguro" />
+                                    <TableColumn fx:id="tbColAliqIPIRelProd" prefWidth="75.0" text="Aliq IPI" />
+                                    <TableColumn fx:id="tbColImpIPITribVBCRelProd" prefWidth="75.0" text="Imp IPI Trib vBC" />
+                                    <TableColumn fx:id="tbColImpIPITribVIPIRelProd" prefWidth="75.0" text="Imp IPI Trib vIPI" />
+                                    <TableColumn fx:id="tbColAliqICMSRelProd" prefWidth="75.0" text="Aliq ICMS" />
+                                    <TableColumn fx:id="tbColVlrICMSDesonRelProd" prefWidth="127.0" text="Vlr ICMS Desonerado" />
+                                    <TableColumn fx:id="tbColReducBCICMSRelProd" prefWidth="127.0" text="\% Redução BC ICMS" />
+                                    <TableColumn fx:id="tbColBaseCalcICMSRelProd" prefWidth="127.0" text="Base Calc ICMS" />
+                                    <TableColumn fx:id="tbColVlrICMSSTRelProd" prefWidth="127.0" text="Vlr ICMS" />
+                                    <TableColumn fx:id="tbColModBCICMSSubRelProd" prefWidth="127.0" text="Mod BC ICMS Sub" />
+                                    <TableColumn fx:id="tbColPautaMVARelProd" prefWidth="127.0" text="Pauta/MVA" />
+                                    <TableColumn fx:id="tbColBaseCalcICMSSubRelProd" prefWidth="127.0" text="Base Calc ICMS Sub" />
+                                    <TableColumn fx:id="tbColVlrICMSSubRelProd" prefWidth="127.0" text="Vlr ICMS Sub" />
+                                    <TableColumn fx:id="tbColSubEstoqueDestRelProd" prefWidth="127.0" text="Sub Estoque Destino" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

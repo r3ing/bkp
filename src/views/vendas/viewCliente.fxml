@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane fx:id="anchorPanePrincipal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneListagem" minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="497.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar id="tool-bar-form" fx:id="toolBar" prefHeight="26.0" prefWidth="491.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+               <items>
+                  <Button fx:id="btnInsertGrid" mnemonicParsing="false" onAction="#actionBtnInsertGrid">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button id="tool-bar-form" fx:id="btnDelete" disable="true" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnDelete">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="TRASH" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRefresh" layoutX="50.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnRefresh">
+                     <graphic>
+                        <MaterialDesignIconView id="icons" fill="#01579b" glyphName="AUTORENEW" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnFilter" layoutX="128.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnFilter">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="FILTER" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnPrint" disable="true" mnemonicParsing="false" onAction="#actionBtnPrint">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PRINT" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnConfig" layoutX="247.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionBtnConfig">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+                     </graphic>
+                  </Button>
+                  <ToggleButton fx:id="toggleHelp" mnemonicParsing="false" onMouseClicked="#mouseClickedToggleHelp">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="INFO_CIRCLE" size="18" />
+                     </graphic>
+                  </ToggleButton>
+               </items>
+            </ToolBar>
+            <SplitPane fx:id="splitPaneFilter" dividerPositions="1.0" layoutY="32.0" orientation="VERTICAL" prefHeight="286.0" prefWidth="497.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+              <items>
+                <AnchorPane fx:id="anchorPaneFilter" maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="495.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <ComboBox fx:id="cboxFilterColumn" layoutX="76.0" layoutY="7.0" prefHeight="25.0" prefWidth="142.0" />
+                        <ComboBox fx:id="cboxFlagAtivo" layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="141.0" />
+                        <Label fx:id="lblCboxFilterColumn" layoutX="13.0" layoutY="11.0" text="Buscar por:" />
+                        <Label fx:id="lblcboxFlagAtivo" layoutX="13.0" layoutY="42.0" text="Registro:" />
+                        <CustomTextField fx:id="txtFilterColumn" layoutX="227.0" layoutY="7.0" onAction="#actionTxtFilterColumn" onKeyPressed="#keyPressedTxtFilterColumn" onKeyReleased="#keyReleasedTxtFilterColumn" prefHeight="25.0" prefWidth="250.0" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="tbView" prefHeight="182.0" prefWidth="485.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="tbColCodigo" prefWidth="118.0" text="Código" />
+                            <TableColumn fx:id="tbColRazao" prefWidth="186.0" text="Razão Social" />
+                              <TableColumn fx:id="tbColFantasia" prefWidth="186.0" text="Nome Fantasia" />
+                              <TableColumn fx:id="tbColCpfCnpj" prefWidth="186.0" text="CNPJ/CPF" />
+                              <TableColumn fx:id="tbColIeRg" prefWidth="186.0" text="Inscrição Estadual / RG" />
+                              <TableColumn fx:id="tbColIndicadorInscEst" prefWidth="186.0" text="Inscrição Estadual / RG" />
+                              <TableColumn fx:id="tbColCodeEmp" prefWidth="243.0" text="Cod Empresa" visible="false" />
+                              <TableColumn fx:id="tbColAtivoInat" prefWidth="75.0" text="Ativo/Inativo" visible="false" />
+                              <TableColumn fx:id="tbColCodCidade" prefWidth="75.0" text="Cod Cidade" visible="false" />
+                              <TableColumn fx:id="tbColCidade" prefWidth="75.0" text="Cidade" visible="false" />
+                              <TableColumn fx:id="tbColUf" prefWidth="75.0" text="UF" visible="false" />
+                              <TableColumn fx:id="tbColEndereco" prefWidth="75.0" text="Endereço" visible="false" />
+                              <TableColumn fx:id="tbColEndNumero" prefWidth="75.0" text="Número" visible="false" />
+                              <TableColumn fx:id="tbColComplemento" prefWidth="75.0" text="Complemento" visible="false" />
+                              <TableColumn fx:id="tbColBairro" prefWidth="75.0" text="Bairro" visible="false" />
+                              <TableColumn fx:id="tbColCep" prefWidth="75.0" text="CEP" visible="false" />
+                              <TableColumn fx:id="tbColFone" prefWidth="75.0" text="Fone" visible="false" />
+                              <TableColumn fx:id="tbColCelular" prefWidth="75.0" text="Celular" visible="false" />
+                              <TableColumn fx:id="tbColFone2" prefWidth="75.0" text="Fone2" visible="false" />
+                              <TableColumn fx:id="tbColEmail" prefWidth="75.0" text="Email" visible="false" />
+                              <TableColumn fx:id="tbColInternet" prefWidth="75.0" text="Internet" visible="false" />
+                              <TableColumn fx:id="tbColInscProd" prefWidth="75.0" text="Inscrição Produtor Rural" visible="false" />
+                              <TableColumn fx:id="tbColLimiteCredito" prefWidth="75.0" text="Limite Crédito" visible="false" />
+                              <TableColumn fx:id="tbColLocalLimiteCredito" prefWidth="75.0" text="Local de Origem do Limite de Crédito" visible="false" />
+                              <TableColumn fx:id="tbColNoSuframa" prefWidth="75.0" text="№ Suframa" visible="false" />
+                              <TableColumn fx:id="tbColConsumidorFinal" prefWidth="75.0" text="Consumidor Final" visible="false" />
+                              <TableColumn fx:id="tbColIdentEstrangeiro" prefWidth="75.0" text="Indentificação Estrangeiro" visible="false" />
+                              <TableColumn fx:id="tbColContatoPosVenda" prefWidth="75.0" text="Contato p/ Pós-Venda" visible="false" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <HBox alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="17.0" prefWidth="491.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0">
+               <children>
+                  <Label fx:id="lblTotalLinhas" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" style="-fx-font-weight: Bold;" text="Total Linhas:  " textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNumLinhas" alignment="TOP_LEFT" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="56.0" style="-fx-alignment: top_left; -fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#d74a4a" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="pBar" layoutY="589.0" prefHeight="18.0" prefWidth="534.0" progress="0.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane id="background-form-cad" fx:id="anchorPaneDetalhes" layoutX="-7.0" layoutY="12.0" minHeight="0.0" minWidth="0.0" prefHeight="526.0" prefWidth="666.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Pane id="title-bar-form-cad" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnClose" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#actionBtnClose">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="CLOSE" size="16" />
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="lbTitleFormCad" nodeOrientation="LEFT_TO_RIGHT" text="Cadastro Cliente" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="EDIT" size="18" />
+               </graphic>
+            </Label>
+            <TabPane id="tabPane-inside" fx:id="tabPanePrincipal" prefHeight="495.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="35.0">
+              <tabs>
+                <Tab fx:id="tabInfGerais" text="Informações Gerais">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                           <children>
+                              <Pane layoutX="14.0" layoutY="14.0" prefHeight="441.0" prefWidth="680.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #BDBDBD;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label fx:id="lblCodigo" layoutX="10.0" layoutY="7.0" style="-fx-text-fill: Black;" text="Código" />
+                                    <TextField fx:id="txtCodigo" alignment="TOP_RIGHT" layoutX="10.0" layoutY="27.0" onKeyPressed="#keyPressedTxtCodigo" prefHeight="25.0" prefWidth="65.0" />
+                                    <Label fx:id="lblTipoPessoa" layoutX="91.0" layoutY="7.0" text="Tipo Pessoa" />
+                                    <ComboBox fx:id="cboxTipoPessoa" layoutX="85.0" layoutY="27.0" onAction="#actionCboxTipoPessoa" prefWidth="130.0" />
+                                    <Label fx:id="lblRazao" layoutX="226.0" layoutY="7.0" prefHeight="17.0" prefWidth="131.0" text="Razão Social" />
+                                    <TextField fx:id="txtRazao" layoutX="225.0" layoutY="27.0" prefHeight="25.0" prefWidth="230.0" />
+                                    <Label fx:id="lblFantasia" layoutX="466.0" layoutY="7.0" prefHeight="17.0" prefWidth="157.0" text="Nome de Fantasia" />
+                                    <TextField fx:id="txtFantasia" layoutX="465.0" layoutY="27.0" prefHeight="25.0" prefWidth="230.0" />
+                                    <Label fx:id="lblCpfCnpj" layoutX="11.0" layoutY="60.0" prefHeight="17.0" prefWidth="96.0" text="CPF/CNPJ" />
+                                    <TextField fx:id="txtCnpj" layoutX="11.0" layoutY="80.0" prefHeight="25.0" prefWidth="120.0" />
+                                    <Label fx:id="lblIncEstad" layoutX="141.0" layoutY="60.0" prefHeight="17.0" prefWidth="107.0" text="Insc. Estadual / RG" />
+                                    <TextField fx:id="txtIncEstad" layoutX="141.0" layoutY="80.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblIndIncEstad" layoutX="253.0" layoutY="59.0" prefHeight="17.0" prefWidth="196.0" text="Indicador Inscrição Estadual" />
+                                    <ComboBox fx:id="cboxIndIncEstad" layoutX="251.0" layoutY="79.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodCidade" layoutX="10.0" layoutY="111.0" onMouseClicked="#onClickLblCodCidade" prefHeight="17.0" prefWidth="102.0" text="Código Cidade">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab41" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodCidade" layoutX="11.0" layoutY="131.0" onAction="#onActionTxtCodCidade" onKeyPressed="#onKeyPressedTxtCodCidade" prefHeight="25.0" prefWidth="96.0" />
+                                    <Label fx:id="lblCidade" layoutX="119.0" layoutY="111.0" prefHeight="17.0" prefWidth="76.0" text="Cidade" />
+                                    <TextField fx:id="txtCidade" layoutX="117.0" layoutY="131.0" prefHeight="25.0" prefWidth="163.0" />
+                                    <Label fx:id="lblUf" layoutX="293.0" layoutY="111.0" text="UF" />
+                                    <TextField fx:id="txtUF" layoutX="290.0" layoutY="131.0" prefHeight="25.0" prefWidth="47.0" />
+                                    <Label fx:id="lblEndereco" layoutX="12.0" layoutY="163.0" prefHeight="17.0" prefWidth="142.0" text="Endereço" />
+                                    <TextField fx:id="txtEndereco" layoutX="12.0" layoutY="183.0" prefHeight="25.0" prefWidth="300.0" />
+                                    <Label fx:id="lblNumero" layoutX="322.0" layoutY="163.0" prefHeight="17.0" prefWidth="59.0" text="Número" />
+                                    <TextField fx:id="txtEndNumero" layoutX="322.0" layoutY="183.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label fx:id="lblComplemento" layoutX="402.0" layoutY="163.0" prefHeight="17.0" prefWidth="117.0" text="Complemento" />
+                                    <TextField fx:id="txtComplemento" layoutX="402.0" layoutY="183.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblBairro" layoutX="512.0" layoutY="163.0" prefHeight="17.0" prefWidth="117.0" text="Bairro" />
+                                    <TextField fx:id="txtBairro" layoutX="512.0" layoutY="183.0" prefHeight="25.0" prefWidth="131.0" />
+                                    <Label fx:id="lblCep" layoutX="652.0" layoutY="163.0" prefHeight="17.0" prefWidth="83.0" text="Cep" />
+                                    <TextField fx:id="txtCep" layoutX="652.0" layoutY="183.0" prefHeight="25.0" prefWidth="75.0" />
+                                    <Label fx:id="lblFone" layoutX="11.0" layoutY="214.0" prefHeight="17.0" prefWidth="47.0" text="Fone" />
+                                    <TextField fx:id="txtFone" layoutX="11.0" layoutY="234.0" prefHeight="25.0" prefWidth="100.0" promptText="(00) 0000-0000" />
+                                    <Label fx:id="lblCelular" layoutX="121.0" layoutY="214.0" prefHeight="17.0" prefWidth="59.0" text="Celular" />
+                                    <TextField fx:id="txtCelular" layoutX="121.0" layoutY="234.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblFone2" layoutX="231.0" layoutY="214.0" prefHeight="17.0" prefWidth="56.0" text="Fone II" />
+                                    <TextField fx:id="txtFone2" layoutX="231.0" layoutY="234.0" prefHeight="25.0" prefWidth="100.0" promptText="(00) 0000-0000" />
+                                    <Label fx:id="lblEmail" layoutX="341.0" layoutY="214.0" prefHeight="17.0" prefWidth="56.0" text="E-mail" />
+                                    <TextField fx:id="txtEmail" layoutX="341.0" layoutY="234.0" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblInternet" layoutX="12.0" layoutY="265.0" prefHeight="17.0" prefWidth="100.0" text="Internet" />
+                                    <TextField fx:id="txtInternetSite" layoutX="11.0" layoutY="285.0" prefHeight="25.0" prefWidth="275.0" />
+                                    <Label fx:id="lblInscProd" layoutX="296.0" layoutY="265.0" text="Inscrição Produtor Rural" />
+                                    <TextField fx:id="txtInscProdRural" layoutX="296.0" layoutY="285.0" prefHeight="25.0" prefWidth="145.0" />
+                                    <Label fx:id="lblLimiteCredito" layoutX="11.0" layoutY="316.0" text="Limite Crédito" />
+                                    <TextField fx:id="txtLimiteCredito" layoutX="11.0" layoutY="336.0" prefHeight="25.0" prefWidth="100.0" promptText="0,0000" />
+                                    <Label fx:id="lblLocalLimiteCredito" layoutX="121.0" layoutY="316.0" text="Local de Origem do Limite de Crédito" />
+                                    <RadioButton fx:id="rdbLocalLimiteCredito0" layoutX="121.0" layoutY="340.0" mnemonicParsing="false" text="Cadastro Cliente">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grpLocalLimiteCredito" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rdbLocalLimiteCredito1" layoutX="251.0" layoutY="340.0" mnemonicParsing="false" text="Saldo C/C" toggleGroup="$grpLocalLimiteCredito" />
+                                    <Label fx:id="lblNoSuframa" layoutX="338.0" layoutY="316.0" text="№ Suframa" />
+                                    <TextField fx:id="txtNoSuframa" layoutX="338.0" layoutY="336.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblConsumidorFinal" layoutX="450.0" layoutY="316.0" prefHeight="17.0" prefWidth="106.0" text="Consumidor Final" />
+                                    <ComboBox fx:id="cboxConsumidorFinal" layoutX="448.0" layoutY="336.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblIdentEstrangeiro" layoutX="558.0" layoutY="316.0" text="Indentificação Estrangeiro" />
+                                    <TextField fx:id="txtIdentEstrangeiro" layoutX="558.0" layoutY="336.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label fx:id="lblContatoPosVenda" layoutX="451.0" layoutY="265.0" text="Contato p/ Pós-Venda" />
+                                    <TextField fx:id="txtContatoPosVenda" layoutX="451.0" layoutY="285.0" prefHeight="25.0" prefWidth="200.0" />
+                                    <Pane id="border-pane" layoutX="750.0" layoutY="27.0" prefHeight="140.0" prefWidth="180.0" style="-fx-border-width: 1; -fx-border-color: #B0BEC5;">
+                                       <children>
+                                          <ImageView fx:id="imgImgCli" fitHeight="130.0" fitWidth="160.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button fx:id="btnImgCli" layoutX="10.0" layoutY="145.0" mnemonicParsing="false" onAction="#actionBtnImgCli" text="Procurar">
+                                             <graphic>
+                                                <FontAwesomeIconView glyphName="SEARCH" />
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="btnRemoveImgCli" layoutX="93.0" layoutY="145.0" mnemonicParsing="false" onAction="#actionRemoveImgCli" text="Remover">
+                                             <graphic>
+                                                <FontAwesomeIconView glyphName="CLOSE" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReferencias" text="Referências">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="289.0" prefWidth="590.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #BDBDBD;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label fx:id="lblCodRegiao" layoutX="11.0" layoutY="11.0" onMouseClicked="#onClickLblCodRegiao" prefHeight="17.0" prefWidth="141.0" text="Código Região">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodRegiao" layoutX="11.0" layoutY="28.0" onAction="#onActionTxtCodRegiao" onKeyPressed="#onKeyPressedTxtCodRegiao" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtRegiao" editable="false" layoutX="105.0" layoutY="28.0" onAction="#onActionTxtRegiao" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodRamoAtividade" layoutX="294.0" layoutY="11.0" onMouseClicked="#onClickLblCodRamoAtividade" prefHeight="17.0" prefWidth="175.0" text="Código Ramo de Atividade">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab1" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodRamoAtividade" layoutX="294.0" layoutY="28.0" onAction="#onActionTxtCodRamoAtividade" onKeyPressed="#onKeyPressedTxtCodRamoAtividade" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtRamoAtividade" editable="false" layoutX="388.0" layoutY="28.0" onAction="#onActionTxtRamoAtividade" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodConvenio" layoutX="578.0" layoutY="11.0" onMouseClicked="#onClickLblCodConvenio" prefHeight="17.0" prefWidth="141.0" text="Código Cônvenio">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab2" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodConvenio" layoutX="578.0" layoutY="28.0" onAction="#onActionTxtCodConvenio" onKeyPressed="#onKeyPressedTxtCodConvenio" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtConvenio" editable="false" layoutX="672.0" layoutY="28.0" onAction="#onActionTxtConvenio" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodRota" layoutX="11.0" layoutY="62.0" onMouseClicked="#onClickLblCodRota" prefHeight="17.0" prefWidth="175.0" text="Código Rota">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab11" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodRota" layoutX="11.0" layoutY="79.0" onAction="#onActionTxtCodRota" onKeyPressed="#onKeyPressedTxtCodRota" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtRota" editable="false" layoutX="105.0" layoutY="79.0" onAction="#onActionTxtRota" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodVendedor" layoutX="294.0" layoutY="62.0" onMouseClicked="#onClickLblCodVendedor" prefHeight="17.0" prefWidth="141.0" text="Código Vendedor">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab3" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodVendedor" layoutX="294.0" layoutY="79.0" onAction="#onActionTxtCodVendedor" onKeyPressed="#onKeyPressedTxtCodVendedor" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtVendedor" editable="false" layoutX="388.0" layoutY="79.0" onAction="#onActionTxtVendedor" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodSegmento" layoutX="577.0" layoutY="62.0" onMouseClicked="#onClickLblCodSegmento" prefHeight="17.0" prefWidth="175.0" text="Código Segmento">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab12" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodSegmento" layoutX="577.0" layoutY="79.0" onAction="#onActionTxtCodSegmento" onKeyPressed="#onKeyPressedTxtCodSegmento" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtSegmento" editable="false" layoutX="671.0" layoutY="79.0" onAction="#onActionTxtSegmento" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblCodFuncionario" layoutX="11.0" layoutY="113.0" onMouseClicked="#onClickLblCodFuncionario" prefHeight="17.0" prefWidth="141.0" text="Código Funcionário">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab21" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodFuncionario" layoutX="11.0" layoutY="130.0" onAction="#onActionTxtCodFuncionario" onKeyPressed="#onKeyPressedTxtCodFuncionario" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtFuncionario" editable="false" layoutX="105.0" layoutY="130.0" onAction="#onActionTxtFuncionario" prefHeight="25.0" prefWidth="180.0" />
+                                    <Label fx:id="lblDataCadastro" layoutX="294.0" layoutY="113.0" prefHeight="17.0" prefWidth="104.0" text="Data de Cadastro " />
+                                    <DatePicker fx:id="dateDataCadastro" layoutX="294.0" layoutY="130.0" prefHeight="25.0" prefWidth="115.0" />
+                                    <Label fx:id="lblDataValidade" layoutX="419.0" layoutY="113.0" prefHeight="17.0" prefWidth="105.0" text="Data de Validade" />
+                                    <DatePicker fx:id="dateDataValidade" editable="false" layoutX="419.0" layoutY="130.0" prefHeight="25.0" prefWidth="115.0" />
+                                    <Label fx:id="lblDataAtualizacao" layoutX="544.0" layoutY="113.0" prefHeight="17.0" prefWidth="106.0" text="Data Atualização" />
+                                    <DatePicker fx:id="dateDataAtualizacao" layoutX="544.0" layoutY="130.0" prefHeight="25.0" prefWidth="115.0" />
+                                    <Label fx:id="lblObservacoes" layoutX="11.0" layoutY="161.0" text="Observações" />
+                                    <TextArea fx:id="txtObservacoes" layoutX="11.0" layoutY="180.0" prefHeight="95.0" prefWidth="415.0" />
+                                    <Label fx:id="lblObsRestritiva" layoutX="436.0" layoutY="161.0" text="Observações Restritivas" />
+                                    <TextArea fx:id="txtObsRestritiva" layoutX="436.0" layoutY="180.0" prefHeight="95.0" prefWidth="415.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabFaturamento" text="Faturamento">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="256.0" prefWidth="630.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #BDBDBD;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label fx:id="lblTipoFaturamento" layoutX="10.0" layoutY="10.0" text="Tipo de Faturamento" />
+                                    <ComboBox fx:id="cboxTipoFaturamento" layoutX="10.0" layoutY="30.0" prefWidth="150.0" />
+                                    <Label fx:id="lblDescontoMax" layoutX="170.0" layoutY="11.0" text="Desconto Máximo Permitido (%)" />
+                                    <TextField fx:id="txtDescontoMax" layoutX="170.0" layoutY="30.0" prefHeight="25.0" prefWidth="125.0" promptText="0,0000" />
+                                    <Label fx:id="lblTipoPrecoVenda" layoutX="360.0" layoutY="11.0" text="Tipo de Preço na Venda" />
+                                    <RadioButton fx:id="rdbTipoPrecoVenda0" layoutX="360.0" layoutY="34.0" mnemonicParsing="false" selected="true" text="Vendas">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grpTipoPrecoVenda" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rdbTipoPrecoVenda1" layoutX="440.0" layoutY="34.0" mnemonicParsing="false" text="Custo Atual" toggleGroup="$grpTipoPrecoVenda" />
+                                    <RadioButton fx:id="rdbTipoPrecoVenda2" layoutX="540.0" layoutY="34.0" mnemonicParsing="false" text="Custo Compra" toggleGroup="$grpTipoPrecoVenda" />
+                                    <Label fx:id="lblPermiteUsoTabelaAtacado" layoutX="11.0" layoutY="65.0" text="Permite uso da Tabela de Atacado" />
+                                    <JFXToggleButton fx:id="tgbPermiteUsoTabelaAtacado" layoutX="250.0" layoutY="60.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" />
+                                    <Label fx:id="lblFreteConta" layoutX="360.0" layoutY="65.0" text="Frete p/ Conta" />
+                                    <RadioButton fx:id="rdbFreteConta0" layoutX="460.0" layoutY="65.0" mnemonicParsing="false" selected="true" text="Destinatário">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="grpFreteConta" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="rdbFreteConta1" layoutX="560.0" layoutY="65.0" mnemonicParsing="false" text="Remetente" toggleGroup="$grpFreteConta" />
+                                    <Label fx:id="lblCodPortador" layoutX="10.0" layoutY="95.0" onMouseClicked="#onClickLblCodPortador" prefHeight="17.0" prefWidth="141.0" text="Código Portador">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab1" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodPortador" layoutX="11.0" layoutY="116.0" onAction="#onActionTxtCodPortador" onKeyPressed="#onKeyPressedTxtCodPortador" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtPortador" editable="false" layoutX="106.0" layoutY="117.0" onAction="#onActionTxtPortador" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblCodSecao" layoutX="360.0" layoutY="95.0" onMouseClicked="#onClickLblCodSecao" prefHeight="17.0" prefWidth="175.0" text="Código Seção">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab11" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodSecao" layoutX="359.0" layoutY="116.0" onAction="#onActionTxtCodSecao" onKeyPressed="#onKeyPressedTxtCodSecao" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtSecao" editable="false" layoutX="454.0" layoutY="116.0" onAction="#onActionTxtSecao" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblCodTabelaPreco" layoutX="10.0" layoutY="146.0" onMouseClicked="#onClickLblCodTabelaPreco" prefHeight="17.0" prefWidth="141.0" text="Tabela (Preços)">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab31" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodTabelaPreco" layoutX="11.0" layoutY="167.0" onAction="#onActionTxtCodTabelaPreco" onKeyPressed="#onKeyPressedTxtCodTabelaPreco" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtTabelaPreco" editable="false" layoutX="105.0" layoutY="167.0" onAction="#onActionTxtTabelaPreco" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblCodOperacaoSaida" layoutX="360.0" layoutY="146.0" onMouseClicked="#onClickLblCodOperacaoSaida" prefHeight="17.0" prefWidth="175.0" text="Código Operaciones Saida">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab121" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodOperacaoSaida" layoutX="359.0" layoutY="167.0" onAction="#onActionTxtCodOperacaoSaida" onKeyPressed="#onKeyPressedTxtCodOperacaoSaida" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtOperacaoSaida" editable="false" layoutX="454.0" layoutY="167.0" onAction="#onActionTxtOperacaoSaida" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblCodPlanoPagamento" layoutX="10.0" layoutY="198.0" onMouseClicked="#onClickLblCodPlanoPagamento" prefHeight="17.0" prefWidth="141.0" text="Plano Pagto (Fatura)">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab21" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodPlanoPagamento" layoutX="11.0" layoutY="219.0" onAction="#onActionTxtCodPlanoPagamento" onKeyPressed="#onKeyPressedTxtCodPlanoPagamento" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtPlanoPagamento" editable="false" layoutX="105.0" layoutY="219.0" onAction="#onActionTxtPlanoPagamento" prefHeight="25.0" prefWidth="200.0" />
+                                    <Label fx:id="lblCodTransportadora" layoutX="360.0" layoutY="198.0" onMouseClicked="#onClickLblCodTransportadora" prefHeight="17.0" prefWidth="170.0" text="Código Transportadora">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab211" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtTransportadora" editable="false" layoutX="454.0" layoutY="219.0" onAction="#onActionTxtTransportadora" prefHeight="25.0" prefWidth="200.0" />
+                                    <CustomTextField fx:id="txtCodTransportadora" layoutX="360.0" layoutY="219.0" onAction="#onActionTxtCodTransportadora" onKeyPressed="#onKeyPressedTxtCodTransportadora" prefHeight="25.0" prefWidth="85.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabDadosEntrega" text="Dados p/ Entrega">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="440.0" prefWidth="612.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #BDBDBD;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label fx:id="lblEnderecoEntrega" layoutX="11.0" layoutY="6.0" text="Endereço" />
+                                    <TextField fx:id="txtEnderecoEntrega" layoutX="11.0" layoutY="26.0" prefHeight="25.0" prefWidth="251.0" />
+                                    <Label fx:id="lblNumeroEntrega" layoutX="272.0" layoutY="6.0" text="Número" />
+                                    <TextField fx:id="txtNumeroEntrega" layoutX="272.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label fx:id="lblComplementoEntrega" layoutX="351.0" layoutY="6.0" text="Complemento" />
+                                    <TextField fx:id="txtComplementoEntrega" layoutX="351.0" layoutY="26.0" prefHeight="25.0" prefWidth="115.0" />
+                                    <Label fx:id="lblBairroEntrega" layoutX="476.0" layoutY="6.0" text="Bairro" />
+                                    <TextField fx:id="txtBairroEntrega" layoutX="476.0" layoutY="26.0" prefHeight="25.0" prefWidth="128.0" />
+                                    <Label fx:id="lblCodCidadeEntrega" layoutX="11.0" layoutY="57.0" onMouseClicked="#onClickLblCodCidadeEntrega" prefHeight="17.0" prefWidth="141.0" text="Código Cidade">
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="iconNewFab4" glyphName="PLUS_CIRCLE" size="14">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </FontAwesomeIconView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <CustomTextField fx:id="txtCodCidadeEntrega" layoutX="11.0" layoutY="77.0" onAction="#onActionTxtCodCidadeEntrega" onKeyPressed="#onKeyPressedTxtCodCidadeEntrega" prefHeight="25.0" prefWidth="85.0" />
+                                    <CustomTextField fx:id="txtCidadeEntrega" editable="false" layoutX="105.0" layoutY="77.0" onAction="#onActionTxtCidadeEntrega" prefHeight="25.0" prefWidth="237.0" />
+                                    <Label fx:id="lblUfEntrega" layoutX="351.0" layoutY="57.0" text="UF" />
+                                    <TextField fx:id="txtUfEntrega" editable="false" layoutX="351.0" layoutY="77.0" prefHeight="25.0" prefWidth="50.0" />
+                                    <Label fx:id="lblCepEntrega" layoutX="411.0" layoutY="57.0" text="CEP" />
+                                    <TextField fx:id="txtCepEntrega" layoutX="411.0" layoutY="77.0" prefHeight="25.0" prefWidth="85.0" />
+                                    <Label fx:id="lblTelefoneEntrega" layoutX="506.0" layoutY="57.0" text="Telefone" />
+                                    <TextField fx:id="txtTelefoneEntrega" layoutX="506.0" layoutY="77.0" prefHeight="25.0" prefWidth="100.0" />
+                                    <Label fx:id="lblReferenciaEntrega" layoutX="11.0" layoutY="111.0" text="Ponto de Referência" />
+                                    <TextField fx:id="txtReferenciaEntrega" layoutX="11.0" layoutY="131.0" prefHeight="25.0" prefWidth="488.0" />
+                                    <Button fx:id="btnAddEndereco" layoutX="508.0" layoutY="130.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnAddEndereco" prefHeight="27.0" prefWidth="83.0" text="Adicionar">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="PLUS_CIRCLE" size="14" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnCancelEndereco" layoutX="601.0" layoutY="130.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#actionBtnCancelEndereco" prefHeight="27.0" prefWidth="83.0" text="Cancelar">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="BAN" size="14" />
+                                       </graphic>
+                                    </Button>
+                                    <TableView fx:id="tbViewDadosEntrega" layoutX="11.0" layoutY="164.0" prefHeight="221.0" prefWidth="800.0">
+                                      <columns>
+                                          <TableColumn fx:id="tbColEnderecoEntrega" prefWidth="86.0" text="Endereço" />
+                                          <TableColumn fx:id="tbColEndNumeroEntrega" prefWidth="64.0" text="Número" />
+                                          <TableColumn fx:id="tbColComplementoEntrega" prefWidth="75.0" text="Complemento" />
+                                          <TableColumn fx:id="tbColBairroEntrega" prefWidth="75.0" text="Bairro" />
+                                          <TableColumn fx:id="tbColCodCidadeEntrega" prefWidth="75.0" text="Cod Cidade" visible="false" />
+                                          <TableColumn fx:id="tbColCidadeEntrega" prefWidth="75.0" text="Cidade" />
+                                          <TableColumn fx:id="tbColUfEntrega" prefWidth="75.0" text="UF" />
+                                          <TableColumn fx:id="tbColCepEntrega" prefWidth="75.0" text="CEP" />
+                                          <TableColumn fx:id="tbColFoneEntrega" prefWidth="75.0" text="Fone" />
+                                          <TableColumn fx:id="tbColReferenciaEntrega" prefWidth="75.0" text="Ponto de Referência" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="tabDadosBanc" text="Dados Bancarios">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="216.0" prefWidth="590.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #BDBDBD;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label fx:id="lblBanco" layoutX="11.0" layoutY="6.0" text="Banco" />
+                                    <TextField fx:id="txtBanco" layoutX="11.0" layoutY="26.0" prefHeight="25.0" prefWidth="160.0" />
+                                    <Label fx:id="lblAgencia" layoutX="181.0" layoutY="6.0" text="Agência" />
+                                    <TextField fx:id="txtAgencia" layoutX="181.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label fx:id="lblConta" layoutX="260.0" layoutY="6.0" text="Conta" />
+                                    <TextField fx:id="txtConta" layoutX="260.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label fx:id="lblDestinatario" layoutX="12.0" layoutY="58.0" text="Destinatário" />
+                                    <TextField fx:id="txtDestinatario" layoutX="12.0" layoutY="78.0" prefHeight="25.0" prefWidth="190.0" />
+                                    <Label fx:id="lblNoCpfCnpj" layoutX="212.0" layoutY="58.0" text="№ CPF/CNPJ" />
+                                    <TextField fx:id="txtNoCpfCnpj" layoutX="212.0" layoutY="78.0" prefHeight="25.0" prefWidth="150.0" />
+                                    <Label fx:id="lblEnviaDadosCartorio" layoutX="13.0" layoutY="113.0" text="Envia dados para o Cartorio" />
+                                    <JFXToggleButton fx:id="tgbEnviaDadosCartorio" layoutX="198.0" layoutY="108.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="60.0" />
+                                    <Label fx:id="lblDiasEnviaDadosCartorio" layoutX="35.0" layoutY="145.0" text="Cantidad de dias para enviao" />
+                                    <Spinner fx:id="spnDiasEnviaDadosCartorio" layoutX="212.0" layoutY="141.0" prefHeight="25.0" prefWidth="70.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabConsultaReceita" text="Consulta Receita Federal">
+                     <content>
+                        <AnchorPane fx:id="anpWeb" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <WebView fx:id="webCnpj" layoutX="72.0" layoutY="48.0" prefHeight="381.0" prefWidth="630.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                              <ProgressBar fx:id="pBarCnpj" layoutX="10.0" layoutY="387.0" prefWidth="200.0" progress="0.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                              <Button fx:id="btnEnviaCnpj" layoutX="10.0" layoutY="429.0" mnemonicParsing="false" onAction="#actionBtnEnviaCnpj" text="Envia CPF/CNPJ" AnchorPane.bottomAnchor="2.0" />
+                              <Button fx:id="btnCapturaDados" layoutX="117.0" layoutY="429.0" mnemonicParsing="false" onAction="#actionBtnCapturaDados" text="Captura Dados" AnchorPane.bottomAnchor="2.0" />
+                              <TextField fx:id="txtUrlCnpj" editable="false" layoutX="220.0" layoutY="429.0" prefHeight="25.0" prefWidth="400.0" text="http://www.receita.fazenda.gov.br/PessoaJuridica/CNPJ/cnpjreva/Cnpjreva_Solicitacao2.asp" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="45.0" />
+                              <ImageView fx:id="imgLoading" fitHeight="30.0" fitWidth="30.0" layoutX="610.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="10.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <HBox id="hbox-form-cad-buttons" alignment="TOP_RIGHT" layoutX="8.0" layoutY="532.0" prefHeight="36.0" prefWidth="367.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <Button fx:id="btnInsert" mnemonicParsing="false" onAction="#actionBtnInsert" prefHeight="17.0" prefWidth="29.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="PLUS" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#actionBtnSave">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" glyphName="SAVE" size="28" text="" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#actionBtnCancel" prefHeight="10.0" prefWidth="10.0">
+                     <graphic>
+                        <FontAwesomeIconView id="icons" fill="#01579b" glyphName="BAN" size="28" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="lblErrorMessage" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="241.0" style="-fx-text-fill: red;" text="Code not found" textFill="#f50606" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

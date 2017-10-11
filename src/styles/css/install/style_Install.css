@@ -1,0 +1,121 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.pane-principal{
+	-fx-border-radius: 1;
+	-fx-border-color: black;
+	/*-fx-background-color: #0D47A1;*/
+	-fx-background-color: #0D47A1;
+}
+
+#paneProfessional{
+	-fx-background-color: #0D47A1;
+}
+
+#paneEnterprise{
+	-fx-background-color:  #00796B;
+}
+
+#paneUltimate{
+	-fx-background-color: #212121;
+}
+
+.tab-pane{
+	-fx-background-color: white;
+}
+#pane-tab-1, #pane-tab-2, #pane-tab-3, #pane-tab-4, #pane-tab-5{	
+}
+
+#btn-minimizar{
+	-fx-background-color: transparent ;
+	-fx-max-width: 20;
+    -fx-min-width: 20;
+}
+#button-icons{	
+	-fx-fill: #CFD8DC;	
+}
+#button-icons:hover{
+	-fx-fill: white;	
+}
+
+.button{
+	-fx-background-color: #8BC34A;
+	-fx-alignment: CENTER;
+    -fx-text-fill: White;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    
+    -fx-background-radius: 0;
+    -fx-max-width: 80;
+    -fx-min-width: 80;
+    
+}.button:hover{
+	-fx-background-color: #7CB342;
+}
+
+
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-alignment: center ;
+    
+}
+.tab-pane .tab
+{
+    -fx-background-color: white;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: white;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: BLACK;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.tab:selected #icons-tab{
+	-fx-fill: #8BC34A;
+}
+
+
+
+.progress-bar {
+    -fx-background-color: white ;
+    -fx-background-radius: 0;
+ 	-fx-max-height: 0.20em; 	
+}
+ 
+.progress-bar .track{
+	
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+ 
+.progress-bar .bar { 
+    -fx-background-color: #8BC34A;
+    -fx-background-insets: 0; 
+    -fx-background-radius: 0;
+}
+
+.progress-bar > .bar {
+    -fx-background-insets: 0;
+    -fx-padding: 0.20em;
+}

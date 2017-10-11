@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-form-cad" fx:id="anpConfigColumn" focusTraversable="true" prefHeight="311.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="title-bar-form-cad" fx:id="titleBar" layoutX="24.0" layoutY="452.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#onActionBtnClose">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="CLOSE" size="18" />
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Button id="buttons" fx:id="btnSave" layoutX="437.0" layoutY="291.0" mnemonicParsing="false" onAction="#actionBtnSave">
+         <graphic>
+            <FontAwesomeIconView id="icons" glyphName="SAVE" size="22" />
+         </graphic></Button>
+      <Label fx:id="lblCertDisponiveis" layoutX="26.0" layoutY="46.0" styleClass="title-label" text="Certificados Disponíveis">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="24.0" layoutY="278.0" prefHeight="15.0" prefWidth="448.0" />
+      <Label fx:id="lblTitleBarConfigCert" nodeOrientation="LEFT_TO_RIGHT" text="Certificados Digitais" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView id="icons" glyphName="GEAR" size="18" />
+         </graphic>
+      </Label>
+      <ComboBox fx:id="cmbCertificados" layoutX="170.0" layoutY="42.0" prefHeight="25.0" prefWidth="279.0" />
+      <Label fx:id="lblDadosCert" layoutX="26.0" layoutY="82.0" styleClass="title-label" text="Dados">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="21.0" layoutY="96.0" prefHeight="15.0" prefWidth="448.0" />
+      <Label fx:id="lblNomeCert" layoutX="36.0" layoutY="127.0" styleClass="title-label" text="Nome:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTipoCert" layoutX="36.0" layoutY="163.0" styleClass="title-label" text="Tipo: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDataVencto" layoutX="36.0" layoutY="201.0" styleClass="title-label" text="Data Vencimento: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDiasRest" layoutX="36.0" layoutY="239.0" styleClass="title-label" text="Dias Restantes: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNomeCertSelect" contentDisplay="CENTER" layoutX="80.0" layoutY="127.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="387.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblTipoCertSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="163.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblDataVencSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="201.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+      <Label fx:id="lblDiasRestSelect" contentDisplay="CENTER" layoutX="265.0" layoutY="231.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="202.0" styleClass="label-data" AnchorPane.rightAnchor="23.0" />
+   </children>
+</AnchorPane>

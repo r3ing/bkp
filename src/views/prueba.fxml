@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Form">
+   <children>
+      <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#actionKeys" prefHeight="401.0" prefWidth="602.0">
+         <children>
+            <ComboBox fx:id="cmbConn" layoutX="15.0" layoutY="44.0" prefHeight="25.0" prefWidth="188.0" />
+            <TextField fx:id="txtIdServer" editable="false" layoutX="16.0" layoutY="87.0" prefHeight="25.0" prefWidth="46.0" promptText="ID Server" />
+            <TextField fx:id="txtNomConn" layoutX="76.0" layoutY="87.0" prefHeight="25.0" prefWidth="188.0" promptText="Nome da Conexão" />
+            <TextField fx:id="txtHost" layoutX="15.0" layoutY="130.0" prefHeight="25.0" prefWidth="152.0" promptText="IP do Servidor" />
+            <TextField fx:id="txtPort" layoutX="183.0" layoutY="130.0" prefHeight="25.0" prefWidth="82.0" promptText="port" />
+            <TextField fx:id="txtNomeBD" layoutX="16.0" layoutY="175.0" prefHeight="25.0" prefWidth="152.0" promptText="Nome do Banco" />
+            <TextField fx:id="txtSIG" layoutX="181.0" layoutY="175.0" prefHeight="25.0" prefWidth="82.0" promptText="sid" />
+            <TextField fx:id="txtUser" layoutX="16.0" layoutY="218.0" prefHeight="25.0" prefWidth="246.0" promptText="Usuario" />
+            <PasswordField fx:id="txtPassword" layoutX="17.0" layoutY="260.0" prefHeight="25.0" prefWidth="246.0" promptText="Senha" />
+            <TextField fx:id="txtCodEmp" layoutX="17.0" layoutY="301.0" prefHeight="25.0" prefWidth="99.0" promptText="Codemp" />
+            <CheckBox fx:id="chkDefault" alignment="CENTER_RIGHT" layoutX="145.0" layoutY="305.0" mnemonicParsing="false" text="Default" />
+            <Button fx:id="btnTestConn" layoutX="126.0" layoutY="335.0" mnemonicParsing="false" onAction="#actionBtnTestConn" text="Testar">
+               <graphic>
+                  <MaterialDesignIconView glyphName="LAN_PENDING" size="20" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnGravarConn" layoutX="200.0" layoutY="335.0" mnemonicParsing="false" onAction="#actionBtnGravarConn" text="Gravar">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SAVE" size="20" />
+               </graphic>
+            </Button>
+            <Label layoutX="16.0" layoutY="30.0" text="Conexões" />
+            <Label layoutX="18.0" layoutY="116.0" text="Host" />
+            <Label layoutX="184.0" layoutY="116.0" text="Porta" />
+            <Label layoutX="19.0" layoutY="161.0" text="Nome BD" />
+            <Label layoutX="184.0" layoutY="161.0" text="SID" />
+            <Label layoutX="18.0" layoutY="204.0" text="Usuário" />
+            <Label layoutX="19.0" layoutY="246.0" text="Senha" />
+            <Label layoutX="78.0" layoutY="73.0" text="Nome da Conexão" />
+            <Label layoutX="19.0" layoutY="287.0" text="Empresa" />
+            <Label layoutX="18.0" layoutY="73.0" text="ID Server" />
+            <SplitMenuButton fx:id="btnSplitMnNovoExcluir" layoutX="207.0" layoutY="44.0" mnemonicParsing="false" onAction="#actionBtnNovaConn" prefHeight="26.0" prefWidth="46.0">
+              <items>
+                <MenuItem fx:id="btnSplitMnNovo" mnemonicParsing="false" onAction="#actionBtnNovaConn" text="Novo" />
+                <MenuItem fx:id="btnSplitMnEcluir" mnemonicParsing="false" onAction="#actionExcluirConn" text="Excluir" />
+              </items>
+               <graphic>
+                  <MaterialDesignIconView fill="#2256c6" glyphName="DATABASE" size="18" />
+               </graphic>
+            </SplitMenuButton>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

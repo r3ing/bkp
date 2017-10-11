@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background-form-cad" fx:id="anpPrintGridPane" prefHeight="388.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="title-bar-form-cad" fx:id="titleBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#actionBtnCancelar" prefHeight="30.0" prefWidth="32.0">
+               <graphic>
+                  <FontAwesomeIconView id="icons" glyphName="CLOSE" size="18" />
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Label nodeOrientation="LEFT_TO_RIGHT" text="Impressão de Registros" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView id="icons" glyphName="PRINT" size="20" />
+         </graphic>
+      </Label>
+      <ScrollPane id="vbox-form-cad" layoutX="24.0" layoutY="105.0" prefHeight="230.0" prefWidth="520.0">
+         <content>
+            <GridPane fx:id="gridPane" alignment="CENTER" hgap="5.0" prefHeight="24.0" prefWidth="491.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="235.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="74.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="56.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="56.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="50.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="20.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label fx:id="lblTitleColums" layoutX="114.0" layoutY="85.0" styleClass="title-label" text="Colunas">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPrint" layoutX="274.0" layoutY="85.0" styleClass="title-label" text="Impressão">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSum" layoutX="357.0" layoutY="85.0" styleClass="title-label" text="Soma">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCount" layoutX="413.0" layoutY="85.0" styleClass="title-label" text="Contar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAverage" layoutX="473.0" layoutY="85.0" styleClass="title-label" text="Média">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <CheckBox id="title-help" fx:id="chkPageOrientation" layoutX="24.0" layoutY="356.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="184.0" text="* Imprimir como Paisagem">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </CheckBox>
+      <Button id="buttons" fx:id="btnExportDoc" layoutX="432.0" layoutY="346.0" mnemonicParsing="false" onAction="#actionBtnExportDoc" prefHeight="26.0" prefWidth="33.0">
+         <graphic>
+            <FontAwesomeIconView fill="#0e6fee" glyphName="FILE_WORD_ALT" size="22" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exportar para DOC" />
+         </tooltip>
+      </Button>
+      <Button id="buttons" fx:id="btnExportExcel" layoutX="395.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionBtnExportExcel" prefHeight="26.0" prefWidth="33.0">
+         <graphic>
+            <FontAwesomeIconView fill="#309a29" glyphName="FILE_EXCEL_ALT" size="22" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exportar para EXCEL" />
+         </tooltip>
+      </Button>
+      <Button id="buttons" fx:id="btnExportPdf" layoutX="358.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionBtnExportPdf" prefHeight="26.0" prefWidth="33.0">
+         <graphic>
+            <FontAwesomeIconView fill="#eb3c3c" glyphName="FILE_PDF_ALT" size="22" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exportar para PDF" />
+         </tooltip>
+      </Button>
+      <Button id="buttons" fx:id="btnExportHtml" layoutX="469.0" layoutY="346.0" mnemonicParsing="false" onAction="#actionBtnExportHtml" prefHeight="26.0" prefWidth="32.0">
+         <graphic>
+            <FontAwesomeIconView fill="#4198b2" glyphName="FILE_TEXT_ALT" size="22" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exportar para HTML" />
+         </tooltip>
+      </Button>
+      <Button id="buttons" fx:id="btnPrintReport" layoutX="506.0" layoutY="346.0" mnemonicParsing="false" onAction="#actionBtnPrintReport" prefHeight="26.0" prefWidth="32.0">
+         <graphic>
+            <FontAwesomeIconView fill="#171616" glyphName="PRINT" size="22" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Impressão" />
+         </tooltip></Button>
+   </children>
+</AnchorPane>
