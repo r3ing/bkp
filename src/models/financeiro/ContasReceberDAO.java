@@ -1,6 +1,9 @@
 package models.financeiro;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,6 +28,7 @@ public class ContasReceberDAO implements InterfaceDAO {
 	private LocalDateTime ts_now;
 	private BigInteger utctag;
 	private EntityManager em = null;
+	public static final BigDecimal ONE_HUNDRED = new BigDecimal(100.0000).setScale(2);
 
 	public LogRetorno insert(Object objeto) {
 
@@ -241,11 +245,35 @@ public class ContasReceberDAO implements InterfaceDAO {
 			// Util.getCompartilhamentoEntidade(EnumCompartilhamento.CONTAS_RECEBER))
 			// .getResultList();
 			
-			list = em.createQuery("SELECT c FROM ContasReceber c LEFT JOIN FETCH c.cliente LEFT JOIN FETCH c.opeFinanceiro LEFT JOIN FETCH c.portador LEFT JOIN FETCH c.secao LEFT JOIN FETCH c.vendedor LEFT JOIN FETCH c.planoPagamento LEFT JOIN FETCH c.planoConta WHERE c.flagAtivo IN (:flag) AND c.codemp IN (:codemp)")
+			list = em.createQuery("SELECT c FROM  ContasReceber c LEFT JOIN FETCH c.cliente LEFT JOIN FETCH c.opeFinanceiro LEFT JOIN FETCH c.portador LEFT JOIN FETCH c.secao LEFT JOIN FETCH c.vendedor LEFT JOIN FETCH c.planoPagamento LEFT JOIN FETCH c.planoConta WHERE c.flagAtivo IN (:flag) AND c.codemp IN (:codemp)")
 					.setParameter("flag", flagAtivo)
 					.setParameter("codemp", Util.getCompartilhamentoEntidade(EnumCompartilhamento.CONTAS_RECEBER))
 					.getResultList();
-
+			
+			for (int i = 0; i < list.size(); i++) {
+				
+				list.get(i).setAtraso((int) (LocalDate.now().toEpochDay() - list.get(i).getDataVencimento().toLocalDate().toEpochDay()));
+				
+				BigDecimal percJuros = BigDecimal.valueOf(9.00);
+				
+				if(DadosGlobais.empresaLogada.getConfig().getFinTipointevaloIntegerajuros().equals(0)){
+					
+					percJuros = percJuros.divide(BigDecimal.valueOf(30.00), 2, RoundingMode.HALF_EVEN).setScale(2);
+					
+				}else{
+					percJuros = BigDecimal.valueOf(5.00);
+				}				
+				
+				//if(list.get(i).getAtraso().compareTo(0) > 0)					
+					list.get(i).setJuros((list.get(i).getValorLiquido().multiply((percJuros.divide(ONE_HUNDRED,4, RoundingMode.HALF_EVEN)))).multiply(BigDecimal.valueOf(list.get(i).getAtraso().doubleValue())));
+			
+				
+			
+				list.get(i).setValorTotal(list.get(i).getValorLiquido().add(list.get(i).getJuros()));
+				
+				list.get(i).setSaldo(list.get(0).getValorTotal().subtract(list.get(i).getValorPagto()));
+			}
+			
 		} catch (Exception e) {
 			throw e;
 

@@ -195,24 +195,28 @@ public class ContasReceber implements Serializable, Cloneable {
 	@Transient
 	private Integer atraso;	
 	
-	public Integer getAtraso () {
-		this.atraso = 0;
-		
-		if(Hibernate.isInitialized(this.dataVencimento)){
-			try {				
-				long date1 = dataVencimento.toLocalDate().toEpochDay();
-				long date2 = LocalDate.now().toEpochDay();
-				this.atraso = (int) (date2 - date1);				
-			} catch (Exception e) {
-				this.atraso = 0;
-			}
-		}		
-		return this.atraso;
-	}
+//	public Integer getAtraso () {
+//		this.atraso = 0;
+//		
+//		if(Hibernate.isInitialized(this.dataVencimento)){
+//			try {				
+//				long date1 = dataVencimento.toLocalDate().toEpochDay();
+//				long date2 = LocalDate.now().toEpochDay();
+//				this.atraso = (int) (date2 - date1);				
+//			} catch (Exception e) {
+//				this.atraso = 0;
+//			}
+//		}		
+//		return this.atraso;
+//	}
+	
+	
 	
 	@Transient
 	private BigDecimal juros;
 	
+
+
 	@Transient
 	private BigDecimal saldo;
 	
@@ -849,14 +853,13 @@ public class ContasReceber implements Serializable, Cloneable {
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
-	
-	
-//	public Integer getAtraso() {
-//		return atraso;
-//	}
 
 	public void setAtraso(Integer atraso) {
 		this.atraso = atraso;
+	}
+	
+	public Integer getAtraso() {
+		return atraso;
 	}
 
 	public BigDecimal getJuros() {

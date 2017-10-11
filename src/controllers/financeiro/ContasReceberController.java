@@ -3298,7 +3298,7 @@ public class ContasReceberController implements Initializable {
 						if (item == null || empty) {
 							setText(null);
 						} else {
-							setText(item.setScale(2).toString().replace(".", ","));
+							setText(item.setScale(2, RoundingMode.HALF_EVEN).toString().replace(".", ","));
 						}
 					}
 				};

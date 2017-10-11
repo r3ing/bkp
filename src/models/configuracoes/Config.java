@@ -41,10 +41,6 @@ public class Config implements Serializable {
 		return finTipointevaloTaxajuros;
 	}
 
-	public void setFinTipointevaloTaxajuros(Integer finTipointevaloTaxajuros) {
-		this.finTipointevaloTaxajuros = finTipointevaloTaxajuros;
-	}
-
 	@Column(name = "FLAG_ATIVO")
 	private Integer flagAtivo;
 	
@@ -437,11 +433,11 @@ public class Config implements Serializable {
 		this.finTaxajurosMinima = finTaxajurosMinima;
 	}
 
-	public int getFinTipointevaloIntegerajuros() {
+	public Integer getFinTipointevaloIntegerajuros() {
 		return this.finTipointevaloTaxajuros;
 	}
 
-	public void setFinTipointevaloTaxajuros(int finTipointevaloTaxajuros) {
+	public void setFinTipointevaloTaxajuros(Integer finTipointevaloTaxajuros) {
 		this.finTipointevaloTaxajuros = finTipointevaloTaxajuros;
 	}
 
